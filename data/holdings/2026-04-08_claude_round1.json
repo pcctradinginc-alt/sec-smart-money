@@ -1,19 +1,19 @@
 {
   "analysis_date": "2026-04-08",
-  "market_context": "The institutional data reveals heavy positioning in AI infrastructure, financial alternatives, and high-quality dividend stocks amid market uncertainty. The significant presence of university endowments alongside sophisticated hedge funds suggests these positions reflect both growth potential and defensive characteristics.",
+  "market_context": "The market appears to be experiencing significant institutional repositioning into AI infrastructure, defensive value plays, and alternative assets including crypto ETFs. Notable convergence among elite funds on mega-cap tech suggests consensus building around AI beneficiaries despite potential valuation concerns.",
   "top5": [
     {
       "rank": 1,
       "ticker": "PLTR",
       "company_name": "PALANTIR TECHNOLOGIES INC",
       "conviction_score": 100.0,
-      "thesis": "TCI Fund's massive 66% portfolio allocation to Palantir represents extraordinary conviction from Chris Hohn, known for concentrated bets on secular growth stories. The new position timing suggests institutional recognition of Palantir's AI platform dominance in enterprise and government sectors.",
+      "thesis": "TCI Fund's massive 66% portfolio allocation signals extraordinary conviction in Palantir's AI/data analytics platform amid government and enterprise adoption acceleration. Chris Hohn's concentrated bet suggests transformational growth expectations in the AI infrastructure space.",
       "key_buyers": [
         "TCI Fund (Chris Hohn)"
       ],
       "cluster_signal": false,
       "primary_flag": "HIGH_CONVICTION",
-      "risk_factors": "Extreme concentration risk given the 66% portfolio weight; 45-day data lag may not capture recent AI market volatility.",
+      "risk_factors": "Extreme concentration risk given 66% portfolio weight; government contract dependency and competitive AI landscape present execution risks.",
       "direction": "BULLISH"
     },
     {
@@ -21,7 +21,7 @@
       "ticker": "AMZN",
       "company_name": "AMAZON COM INC",
       "conviction_score": 21.0,
-      "thesis": "Six major institutions including Harvard, Pershing Square, and Tiger Global simultaneously initiated Amazon positions, creating the strongest cluster signal. This coordinated buying suggests institutional consensus on Amazon's cloud dominance and AI infrastructure value despite recent stock volatility.",
+      "thesis": "Six elite institutions simultaneously initiated positions including Pershing Square, Harvard, and Tiger Global, suggesting broad consensus on Amazon's AI cloud dominance and retail resilience. The coordinated buying pattern indicates institutional recognition of Amazon's multiple growth vectors.",
       "key_buyers": [
         "Harvard Management Co",
         "Pershing Square (Ackman)",
@@ -32,7 +32,7 @@
       ],
       "cluster_signal": true,
       "primary_flag": "CLUSTER",
-      "risk_factors": "Multiple funds entering simultaneously could indicate crowded trade; regulatory scrutiny on big tech remains elevated.",
+      "risk_factors": "Regulatory scrutiny and competitive pressures in cloud computing; mature e-commerce growth may limit upside.",
       "direction": "BULLISH"
     },
     {
@@ -40,7 +40,7 @@
       "ticker": "NVDA",
       "company_name": "NVIDIA CORPORATION",
       "conviction_score": 19.8,
-      "thesis": "Five sophisticated funds including Harvard and TCI initiated new NVIDIA positions, with TCI allocating 13.5% of portfolio. This institutional buying wave reinforces NVIDIA's critical role in AI infrastructure despite recent market concerns about semiconductor cyclicality.",
+      "thesis": "Five top-tier funds including TCI and Harvard established new positions, signaling continued institutional confidence in NVIDIA's AI chip monopoly despite valuation concerns. The broad-based buying suggests institutions view current levels as attractive entry points.",
       "key_buyers": [
         "Harvard Management Co",
         "TCI Fund (Chris Hohn)",
@@ -50,39 +50,36 @@
       ],
       "cluster_signal": true,
       "primary_flag": "CLUSTER",
-      "risk_factors": "Semiconductor cycle risk and potential AI bubble concerns; high valuation multiples make entry timing critical.",
+      "risk_factors": "High valuation multiples and potential AI bubble concerns; semiconductor cyclicality and geopolitical tensions around China markets.",
       "direction": "BULLISH"
     },
     {
       "rank": 4,
-      "ticker": "BRK/B",
+      "ticker": "BRK/A",
       "company_name": "BERKSHIRE HATHAWAY INC DEL",
       "conviction_score": 41.3,
-      "thesis": "Gates Foundation's substantial 27.6% new allocation to Berkshire Hathaway signals flight to quality and value in uncertain markets. This defensive positioning by a sophisticated long-term investor suggests Berkshire's cash pile and diversified holdings offer attractive risk-adjusted returns.",
+      "thesis": "Gates Foundation's substantial 27.6% allocation to Berkshire signals flight to defensive value and Buffett's crisis-tested investment acumen. This concentrated bet suggests institutional preparation for market volatility while maintaining equity exposure.",
       "key_buyers": [
         "Gates Foundation Trust"
       ],
       "cluster_signal": false,
       "primary_flag": "HIGH_CONVICTION",
-      "risk_factors": "Concentration in single manager's decisions; succession planning concerns as Buffett ages may impact long-term performance.",
+      "risk_factors": "Succession concerns post-Buffett era; large cash position may drag returns in bull markets; concentrated exposure to specific sectors.",
       "direction": "BULLISH"
     },
     {
       "rank": 5,
-      "ticker": "GOOGL",
-      "company_name": "ALPHABET INC",
-      "conviction_score": 17.8,
-      "thesis": "Five top funds including Harvard, Pershing Square, and Tiger Global established new Alphabet positions, creating another strong cluster signal. The coordinated buying suggests institutional confidence in Google's AI capabilities and search moat despite regulatory headwinds.",
+      "ticker": "IBIT",
+      "company_name": "ISHARES BITCOIN TRUST ETF",
+      "conviction_score": 18.7,
+      "thesis": "Harvard and Brown's simultaneous crypto ETF adoption marks institutional acceptance of Bitcoin as a legitimate asset class. The 12.8% Harvard allocation suggests endowments are diversifying into digital assets for long-term portfolio protection.",
       "key_buyers": [
         "Harvard Management Co",
-        "Pershing Square (Ackman)",
-        "Tiger Global (Coleman)",
-        "Viking Global (Halvorsen)",
-        "AQR Capital (Asness)"
+        "Brown University"
       ],
       "cluster_signal": true,
       "primary_flag": "CLUSTER",
-      "risk_factors": "Ongoing antitrust litigation could impact business model; intense AI competition from Microsoft and OpenAI threatens search dominance.",
+      "risk_factors": "Extreme Bitcoin volatility and regulatory uncertainty; ETF structure risks and potential crypto market manipulation concerns.",
       "direction": "BULLISH"
     }
   ],

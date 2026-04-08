@@ -912,7 +912,7 @@
           "rank": 20
         },
         {
-          "ticker": "HRL",
+          "ticker": "",
           "cusip": "440452100",
           "name": "HORMEL FOODS CORP",
           "value_usd_k": 49421373,
@@ -9992,7 +9992,7 @@
           "rank": 277
         },
         {
-          "ticker": "",
+          "ticker": "BRBR",
           "cusip": "07831C103",
           "name": "BELLRING BRANDS INC",
           "value_usd_k": 187012746,
@@ -13970,7 +13970,7 @@
           "rank": 498
         },
         {
-          "ticker": "BC",
+          "ticker": "",
           "cusip": "117043109",
           "name": "BRUNSWICK CORP",
           "value_usd_k": 88664495,
@@ -27200,7 +27200,7 @@
           "rank": 1233
         },
         {
-          "ticker": "HRL",
+          "ticker": "",
           "cusip": "440452100",
           "name": "HORMEL FOODS CORP",
           "value_usd_k": 9864973,
@@ -49934,7 +49934,7 @@
           "rank": 2496
         },
         {
-          "ticker": "TEVA",
+          "ticker": "",
           "cusip": "881624209",
           "name": "TEVA PHARMACEUTICAL INDS LTD",
           "value_usd_k": 2151500,
@@ -50240,7 +50240,7 @@
           "rank": 2513
         },
         {
-          "ticker": "",
+          "ticker": "TKC",
           "cusip": "900111204",
           "name": "TURKCELL ILETISIM HIZMETLERI",
           "value_usd_k": 1266283,
@@ -52850,7 +52850,7 @@
           "rank": 2658
         },
         {
-          "ticker": "ASX",
+          "ticker": "",
           "cusip": "00215W100",
           "name": "ASE TECHNOLOGY HLDG CO LTD",
           "value_usd_k": 552262,
@@ -56612,7 +56612,7 @@
           "rank": 2867
         },
         {
-          "ticker": "",
+          "ticker": "FQAL",
           "cusip": "316092790",
           "name": "FIDELITY COVINGTON TRUST",
           "value_usd_k": 301302,
@@ -67520,7 +67520,7 @@
           "rank": 3473
         },
         {
-          "ticker": "",
+          "ticker": "TTEC",
           "cusip": "89854H102",
           "name": "TTEC HLDGS INC",
           "value_usd_k": 218174,
@@ -68240,7 +68240,7 @@
           "rank": 3513
         },
         {
-          "ticker": "VAW",
+          "ticker": "",
           "cusip": "92204A801",
           "name": "VANGUARD WORLD FD",
           "value_usd_k": 370477,
@@ -68816,7 +68816,7 @@
           "rank": 3545
         },
         {
-          "ticker": "",
+          "ticker": "NTSE",
           "cusip": "97717Y642",
           "name": "WISDOMTREE TR",
           "value_usd_k": 305330,
