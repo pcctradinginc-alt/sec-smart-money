@@ -1,0 +1,87 @@
+{
+  "analysis_date": "2026-04-08",
+  "market_context": "Institutional investors are showing strong conviction in AI infrastructure and data platforms, with significant new positions in Palantir and CoreWeave suggesting continued belief in the AI transformation. Endowments are diversifying into Bitcoin ETFs and traditional value plays like Berkshire Hathaway, indicating a balanced approach to portfolio construction in an uncertain macro environment.",
+  "top5": [
+    {
+      "rank": 1,
+      "ticker": "PLTR",
+      "company_name": "PALANTIR TECHNOLOGIES INC",
+      "conviction_score": 100.0,
+      "thesis": "TCI Fund's massive 66% portfolio allocation represents unprecedented conviction in Palantir's AI and data analytics platform. This extreme concentration from Chris Hohn, known for high-conviction investing, suggests belief in significant enterprise AI adoption acceleration.",
+      "key_buyers": [
+        "TCI Fund (Chris Hohn)"
+      ],
+      "cluster_signal": false,
+      "primary_flag": "HIGH_CONVICTION",
+      "risk_factors": "Extreme concentration risk with single fund holding, data may reflect pre-earnings volatility given 45-day lag.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 2,
+      "ticker": "AMZN",
+      "company_name": "AMAZON COM INC",
+      "conviction_score": 21.0,
+      "thesis": "Six high-quality institutional investors simultaneously initiated positions, including Harvard, Pershing Square, and Tiger Global. This cluster signal suggests broad institutional confidence in Amazon's AWS growth and e-commerce resilience despite valuation concerns.",
+      "key_buyers": [
+        "Harvard Management Co",
+        "Pershing Square (Ackman)",
+        "Tiger Global (Coleman)",
+        "D1 Capital (Sundheim)",
+        "Viking Global (Halvorsen)",
+        "AQR Capital (Asness)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "Multiple funds entering simultaneously may indicate consensus trade vulnerability to market shifts.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 3,
+      "ticker": "NVDA",
+      "company_name": "NVIDIA CORPORATION",
+      "conviction_score": 19.8,
+      "thesis": "Five prestigious funds including Harvard and TCI initiated positions, with TCI allocating 13.5% of portfolio. This institutional clustering in NVIDIA reflects continued confidence in AI semiconductor demand despite recent volatility.",
+      "key_buyers": [
+        "Harvard Management Co",
+        "TCI Fund (Chris Hohn)",
+        "Tiger Global (Coleman)",
+        "D1 Capital (Sundheim)",
+        "AQR Capital (Asness)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "High valuation multiples and semiconductor cyclicality present downside risks, especially with potential AI spending moderation.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 4,
+      "ticker": "BRK/B",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "conviction_score": 41.3,
+      "thesis": "Gates Foundation's large 27.6% allocation to Berkshire Hathaway signals confidence in Buffett's capital allocation and defensive positioning. This move by a sophisticated endowment suggests preparation for market volatility while maintaining equity exposure.",
+      "key_buyers": [
+        "Gates Foundation Trust"
+      ],
+      "cluster_signal": false,
+      "primary_flag": "HIGH_CONVICTION",
+      "risk_factors": "Single institutional buyer limits signal strength, and Berkshire's performance depends on broader market conditions and succession planning.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 5,
+      "ticker": "IBIT",
+      "company_name": "ISHARES BITCOIN TRUST ETF",
+      "conviction_score": 18.7,
+      "thesis": "Both Harvard and Brown University initiated significant Bitcoin ETF positions, marking a watershed moment for institutional crypto adoption. These conservative endowments allocating to Bitcoin suggests mainstream acceptance of digital assets as portfolio diversifiers.",
+      "key_buyers": [
+        "Harvard Management Co",
+        "Brown University"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "NEW_POSITION",
+      "risk_factors": "Crypto volatility and regulatory uncertainty remain significant risks, with Bitcoin ETF flows subject to broader market sentiment shifts.",
+      "direction": "BULLISH"
+    }
+  ],
+  "disclaimer": "This analysis is based on delayed 13F data and is for informational purposes only, not investment advice."
+}
