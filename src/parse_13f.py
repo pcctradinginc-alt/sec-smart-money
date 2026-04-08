@@ -216,7 +216,7 @@ def parse_and_enrich(raw: dict, prior: dict | None) -> dict:
         }
 
         print(f"  ✅ {filer_name}: {len(positions)} positions, "
-              f"AUM ${reported_aum/1e6:.1f}B (13F reported)")
+              f"AUM ${reported_aum/1e6:,.1f}B (13F reported, long-only)")
 
     return {
         "date":          today_str,
@@ -245,8 +245,10 @@ def run():
     parsed = parse_and_enrich(raw, prior)
 
     output_path = DATA_DIR / f"{today_str}_holdings_parsed.json"
-    with open(output_path, "w") as f:
+    tmp_path = output_path.with_suffix(".tmp")
+    with open(tmp_path, "w") as f:
         json.dump(parsed, f, indent=2, default=str)
+    tmp_path.replace(output_path)
 
     print(f"\n✅ Parsed holdings saved to {output_path}")
 
