@@ -44,18 +44,21 @@ SEC_RATE_LIMIT_SLEEP = 0.15   # seconds between requests (max 10/s allowed)
 OPENFIGI_URL     = "https://api.openfigi.com/v3/mapping"
 OPENFIGI_BATCH   = 100   # max items per request
 
-# ── Scoring weights (must sum to 1.0) ────────────────────────────────────────
-WEIGHT_PORTFOLIO_PCT  = 0.40   # how large the position is in the portfolio
-WEIGHT_DELTA_PCT      = 0.30   # how aggressively the manager bought
-WEIGHT_SHARES_OS      = 0.20   # % of outstanding shares held (requires lookup)
+# ── Scoring weights ──────────────────────────────────────────────────────────
+# Reduced portfolio weight dominance so a single fund with high concentration
+# doesn't automatically win. Cluster signal now much stronger.
+WEIGHT_PORTFOLIO_PCT  = 0.20   # how large the position is in the portfolio
+WEIGHT_DELTA_PCT      = 0.20   # how aggressively the manager bought
+WEIGHT_SHARES_OS      = 0.20   # % of outstanding shares held
 WEIGHT_SECTOR_NEW     = 0.10   # new sector for this manager?
+# Note: remaining 0.30 weight is effectively captured by cluster bonus below
 
 # ── Scoring thresholds ────────────────────────────────────────────────────────
 MIN_PORTFOLIO_WEIGHT_PCT   = 0.5    # ignore positions < 0.5% of portfolio
 HIGH_CONVICTION_TOP_N      = 10     # "top 10" threshold for new position flag
-HIGH_CONVICTION_MIN_PCT    = 3.0    # new position ≥ 3% = HIGH CONVICTION flag
-CLUSTER_MIN_FUNDS          = 3      # how many funds must buy for cluster bonus
-CLUSTER_BONUS_MULTIPLIER   = 1.5    # multiply score by this if cluster detected
+HIGH_CONVICTION_MIN_PCT    = 3.0    # new position >= 3% = HIGH CONVICTION flag
+CLUSTER_MIN_FUNDS          = 2      # 2+ funds buying = cluster signal
+CLUSTER_BONUS_MULTIPLIER   = 3.0    # strong bonus: 6-fund cluster >> 1-fund
 DOUBLE_DOWN_MIN_DELTA      = 20.0   # +20% shares while price fell = double-down
 
 # ── Tradier API ───────────────────────────────────────────────────────────────
