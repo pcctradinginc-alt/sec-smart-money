@@ -15176,7 +15176,7 @@
           "rank": 565
         },
         {
-          "ticker": "FRPT",
+          "ticker": "",
           "cusip": "358039105",
           "name": "FRESHPET INC",
           "value_usd_k": 70413058,
@@ -23384,7 +23384,7 @@
           "rank": 1021
         },
         {
-          "ticker": "",
+          "ticker": "AXON",
           "cusip": "05464C101",
           "name": "AXON ENTERPRISE INC",
           "value_usd_k": 15303068,
@@ -43292,7 +43292,7 @@
           "rank": 2127
         },
         {
-          "ticker": "",
+          "ticker": "FLG",
           "cusip": "649445400",
           "name": "FLAGSTAR BANK NATIONAL ASSOC",
           "value_usd_k": 1616611,
@@ -52958,7 +52958,7 @@
           "rank": 2664
         },
         {
-          "ticker": "BATRA",
+          "ticker": "",
           "cusip": "047726104",
           "name": "ATLANTA BRAVES HLDGS INC",
           "value_usd_k": 373912,
@@ -57566,7 +57566,7 @@
           "rank": 2920
         },
         {
-          "ticker": "FEIM",
+          "ticker": "",
           "cusip": "358010106",
           "name": "FREQUENCY ELECTRS INC",
           "value_usd_k": 200501,
@@ -57854,7 +57854,7 @@
           "rank": 2936
         },
         {
-          "ticker": "GME/WS",
+          "ticker": "",
           "cusip": "36467W117",
           "name": "GAMESTOP CORP NEW",
           "value_usd_k": 30526,
@@ -57944,7 +57944,7 @@
           "rank": 2941
         },
         {
-          "ticker": "GENC",
+          "ticker": "",
           "cusip": "368678108",
           "name": "GENCOR INDS INC",
           "value_usd_k": 189657,
@@ -64064,7 +64064,7 @@
           "rank": 3281
         },
         {
-          "ticker": "",
+          "ticker": "CASH",
           "cusip": "59100U108",
           "name": "PATHWARD FINANCIAL INC",
           "value_usd_k": 528173,
@@ -65504,7 +65504,7 @@
           "rank": 3361
         },
         {
-          "ticker": "",
+          "ticker": "SCHC",
           "cusip": "808524888",
           "name": "SCHWAB STRATEGIC TR",
           "value_usd_k": 234298,
@@ -66476,7 +66476,7 @@
           "rank": 3415
         },
         {
-          "ticker": "",
+          "ticker": "SRI",
           "cusip": "86183P102",
           "name": "STONERIDGE INC",
           "value_usd_k": 149052,

@@ -12,7 +12,7 @@
       "delta_shares": 0,
       "value_usd_k": 1211162272,
       "rank_in_port": 1,
-      "raw_score": 38.7816,
+      "raw_score": 24.3908,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -33,7 +33,7 @@
       "delta_shares": 0,
       "value_usd_k": 911000117,
       "rank_in_port": 2,
-      "raw_score": 36.6052,
+      "raw_score": 23.3026,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -54,7 +54,7 @@
       "delta_shares": 0,
       "value_usd_k": 746760097,
       "rank_in_port": 3,
-      "raw_score": 35.4144,
+      "raw_score": 22.7072,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -75,7 +75,7 @@
       "delta_shares": 0,
       "value_usd_k": 478577256,
       "rank_in_port": 4,
-      "raw_score": 33.47,
+      "raw_score": 21.735,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -96,7 +96,7 @@
       "delta_shares": 0,
       "value_usd_k": 418694320,
       "rank_in_port": 5,
-      "raw_score": 33.0356,
+      "raw_score": 21.5178,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -117,7 +117,7 @@
       "delta_shares": 0,
       "value_usd_k": 328622455,
       "rank_in_port": 6,
-      "raw_score": 32.3828,
+      "raw_score": 21.1914,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -138,7 +138,7 @@
       "delta_shares": 0,
       "value_usd_k": 278033751,
       "rank_in_port": 7,
-      "raw_score": 32.016,
+      "raw_score": 21.008,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -159,7 +159,7 @@
       "delta_shares": 0,
       "value_usd_k": 250245996,
       "rank_in_port": 8,
-      "raw_score": 31.8144,
+      "raw_score": 20.9072,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -180,7 +180,7 @@
       "delta_shares": 0,
       "value_usd_k": 170567260,
       "rank_in_port": 9,
-      "raw_score": 31.2368,
+      "raw_score": 20.6184,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -201,7 +201,7 @@
       "delta_shares": 0,
       "value_usd_k": 154523813,
       "rank_in_port": 10,
-      "raw_score": 31.1204,
+      "raw_score": 20.5602,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -221,7 +221,7 @@
       "delta_shares": 0,
       "value_usd_k": 88648971,
       "rank_in_port": 11,
-      "raw_score": 30.6428,
+      "raw_score": 20.3214,
       "flags": [
         "NEW_POSITION"
       ],
@@ -240,7 +240,7 @@
       "delta_shares": 0,
       "value_usd_k": 85803005,
       "rank_in_port": 12,
-      "raw_score": 30.622,
+      "raw_score": 20.311,
       "flags": [
         "NEW_POSITION"
       ],
@@ -259,7 +259,7 @@
       "delta_shares": 0,
       "value_usd_k": 84895130,
       "rank_in_port": 13,
-      "raw_score": 30.6156,
+      "raw_score": 20.3078,
       "flags": [
         "NEW_POSITION"
       ],
@@ -278,7 +278,7 @@
       "delta_shares": 0,
       "value_usd_k": 78144759,
       "rank_in_port": 14,
-      "raw_score": 30.5664,
+      "raw_score": 20.2832,
       "flags": [
         "NEW_POSITION"
       ],
@@ -297,7 +297,7 @@
       "delta_shares": 0,
       "value_usd_k": 49616149,
       "rank_in_port": 15,
-      "raw_score": 30.3596,
+      "raw_score": 20.1798,
       "flags": [
         "NEW_POSITION"
       ],
@@ -316,7 +316,7 @@
       "delta_shares": 0,
       "value_usd_k": 39517588,
       "rank_in_port": 16,
-      "raw_score": 30.2864,
+      "raw_score": 20.1432,
       "flags": [
         "NEW_POSITION"
       ],
@@ -335,7 +335,7 @@
       "delta_shares": 0,
       "value_usd_k": 27770080,
       "rank_in_port": 17,
-      "raw_score": 30.2012,
+      "raw_score": 20.1006,
       "flags": [
         "NEW_POSITION"
       ],
@@ -354,7 +354,7 @@
       "delta_shares": 0,
       "value_usd_k": 911769,
       "rank_in_port": 1,
-      "raw_score": 47.7484,
+      "raw_score": 28.8742,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -375,7 +375,7 @@
       "delta_shares": 0,
       "value_usd_k": 662859,
       "rank_in_port": 2,
-      "raw_score": 42.9032,
+      "raw_score": 26.4516,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -396,7 +396,7 @@
       "delta_shares": 0,
       "value_usd_k": 466426,
       "rank_in_port": 3,
-      "raw_score": 39.0796,
+      "raw_score": 24.5398,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -417,7 +417,7 @@
       "delta_shares": 0,
       "value_usd_k": 13807,
       "rank_in_port": 4,
-      "raw_score": 30.2688,
+      "raw_score": 20.1344,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -437,7 +437,7 @@
       "delta_shares": 0,
       "value_usd_k": 9754809925,
       "rank_in_port": 1,
-      "raw_score": 41.0348,
+      "raw_score": 25.5174,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -458,7 +458,7 @@
       "delta_shares": 0,
       "value_usd_k": 6357164720,
       "rank_in_port": 2,
-      "raw_score": 37.1912,
+      "raw_score": 23.5956,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -479,7 +479,7 @@
       "delta_shares": 0,
       "value_usd_k": 5123077796,
       "rank_in_port": 3,
-      "raw_score": 35.7952,
+      "raw_score": 22.8976,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -500,7 +500,7 @@
       "delta_shares": 0,
       "value_usd_k": 3719621529,
       "rank_in_port": 4,
-      "raw_score": 34.2076,
+      "raw_score": 22.1038,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -521,7 +521,7 @@
       "delta_shares": 0,
       "value_usd_k": 3639794852,
       "rank_in_port": 5,
-      "raw_score": 34.1176,
+      "raw_score": 22.0588,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -542,7 +542,7 @@
       "delta_shares": 0,
       "value_usd_k": 1656208475,
       "rank_in_port": 6,
-      "raw_score": 31.8736,
+      "raw_score": 20.9368,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -563,7 +563,7 @@
       "delta_shares": 0,
       "value_usd_k": 1369840911,
       "rank_in_port": 7,
-      "raw_score": 31.5496,
+      "raw_score": 20.7748,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -584,7 +584,7 @@
       "delta_shares": 0,
       "value_usd_k": 934783043,
       "rank_in_port": 8,
-      "raw_score": 31.0576,
+      "raw_score": 20.5288,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -604,7 +604,7 @@
       "delta_shares": 0,
       "value_usd_k": 688746807,
       "rank_in_port": 9,
-      "raw_score": 30.7792,
+      "raw_score": 20.3896,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -624,7 +624,7 @@
       "delta_shares": 0,
       "value_usd_k": 588596036,
       "rank_in_port": 10,
-      "raw_score": 30.666,
+      "raw_score": 20.333,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -644,7 +644,7 @@
       "delta_shares": 0,
       "value_usd_k": 357589728,
       "rank_in_port": 11,
-      "raw_score": 30.4044,
+      "raw_score": 20.2022,
       "flags": [
         "NEW_POSITION"
       ],
@@ -663,7 +663,7 @@
       "delta_shares": 0,
       "value_usd_k": 218161382,
       "rank_in_port": 12,
-      "raw_score": 30.2468,
+      "raw_score": 20.1234,
       "flags": [
         "NEW_POSITION"
       ],
@@ -682,7 +682,7 @@
       "delta_shares": 0,
       "value_usd_k": 265806836,
       "rank_in_port": 1,
-      "raw_score": 35.1136,
+      "raw_score": 22.5568,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -703,7 +703,7 @@
       "delta_shares": 0,
       "value_usd_k": 252872700,
       "rank_in_port": 2,
-      "raw_score": 34.8648,
+      "raw_score": 22.4324,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -724,7 +724,7 @@
       "delta_shares": 0,
       "value_usd_k": 248268400,
       "rank_in_port": 3,
-      "raw_score": 34.776,
+      "raw_score": 22.388,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -745,7 +745,7 @@
       "delta_shares": 0,
       "value_usd_k": 236818074,
       "rank_in_port": 4,
-      "raw_score": 34.5556,
+      "raw_score": 22.2778,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -766,7 +766,7 @@
       "delta_shares": 0,
       "value_usd_k": 180249697,
       "rank_in_port": 5,
-      "raw_score": 33.4676,
+      "raw_score": 21.7338,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -787,7 +787,7 @@
       "delta_shares": 0,
       "value_usd_k": 156921823,
       "rank_in_port": 6,
-      "raw_score": 33.0188,
+      "raw_score": 21.5094,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -808,7 +808,7 @@
       "delta_shares": 0,
       "value_usd_k": 141390418,
       "rank_in_port": 7,
-      "raw_score": 32.72,
+      "raw_score": 21.36,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -829,7 +829,7 @@
       "delta_shares": 0,
       "value_usd_k": 119981259,
       "rank_in_port": 8,
-      "raw_score": 32.308,
+      "raw_score": 21.154,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -850,7 +850,7 @@
       "delta_shares": 0,
       "value_usd_k": 111363213,
       "rank_in_port": 9,
-      "raw_score": 32.1424,
+      "raw_score": 21.0712,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -871,7 +871,7 @@
       "delta_shares": 0,
       "value_usd_k": 93232236,
       "rank_in_port": 10,
-      "raw_score": 31.7936,
+      "raw_score": 20.8968,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -892,7 +892,7 @@
       "delta_shares": 0,
       "value_usd_k": 86824287,
       "rank_in_port": 11,
-      "raw_score": 31.6704,
+      "raw_score": 20.8352,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION"
@@ -912,7 +912,7 @@
       "delta_shares": 0,
       "value_usd_k": 76519272,
       "rank_in_port": 12,
-      "raw_score": 31.472,
+      "raw_score": 20.736,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION"
@@ -932,7 +932,7 @@
       "delta_shares": 0,
       "value_usd_k": 45164710,
       "rank_in_port": 13,
-      "raw_score": 30.8688,
+      "raw_score": 20.4344,
       "flags": [
         "NEW_POSITION"
       ],
@@ -951,7 +951,7 @@
       "delta_shares": 0,
       "value_usd_k": 24833034,
       "rank_in_port": 14,
-      "raw_score": 30.4776,
+      "raw_score": 20.2388,
       "flags": [
         "NEW_POSITION"
       ],
@@ -970,7 +970,7 @@
       "delta_shares": 0,
       "value_usd_k": 20545554,
       "rank_in_port": 15,
-      "raw_score": 30.3952,
+      "raw_score": 20.1976,
       "flags": [
         "NEW_POSITION"
       ],
@@ -989,7 +989,7 @@
       "delta_shares": 0,
       "value_usd_k": 13274402,
       "rank_in_port": 16,
-      "raw_score": 30.2552,
+      "raw_score": 20.1276,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1008,7 +1008,7 @@
       "delta_shares": 0,
       "value_usd_k": 40085047,
       "rank_in_port": 1,
-      "raw_score": 41.2468,
+      "raw_score": 25.6234,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1029,7 +1029,7 @@
       "delta_shares": 0,
       "value_usd_k": 38393051,
       "rank_in_port": 2,
-      "raw_score": 40.772,
+      "raw_score": 25.386,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1050,7 +1050,7 @@
       "delta_shares": 0,
       "value_usd_k": 27904610,
       "rank_in_port": 3,
-      "raw_score": 37.8292,
+      "raw_score": 23.9146,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1071,7 +1071,7 @@
       "delta_shares": 0,
       "value_usd_k": 15654245,
       "rank_in_port": 4,
-      "raw_score": 34.392,
+      "raw_score": 22.196,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1092,7 +1092,7 @@
       "delta_shares": 0,
       "value_usd_k": 10550625,
       "rank_in_port": 5,
-      "raw_score": 32.9604,
+      "raw_score": 21.4802,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1113,7 +1113,7 @@
       "delta_shares": 0,
       "value_usd_k": 2938665,
       "rank_in_port": 6,
-      "raw_score": 30.8244,
+      "raw_score": 20.4122,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1133,7 +1133,7 @@
       "delta_shares": 0,
       "value_usd_k": 2587602,
       "rank_in_port": 7,
-      "raw_score": 30.726,
+      "raw_score": 20.363,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1153,7 +1153,7 @@
       "delta_shares": 0,
       "value_usd_k": 2240000,
       "rank_in_port": 8,
-      "raw_score": 30.6284,
+      "raw_score": 20.3142,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1173,7 +1173,7 @@
       "delta_shares": 0,
       "value_usd_k": 1477980,
       "rank_in_port": 9,
-      "raw_score": 30.4148,
+      "raw_score": 20.2074,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1193,7 +1193,7 @@
       "delta_shares": 0,
       "value_usd_k": 732401,
       "rank_in_port": 10,
-      "raw_score": 30.2056,
+      "raw_score": 20.1028,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1213,7 +1213,7 @@
       "delta_shares": 0,
       "value_usd_k": 912100000,
       "rank_in_port": 1,
-      "raw_score": 56.4148,
+      "raw_score": 33.2074,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1234,7 +1234,7 @@
       "delta_shares": 0,
       "value_usd_k": 186580000,
       "rank_in_port": 2,
-      "raw_score": 35.4036,
+      "raw_score": 22.7018,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1255,7 +1255,7 @@
       "delta_shares": 0,
       "value_usd_k": 152880000,
       "rank_in_port": 3,
-      "raw_score": 34.4276,
+      "raw_score": 22.2138,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1276,7 +1276,7 @@
       "delta_shares": 0,
       "value_usd_k": 61500000,
       "rank_in_port": 4,
-      "raw_score": 31.7812,
+      "raw_score": 20.8906,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1297,7 +1297,7 @@
       "delta_shares": 0,
       "value_usd_k": 23920000,
       "rank_in_port": 5,
-      "raw_score": 30.6928,
+      "raw_score": 20.3464,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1317,7 +1317,7 @@
       "delta_shares": 0,
       "value_usd_k": 17793000,
       "rank_in_port": 6,
-      "raw_score": 30.5152,
+      "raw_score": 20.2576,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1337,7 +1337,7 @@
       "delta_shares": 0,
       "value_usd_k": 13287895,
       "rank_in_port": 7,
-      "raw_score": 30.3848,
+      "raw_score": 20.1924,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1357,7 +1357,7 @@
       "delta_shares": 0,
       "value_usd_k": 13137181,
       "rank_in_port": 8,
-      "raw_score": 30.3804,
+      "raw_score": 20.1902,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1377,7 +1377,7 @@
       "delta_shares": 0,
       "value_usd_k": 2817787754,
       "rank_in_port": 1,
-      "raw_score": 37.2592,
+      "raw_score": 23.6296,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1398,7 +1398,7 @@
       "delta_shares": 0,
       "value_usd_k": 2468273945,
       "rank_in_port": 2,
-      "raw_score": 36.3588,
+      "raw_score": 23.1794,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1419,7 +1419,7 @@
       "delta_shares": 0,
       "value_usd_k": 2217677936,
       "rank_in_port": 3,
-      "raw_score": 35.7132,
+      "raw_score": 22.8566,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1440,7 +1440,7 @@
       "delta_shares": 0,
       "value_usd_k": 1934222720,
       "rank_in_port": 4,
-      "raw_score": 34.9828,
+      "raw_score": 22.4914,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1461,7 +1461,7 @@
       "delta_shares": 0,
       "value_usd_k": 1764796161,
       "rank_in_port": 5,
-      "raw_score": 34.5464,
+      "raw_score": 22.2732,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1482,7 +1482,7 @@
       "delta_shares": 0,
       "value_usd_k": 1560199922,
       "rank_in_port": 6,
-      "raw_score": 34.0192,
+      "raw_score": 22.0096,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1503,7 +1503,7 @@
       "delta_shares": 0,
       "value_usd_k": 1503829145,
       "rank_in_port": 7,
-      "raw_score": 33.874,
+      "raw_score": 21.937,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1524,7 +1524,7 @@
       "delta_shares": 0,
       "value_usd_k": 869983734,
       "rank_in_port": 8,
-      "raw_score": 32.2412,
+      "raw_score": 21.1206,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1545,7 +1545,7 @@
       "delta_shares": 0,
       "value_usd_k": 212306961,
       "rank_in_port": 9,
-      "raw_score": 30.5468,
+      "raw_score": 20.2734,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1565,7 +1565,7 @@
       "delta_shares": 0,
       "value_usd_k": 99320131,
       "rank_in_port": 10,
-      "raw_score": 30.256,
+      "raw_score": 20.128,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -1585,7 +1585,7 @@
       "delta_shares": 0,
       "value_usd_k": 78339393,
       "rank_in_port": 11,
-      "raw_score": 30.202,
+      "raw_score": 20.101,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1604,7 +1604,7 @@
       "delta_shares": 0,
       "value_usd_k": 3327628826,
       "rank_in_port": 1,
-      "raw_score": 34.4796,
+      "raw_score": 22.2398,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1625,7 +1625,7 @@
       "delta_shares": 0,
       "value_usd_k": 2649148004,
       "rank_in_port": 2,
-      "raw_score": 33.566,
+      "raw_score": 21.783,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1646,7 +1646,7 @@
       "delta_shares": 0,
       "value_usd_k": 2310826501,
       "rank_in_port": 3,
-      "raw_score": 33.1108,
+      "raw_score": 21.5554,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1667,7 +1667,7 @@
       "delta_shares": 0,
       "value_usd_k": 2053691748,
       "rank_in_port": 4,
-      "raw_score": 32.7644,
+      "raw_score": 21.3822,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1688,7 +1688,7 @@
       "delta_shares": 0,
       "value_usd_k": 1966598071,
       "rank_in_port": 5,
-      "raw_score": 32.6472,
+      "raw_score": 21.3236,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1709,7 +1709,7 @@
       "delta_shares": 0,
       "value_usd_k": 1815653455,
       "rank_in_port": 6,
-      "raw_score": 32.444,
+      "raw_score": 21.222,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1730,7 +1730,7 @@
       "delta_shares": 0,
       "value_usd_k": 1495024714,
       "rank_in_port": 7,
-      "raw_score": 32.0124,
+      "raw_score": 21.0062,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1751,7 +1751,7 @@
       "delta_shares": 0,
       "value_usd_k": 1132134294,
       "rank_in_port": 8,
-      "raw_score": 31.524,
+      "raw_score": 20.762,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1772,7 +1772,7 @@
       "delta_shares": 0,
       "value_usd_k": 995250005,
       "rank_in_port": 9,
-      "raw_score": 31.3396,
+      "raw_score": 20.6698,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1793,7 +1793,7 @@
       "delta_shares": 0,
       "value_usd_k": 898886641,
       "rank_in_port": 10,
-      "raw_score": 31.21,
+      "raw_score": 20.605,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -1814,7 +1814,7 @@
       "delta_shares": 0,
       "value_usd_k": 883600741,
       "rank_in_port": 11,
-      "raw_score": 31.1896,
+      "raw_score": 20.5948,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1833,7 +1833,7 @@
       "delta_shares": 0,
       "value_usd_k": 871238479,
       "rank_in_port": 12,
-      "raw_score": 31.1728,
+      "raw_score": 20.5864,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1852,7 +1852,7 @@
       "delta_shares": 0,
       "value_usd_k": 860921672,
       "rank_in_port": 13,
-      "raw_score": 31.1588,
+      "raw_score": 20.5794,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1871,7 +1871,7 @@
       "delta_shares": 0,
       "value_usd_k": 732543017,
       "rank_in_port": 14,
-      "raw_score": 30.986,
+      "raw_score": 20.493,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1890,7 +1890,7 @@
       "delta_shares": 0,
       "value_usd_k": 667677148,
       "rank_in_port": 15,
-      "raw_score": 30.8988,
+      "raw_score": 20.4494,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1909,7 +1909,7 @@
       "delta_shares": 0,
       "value_usd_k": 635919689,
       "rank_in_port": 16,
-      "raw_score": 30.856,
+      "raw_score": 20.428,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1928,7 +1928,7 @@
       "delta_shares": 0,
       "value_usd_k": 619644640,
       "rank_in_port": 17,
-      "raw_score": 30.834,
+      "raw_score": 20.417,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1947,7 +1947,7 @@
       "delta_shares": 0,
       "value_usd_k": 540328215,
       "rank_in_port": 18,
-      "raw_score": 30.7272,
+      "raw_score": 20.3636,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1966,7 +1966,7 @@
       "delta_shares": 0,
       "value_usd_k": 527273296,
       "rank_in_port": 19,
-      "raw_score": 30.7096,
+      "raw_score": 20.3548,
       "flags": [
         "NEW_POSITION"
       ],
@@ -1985,7 +1985,7 @@
       "delta_shares": 0,
       "value_usd_k": 463689702,
       "rank_in_port": 20,
-      "raw_score": 30.624,
+      "raw_score": 20.312,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2004,7 +2004,7 @@
       "delta_shares": 0,
       "value_usd_k": 414287436,
       "rank_in_port": 21,
-      "raw_score": 30.5576,
+      "raw_score": 20.2788,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2023,7 +2023,7 @@
       "delta_shares": 0,
       "value_usd_k": 413205607,
       "rank_in_port": 22,
-      "raw_score": 30.5564,
+      "raw_score": 20.2782,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2042,7 +2042,7 @@
       "delta_shares": 0,
       "value_usd_k": 357225199,
       "rank_in_port": 23,
-      "raw_score": 30.4808,
+      "raw_score": 20.2404,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2061,7 +2061,7 @@
       "delta_shares": 0,
       "value_usd_k": 355320969,
       "rank_in_port": 24,
-      "raw_score": 30.4784,
+      "raw_score": 20.2392,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2080,7 +2080,7 @@
       "delta_shares": 0,
       "value_usd_k": 325818279,
       "rank_in_port": 25,
-      "raw_score": 30.4388,
+      "raw_score": 20.2194,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2099,7 +2099,7 @@
       "delta_shares": 0,
       "value_usd_k": 264203820,
       "rank_in_port": 26,
-      "raw_score": 30.3556,
+      "raw_score": 20.1778,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2118,7 +2118,7 @@
       "delta_shares": 0,
       "value_usd_k": 230057448,
       "rank_in_port": 27,
-      "raw_score": 30.3096,
+      "raw_score": 20.1548,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2137,7 +2137,7 @@
       "delta_shares": 0,
       "value_usd_k": 228680640,
       "rank_in_port": 28,
-      "raw_score": 30.308,
+      "raw_score": 20.154,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2156,7 +2156,7 @@
       "delta_shares": 0,
       "value_usd_k": 214780000,
       "rank_in_port": 29,
-      "raw_score": 30.2892,
+      "raw_score": 20.1446,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2175,7 +2175,7 @@
       "delta_shares": 0,
       "value_usd_k": 205981958,
       "rank_in_port": 30,
-      "raw_score": 30.2772,
+      "raw_score": 20.1386,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2194,7 +2194,7 @@
       "delta_shares": 0,
       "value_usd_k": 184684970,
       "rank_in_port": 31,
-      "raw_score": 30.2488,
+      "raw_score": 20.1244,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2213,7 +2213,7 @@
       "delta_shares": 0,
       "value_usd_k": 170175230,
       "rank_in_port": 32,
-      "raw_score": 30.2292,
+      "raw_score": 20.1146,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2232,7 +2232,7 @@
       "delta_shares": 0,
       "value_usd_k": 151902489,
       "rank_in_port": 33,
-      "raw_score": 30.2044,
+      "raw_score": 20.1022,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2251,7 +2251,7 @@
       "delta_shares": 0,
       "value_usd_k": 1014670310,
       "rank_in_port": 1,
-      "raw_score": 33.7924,
+      "raw_score": 21.8962,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2272,7 +2272,7 @@
       "delta_shares": 0,
       "value_usd_k": 652295691,
       "rank_in_port": 2,
-      "raw_score": 32.438,
+      "raw_score": 21.219,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2293,7 +2293,7 @@
       "delta_shares": 0,
       "value_usd_k": 531284427,
       "rank_in_port": 3,
-      "raw_score": 31.9856,
+      "raw_score": 20.9928,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2314,7 +2314,7 @@
       "delta_shares": 0,
       "value_usd_k": 506356295,
       "rank_in_port": 4,
-      "raw_score": 31.8924,
+      "raw_score": 20.9462,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2335,7 +2335,7 @@
       "delta_shares": 0,
       "value_usd_k": 487001892,
       "rank_in_port": 5,
-      "raw_score": 31.8204,
+      "raw_score": 20.9102,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2356,7 +2356,7 @@
       "delta_shares": 0,
       "value_usd_k": 452163099,
       "rank_in_port": 6,
-      "raw_score": 31.69,
+      "raw_score": 20.845,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2377,7 +2377,7 @@
       "delta_shares": 0,
       "value_usd_k": 450975597,
       "rank_in_port": 7,
-      "raw_score": 31.6856,
+      "raw_score": 20.8428,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2398,7 +2398,7 @@
       "delta_shares": 0,
       "value_usd_k": 444586936,
       "rank_in_port": 8,
-      "raw_score": 31.6616,
+      "raw_score": 20.8308,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2419,7 +2419,7 @@
       "delta_shares": 0,
       "value_usd_k": 403512672,
       "rank_in_port": 9,
-      "raw_score": 31.508,
+      "raw_score": 20.754,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2440,7 +2440,7 @@
       "delta_shares": 0,
       "value_usd_k": 388655922,
       "rank_in_port": 10,
-      "raw_score": 31.4528,
+      "raw_score": 20.7264,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -2461,7 +2461,7 @@
       "delta_shares": 0,
       "value_usd_k": 322631262,
       "rank_in_port": 11,
-      "raw_score": 31.206,
+      "raw_score": 20.603,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION"
@@ -2481,7 +2481,7 @@
       "delta_shares": 0,
       "value_usd_k": 315195069,
       "rank_in_port": 12,
-      "raw_score": 31.178,
+      "raw_score": 20.589,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2500,7 +2500,7 @@
       "delta_shares": 0,
       "value_usd_k": 311757040,
       "rank_in_port": 13,
-      "raw_score": 31.1652,
+      "raw_score": 20.5826,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2519,7 +2519,7 @@
       "delta_shares": 0,
       "value_usd_k": 309419519,
       "rank_in_port": 14,
-      "raw_score": 31.1564,
+      "raw_score": 20.5782,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2538,7 +2538,7 @@
       "delta_shares": 0,
       "value_usd_k": 276582558,
       "rank_in_port": 15,
-      "raw_score": 31.0336,
+      "raw_score": 20.5168,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2557,7 +2557,7 @@
       "delta_shares": 0,
       "value_usd_k": 259078015,
       "rank_in_port": 16,
-      "raw_score": 30.9684,
+      "raw_score": 20.4842,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2576,7 +2576,7 @@
       "delta_shares": 0,
       "value_usd_k": 252000550,
       "rank_in_port": 17,
-      "raw_score": 30.942,
+      "raw_score": 20.471,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2595,7 +2595,7 @@
       "delta_shares": 0,
       "value_usd_k": 248300775,
       "rank_in_port": 18,
-      "raw_score": 30.928,
+      "raw_score": 20.464,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2614,7 +2614,7 @@
       "delta_shares": 0,
       "value_usd_k": 229903089,
       "rank_in_port": 19,
-      "raw_score": 30.8592,
+      "raw_score": 20.4296,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2633,7 +2633,7 @@
       "delta_shares": 0,
       "value_usd_k": 214421102,
       "rank_in_port": 20,
-      "raw_score": 30.8016,
+      "raw_score": 20.4008,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2652,7 +2652,7 @@
       "delta_shares": 0,
       "value_usd_k": 210070298,
       "rank_in_port": 21,
-      "raw_score": 30.7852,
+      "raw_score": 20.3926,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2671,7 +2671,7 @@
       "delta_shares": 0,
       "value_usd_k": 206290893,
       "rank_in_port": 22,
-      "raw_score": 30.7712,
+      "raw_score": 20.3856,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2690,7 +2690,7 @@
       "delta_shares": 0,
       "value_usd_k": 201725460,
       "rank_in_port": 23,
-      "raw_score": 30.754,
+      "raw_score": 20.377,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2709,7 +2709,7 @@
       "delta_shares": 0,
       "value_usd_k": 200724976,
       "rank_in_port": 24,
-      "raw_score": 30.7504,
+      "raw_score": 20.3752,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2728,7 +2728,7 @@
       "delta_shares": 0,
       "value_usd_k": 177718562,
       "rank_in_port": 25,
-      "raw_score": 30.6644,
+      "raw_score": 20.3322,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2747,7 +2747,7 @@
       "delta_shares": 0,
       "value_usd_k": 167776840,
       "rank_in_port": 26,
-      "raw_score": 30.6272,
+      "raw_score": 20.3136,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2766,7 +2766,7 @@
       "delta_shares": 0,
       "value_usd_k": 162199699,
       "rank_in_port": 27,
-      "raw_score": 30.6064,
+      "raw_score": 20.3032,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2785,7 +2785,7 @@
       "delta_shares": 0,
       "value_usd_k": 144624554,
       "rank_in_port": 28,
-      "raw_score": 30.5404,
+      "raw_score": 20.2702,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2804,7 +2804,7 @@
       "delta_shares": 0,
       "value_usd_k": 137605594,
       "rank_in_port": 29,
-      "raw_score": 30.5144,
+      "raw_score": 20.2572,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2823,7 +2823,7 @@
       "delta_shares": 0,
       "value_usd_k": 134879325,
       "rank_in_port": 30,
-      "raw_score": 30.504,
+      "raw_score": 20.252,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2842,7 +2842,7 @@
       "delta_shares": 0,
       "value_usd_k": 128132705,
       "rank_in_port": 31,
-      "raw_score": 30.4788,
+      "raw_score": 20.2394,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2861,7 +2861,7 @@
       "delta_shares": 0,
       "value_usd_k": 126107072,
       "rank_in_port": 32,
-      "raw_score": 30.4712,
+      "raw_score": 20.2356,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2880,7 +2880,7 @@
       "delta_shares": 0,
       "value_usd_k": 124093463,
       "rank_in_port": 33,
-      "raw_score": 30.464,
+      "raw_score": 20.232,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2899,7 +2899,7 @@
       "delta_shares": 0,
       "value_usd_k": 84347996,
       "rank_in_port": 34,
-      "raw_score": 30.3152,
+      "raw_score": 20.1576,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2918,7 +2918,7 @@
       "delta_shares": 0,
       "value_usd_k": 84284565,
       "rank_in_port": 35,
-      "raw_score": 30.3152,
+      "raw_score": 20.1576,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2937,7 +2937,7 @@
       "delta_shares": 0,
       "value_usd_k": 76517073,
       "rank_in_port": 36,
-      "raw_score": 30.286,
+      "raw_score": 20.143,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2956,7 +2956,7 @@
       "delta_shares": 0,
       "value_usd_k": 68488585,
       "rank_in_port": 37,
-      "raw_score": 30.256,
+      "raw_score": 20.128,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2975,7 +2975,7 @@
       "delta_shares": 0,
       "value_usd_k": 61032600,
       "rank_in_port": 38,
-      "raw_score": 30.228,
+      "raw_score": 20.114,
       "flags": [
         "NEW_POSITION"
       ],
@@ -2994,7 +2994,7 @@
       "delta_shares": 0,
       "value_usd_k": 1556116024,
       "rank_in_port": 1,
-      "raw_score": 31.652,
+      "raw_score": 20.826,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3015,7 +3015,7 @@
       "delta_shares": 0,
       "value_usd_k": 1521029704,
       "rank_in_port": 2,
-      "raw_score": 31.6148,
+      "raw_score": 20.8074,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3036,7 +3036,7 @@
       "delta_shares": 0,
       "value_usd_k": 1493587745,
       "rank_in_port": 3,
-      "raw_score": 31.5856,
+      "raw_score": 20.7928,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3057,7 +3057,7 @@
       "delta_shares": 0,
       "value_usd_k": 1397300536,
       "rank_in_port": 4,
-      "raw_score": 31.4836,
+      "raw_score": 20.7418,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3078,7 +3078,7 @@
       "delta_shares": 0,
       "value_usd_k": 1386041939,
       "rank_in_port": 5,
-      "raw_score": 31.4716,
+      "raw_score": 20.7358,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3099,7 +3099,7 @@
       "delta_shares": 0,
       "value_usd_k": 1273484950,
       "rank_in_port": 6,
-      "raw_score": 31.352,
+      "raw_score": 20.676,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3120,7 +3120,7 @@
       "delta_shares": 0,
       "value_usd_k": 1181381549,
       "rank_in_port": 7,
-      "raw_score": 31.254,
+      "raw_score": 20.627,
       "flags": [
         "NEW_POSITION",
         "HIGH_CONVICTION",
@@ -3141,7 +3141,7 @@
       "delta_shares": 0,
       "value_usd_k": 1106140680,
       "rank_in_port": 8,
-      "raw_score": 31.1744,
+      "raw_score": 20.5872,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -3161,7 +3161,7 @@
       "delta_shares": 0,
       "value_usd_k": 1100992012,
       "rank_in_port": 9,
-      "raw_score": 31.1688,
+      "raw_score": 20.5844,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -3181,7 +3181,7 @@
       "delta_shares": 0,
       "value_usd_k": 1061592511,
       "rank_in_port": 10,
-      "raw_score": 31.1272,
+      "raw_score": 20.5636,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -3201,7 +3201,7 @@
       "delta_shares": 0,
       "value_usd_k": 1027922961,
       "rank_in_port": 11,
-      "raw_score": 31.0912,
+      "raw_score": 20.5456,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3220,7 +3220,7 @@
       "delta_shares": 0,
       "value_usd_k": 858294249,
       "rank_in_port": 12,
-      "raw_score": 30.9112,
+      "raw_score": 20.4556,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3239,7 +3239,7 @@
       "delta_shares": 0,
       "value_usd_k": 834543136,
       "rank_in_port": 13,
-      "raw_score": 30.886,
+      "raw_score": 20.443,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3258,7 +3258,7 @@
       "delta_shares": 0,
       "value_usd_k": 801427625,
       "rank_in_port": 14,
-      "raw_score": 30.8508,
+      "raw_score": 20.4254,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3277,7 +3277,7 @@
       "delta_shares": 0,
       "value_usd_k": 777925786,
       "rank_in_port": 15,
-      "raw_score": 30.826,
+      "raw_score": 20.413,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3296,7 +3296,7 @@
       "delta_shares": 0,
       "value_usd_k": 764407523,
       "rank_in_port": 16,
-      "raw_score": 30.8116,
+      "raw_score": 20.4058,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3315,7 +3315,7 @@
       "delta_shares": 0,
       "value_usd_k": 762256423,
       "rank_in_port": 17,
-      "raw_score": 30.8092,
+      "raw_score": 20.4046,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3334,7 +3334,7 @@
       "delta_shares": 0,
       "value_usd_k": 721731669,
       "rank_in_port": 18,
-      "raw_score": 30.7664,
+      "raw_score": 20.3832,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3353,7 +3353,7 @@
       "delta_shares": 0,
       "value_usd_k": 715523548,
       "rank_in_port": 19,
-      "raw_score": 30.7596,
+      "raw_score": 20.3798,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3372,7 +3372,7 @@
       "delta_shares": 0,
       "value_usd_k": 708765163,
       "rank_in_port": 20,
-      "raw_score": 30.7524,
+      "raw_score": 20.3762,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3391,7 +3391,7 @@
       "delta_shares": 0,
       "value_usd_k": 658872168,
       "rank_in_port": 21,
-      "raw_score": 30.6996,
+      "raw_score": 20.3498,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3410,7 +3410,7 @@
       "delta_shares": 0,
       "value_usd_k": 614145520,
       "rank_in_port": 22,
-      "raw_score": 30.652,
+      "raw_score": 20.326,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3429,7 +3429,7 @@
       "delta_shares": 0,
       "value_usd_k": 570589667,
       "rank_in_port": 23,
-      "raw_score": 30.6056,
+      "raw_score": 20.3028,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3448,7 +3448,7 @@
       "delta_shares": 0,
       "value_usd_k": 553471645,
       "rank_in_port": 24,
-      "raw_score": 30.5876,
+      "raw_score": 20.2938,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3467,7 +3467,7 @@
       "delta_shares": 0,
       "value_usd_k": 538977468,
       "rank_in_port": 25,
-      "raw_score": 30.572,
+      "raw_score": 20.286,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3486,7 +3486,7 @@
       "delta_shares": 0,
       "value_usd_k": 524475610,
       "rank_in_port": 26,
-      "raw_score": 30.5568,
+      "raw_score": 20.2784,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3505,7 +3505,7 @@
       "delta_shares": 0,
       "value_usd_k": 509370673,
       "rank_in_port": 27,
-      "raw_score": 30.5408,
+      "raw_score": 20.2704,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3524,7 +3524,7 @@
       "delta_shares": 0,
       "value_usd_k": 502311154,
       "rank_in_port": 28,
-      "raw_score": 30.5332,
+      "raw_score": 20.2666,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3543,7 +3543,7 @@
       "delta_shares": 0,
       "value_usd_k": 500885789,
       "rank_in_port": 29,
-      "raw_score": 30.5316,
+      "raw_score": 20.2658,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3562,7 +3562,7 @@
       "delta_shares": 0,
       "value_usd_k": 487097818,
       "rank_in_port": 30,
-      "raw_score": 30.5172,
+      "raw_score": 20.2586,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3581,7 +3581,7 @@
       "delta_shares": 0,
       "value_usd_k": 468378996,
       "rank_in_port": 31,
-      "raw_score": 30.4972,
+      "raw_score": 20.2486,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3600,7 +3600,7 @@
       "delta_shares": 0,
       "value_usd_k": 466477175,
       "rank_in_port": 32,
-      "raw_score": 30.4952,
+      "raw_score": 20.2476,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3619,7 +3619,7 @@
       "delta_shares": 0,
       "value_usd_k": 459612207,
       "rank_in_port": 33,
-      "raw_score": 30.488,
+      "raw_score": 20.244,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3638,7 +3638,7 @@
       "delta_shares": 0,
       "value_usd_k": 452383261,
       "rank_in_port": 34,
-      "raw_score": 30.4804,
+      "raw_score": 20.2402,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3657,7 +3657,7 @@
       "delta_shares": 0,
       "value_usd_k": 447988157,
       "rank_in_port": 35,
-      "raw_score": 30.4756,
+      "raw_score": 20.2378,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3676,7 +3676,7 @@
       "delta_shares": 0,
       "value_usd_k": 447386117,
       "rank_in_port": 36,
-      "raw_score": 30.4748,
+      "raw_score": 20.2374,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3695,7 +3695,7 @@
       "delta_shares": 0,
       "value_usd_k": 441425439,
       "rank_in_port": 37,
-      "raw_score": 30.4688,
+      "raw_score": 20.2344,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3714,7 +3714,7 @@
       "delta_shares": 0,
       "value_usd_k": 434319598,
       "rank_in_port": 38,
-      "raw_score": 30.4612,
+      "raw_score": 20.2306,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3733,7 +3733,7 @@
       "delta_shares": 0,
       "value_usd_k": 429448197,
       "rank_in_port": 39,
-      "raw_score": 30.456,
+      "raw_score": 20.228,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3752,7 +3752,7 @@
       "delta_shares": 0,
       "value_usd_k": 425957677,
       "rank_in_port": 40,
-      "raw_score": 30.4524,
+      "raw_score": 20.2262,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3771,7 +3771,7 @@
       "delta_shares": 0,
       "value_usd_k": 395231790,
       "rank_in_port": 41,
-      "raw_score": 30.4196,
+      "raw_score": 20.2098,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3790,7 +3790,7 @@
       "delta_shares": 0,
       "value_usd_k": 358775106,
       "rank_in_port": 42,
-      "raw_score": 30.3808,
+      "raw_score": 20.1904,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3809,7 +3809,7 @@
       "delta_shares": 0,
       "value_usd_k": 355443795,
       "rank_in_port": 43,
-      "raw_score": 30.3772,
+      "raw_score": 20.1886,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3828,7 +3828,7 @@
       "delta_shares": 0,
       "value_usd_k": 347379600,
       "rank_in_port": 44,
-      "raw_score": 30.3688,
+      "raw_score": 20.1844,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3847,7 +3847,7 @@
       "delta_shares": 0,
       "value_usd_k": 316439429,
       "rank_in_port": 45,
-      "raw_score": 30.336,
+      "raw_score": 20.168,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3866,7 +3866,7 @@
       "delta_shares": 0,
       "value_usd_k": 303217833,
       "rank_in_port": 46,
-      "raw_score": 30.322,
+      "raw_score": 20.161,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3885,7 +3885,7 @@
       "delta_shares": 0,
       "value_usd_k": 301696195,
       "rank_in_port": 47,
-      "raw_score": 30.3204,
+      "raw_score": 20.1602,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3904,7 +3904,7 @@
       "delta_shares": 0,
       "value_usd_k": 297741589,
       "rank_in_port": 48,
-      "raw_score": 30.316,
+      "raw_score": 20.158,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3923,7 +3923,7 @@
       "delta_shares": 0,
       "value_usd_k": 292284594,
       "rank_in_port": 49,
-      "raw_score": 30.3104,
+      "raw_score": 20.1552,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3942,7 +3942,7 @@
       "delta_shares": 0,
       "value_usd_k": 276534412,
       "rank_in_port": 50,
-      "raw_score": 30.2936,
+      "raw_score": 20.1468,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3961,7 +3961,7 @@
       "delta_shares": 0,
       "value_usd_k": 269394438,
       "rank_in_port": 51,
-      "raw_score": 30.286,
+      "raw_score": 20.143,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3980,7 +3980,7 @@
       "delta_shares": 0,
       "value_usd_k": 247204595,
       "rank_in_port": 52,
-      "raw_score": 30.2624,
+      "raw_score": 20.1312,
       "flags": [
         "NEW_POSITION"
       ],
@@ -3999,7 +3999,7 @@
       "delta_shares": 0,
       "value_usd_k": 239310193,
       "rank_in_port": 53,
-      "raw_score": 30.254,
+      "raw_score": 20.127,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4018,7 +4018,7 @@
       "delta_shares": 0,
       "value_usd_k": 233300823,
       "rank_in_port": 54,
-      "raw_score": 30.2476,
+      "raw_score": 20.1238,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4037,7 +4037,7 @@
       "delta_shares": 0,
       "value_usd_k": 219947566,
       "rank_in_port": 55,
-      "raw_score": 30.2336,
+      "raw_score": 20.1168,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4056,7 +4056,7 @@
       "delta_shares": 0,
       "value_usd_k": 214966740,
       "rank_in_port": 56,
-      "raw_score": 30.2284,
+      "raw_score": 20.1142,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4075,7 +4075,7 @@
       "delta_shares": 0,
       "value_usd_k": 203319262,
       "rank_in_port": 57,
-      "raw_score": 30.216,
+      "raw_score": 20.108,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4094,7 +4094,7 @@
       "delta_shares": 0,
       "value_usd_k": 4893573986,
       "rank_in_port": 1,
-      "raw_score": 31.0268,
+      "raw_score": 20.5134,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4114,7 +4114,7 @@
       "delta_shares": 0,
       "value_usd_k": 3398663807,
       "rank_in_port": 2,
-      "raw_score": 30.7132,
+      "raw_score": 20.3566,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4134,7 +4134,7 @@
       "delta_shares": 0,
       "value_usd_k": 3030169489,
       "rank_in_port": 3,
-      "raw_score": 30.636,
+      "raw_score": 20.318,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4154,7 +4154,7 @@
       "delta_shares": 0,
       "value_usd_k": 2059566188,
       "rank_in_port": 4,
-      "raw_score": 30.432,
+      "raw_score": 20.216,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4174,7 +4174,7 @@
       "delta_shares": 0,
       "value_usd_k": 1553362899,
       "rank_in_port": 5,
-      "raw_score": 30.326,
+      "raw_score": 20.163,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4194,7 +4194,7 @@
       "delta_shares": 0,
       "value_usd_k": 1428764934,
       "rank_in_port": 6,
-      "raw_score": 30.3,
+      "raw_score": 20.15,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4214,7 +4214,7 @@
       "delta_shares": 0,
       "value_usd_k": 1409890303,
       "rank_in_port": 7,
-      "raw_score": 30.296,
+      "raw_score": 20.148,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4234,7 +4234,7 @@
       "delta_shares": 0,
       "value_usd_k": 1391485051,
       "rank_in_port": 8,
-      "raw_score": 30.292,
+      "raw_score": 20.146,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4254,7 +4254,7 @@
       "delta_shares": 0,
       "value_usd_k": 1379634435,
       "rank_in_port": 9,
-      "raw_score": 30.2896,
+      "raw_score": 20.1448,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4274,7 +4274,7 @@
       "delta_shares": 0,
       "value_usd_k": 1378513066,
       "rank_in_port": 10,
-      "raw_score": 30.2892,
+      "raw_score": 20.1446,
       "flags": [
         "NEW_POSITION",
         "TOP10_ENTRY"
@@ -4294,7 +4294,7 @@
       "delta_shares": 0,
       "value_usd_k": 1323975899,
       "rank_in_port": 11,
-      "raw_score": 30.278,
+      "raw_score": 20.139,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4313,7 +4313,7 @@
       "delta_shares": 0,
       "value_usd_k": 1308518093,
       "rank_in_port": 12,
-      "raw_score": 30.2744,
+      "raw_score": 20.1372,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4332,7 +4332,7 @@
       "delta_shares": 0,
       "value_usd_k": 1256535354,
       "rank_in_port": 13,
-      "raw_score": 30.2636,
+      "raw_score": 20.1318,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4351,7 +4351,7 @@
       "delta_shares": 0,
       "value_usd_k": 1202752179,
       "rank_in_port": 14,
-      "raw_score": 30.2524,
+      "raw_score": 20.1262,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4370,7 +4370,7 @@
       "delta_shares": 0,
       "value_usd_k": 1184107948,
       "rank_in_port": 15,
-      "raw_score": 30.2484,
+      "raw_score": 20.1242,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4389,7 +4389,7 @@
       "delta_shares": 0,
       "value_usd_k": 1097474774,
       "rank_in_port": 16,
-      "raw_score": 30.2304,
+      "raw_score": 20.1152,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4408,7 +4408,7 @@
       "delta_shares": 0,
       "value_usd_k": 1052327527,
       "rank_in_port": 17,
-      "raw_score": 30.2208,
+      "raw_score": 20.1104,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4427,7 +4427,7 @@
       "delta_shares": 0,
       "value_usd_k": 1008679022,
       "rank_in_port": 18,
-      "raw_score": 30.2116,
+      "raw_score": 20.1058,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4446,7 +4446,7 @@
       "delta_shares": 0,
       "value_usd_k": 976700230,
       "rank_in_port": 19,
-      "raw_score": 30.2048,
+      "raw_score": 20.1024,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4465,7 +4465,7 @@
       "delta_shares": 0,
       "value_usd_k": 962639334,
       "rank_in_port": 20,
-      "raw_score": 30.202,
+      "raw_score": 20.101,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4484,7 +4484,7 @@
       "delta_shares": 0,
       "value_usd_k": 956875534,
       "rank_in_port": 21,
-      "raw_score": 30.2008,
+      "raw_score": 20.1004,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4503,7 +4503,7 @@
       "delta_shares": 0,
       "value_usd_k": 954546591,
       "rank_in_port": 22,
-      "raw_score": 30.2004,
+      "raw_score": 20.1002,
       "flags": [
         "NEW_POSITION"
       ],
@@ -4522,7 +4522,7 @@
       "delta_shares": 0,
       "value_usd_k": 953132155,
       "rank_in_port": 23,
-      "raw_score": 30.2,
+      "raw_score": 20.1,
       "flags": [
         "NEW_POSITION"
       ],
@@ -9319,7 +9319,160 @@
       "filer_count": 1
     }
   ],
-  "clusters": {},
+  "clusters": {
+    "49427F108": [
+      "Situational Awareness LP",
+      "D1 Capital (Sundheim)"
+    ],
+    "594918104": [
+      "Gates Foundation Trust",
+      "Harvard Management Co",
+      "Tiger Global (Coleman)",
+      "Viking Global (Halvorsen)",
+      "AQR Capital (Asness)"
+    ],
+    "931142103": [
+      "Gates Foundation Trust",
+      "AQR Capital (Asness)"
+    ],
+    "22266T109": [
+      "Gates Foundation Trust",
+      "Tiger Global (Coleman)"
+    ],
+    "46438F101": [
+      "Harvard Management Co",
+      "Brown University"
+    ],
+    "02079K305": [
+      "Harvard Management Co",
+      "Pershing Square (Ackman)",
+      "Tiger Global (Coleman)",
+      "Viking Global (Halvorsen)",
+      "AQR Capital (Asness)"
+    ],
+    "78463V107": [
+      "Harvard Management Co",
+      "Brown University"
+    ],
+    "09857L108": [
+      "Harvard Management Co",
+      "AQR Capital (Asness)"
+    ],
+    "023135106": [
+      "Harvard Management Co",
+      "Pershing Square (Ackman)",
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)",
+      "AQR Capital (Asness)"
+    ],
+    "30303M102": [
+      "Harvard Management Co",
+      "Pershing Square (Ackman)",
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)",
+      "AQR Capital (Asness)"
+    ],
+    "11135F101": [
+      "Harvard Management Co",
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)",
+      "AQR Capital (Asness)"
+    ],
+    "874039100": [
+      "Harvard Management Co",
+      "Tiger Global (Coleman)",
+      "Viking Global (Halvorsen)"
+    ],
+    "67066G104": [
+      "Harvard Management Co",
+      "TCI Fund (Chris Hohn)",
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)",
+      "AQR Capital (Asness)"
+    ],
+    "98954M200": [
+      "Harvard Management Co",
+      "Tiger Global (Coleman)"
+    ],
+    "G3643J108": [
+      "Harvard Management Co",
+      "Tiger Global (Coleman)"
+    ],
+    "16935C109": [
+      "Brown University",
+      "Tiger Global (Coleman)"
+    ],
+    "74743L100": [
+      "Brown University",
+      "D1 Capital (Sundheim)"
+    ],
+    "02079K107": [
+      "Pershing Square (Ackman)",
+      "AQR Capital (Asness)"
+    ],
+    "81141R100": [
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "03769M106": [
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)"
+    ],
+    "75734B100": [
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)"
+    ],
+    "03831W108": [
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)"
+    ],
+    "L8681T102": [
+      "Tiger Global (Coleman)",
+      "D1 Capital (Sundheim)"
+    ],
+    "808513105": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "824348106": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "254687106": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "14040H105": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "G51502105": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "040413205": [
+      "D1 Capital (Sundheim)",
+      "AQR Capital (Asness)"
+    ],
+    "00187Y100": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "060505104": [
+      "D1 Capital (Sundheim)",
+      "Viking Global (Halvorsen)"
+    ],
+    "88160R101": [
+      "Viking Global (Halvorsen)",
+      "AQR Capital (Asness)"
+    ],
+    "H1467J104": [
+      "Viking Global (Halvorsen)",
+      "AQR Capital (Asness)"
+    ]
+  },
   "top20": [
     {
       "ticker": "69608A108",
