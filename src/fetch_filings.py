@@ -349,8 +349,11 @@ def run():
         "filers":          all_data,
     }
 
-    with open(output_path, "w") as f:
+    # Atomic write: write to temp file first, then rename (prevents corrupt files on crash)
+    tmp_path = output_path.with_suffix(".tmp")
+    with open(tmp_path, "w") as f:
         json.dump(output, f, indent=2, default=str)
+    tmp_path.replace(output_path)
 
     filers_ok = sum(1 for v in all_data.values() if "holdings" in v)
     print(f"\n✅ Saved to {output_path}")
