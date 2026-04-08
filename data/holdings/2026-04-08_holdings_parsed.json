@@ -912,7 +912,7 @@
           "rank": 20
         },
         {
-          "ticker": "",
+          "ticker": "HRL",
           "cusip": "440452100",
           "name": "HORMEL FOODS CORP",
           "value_usd_k": 49421373,
@@ -13970,7 +13970,7 @@
           "rank": 498
         },
         {
-          "ticker": "",
+          "ticker": "BC",
           "cusip": "117043109",
           "name": "BRUNSWICK CORP",
           "value_usd_k": 88664495,
@@ -23384,7 +23384,7 @@
           "rank": 1021
         },
         {
-          "ticker": "AXON",
+          "ticker": "",
           "cusip": "05464C101",
           "name": "AXON ENTERPRISE INC",
           "value_usd_k": 15303068,
@@ -27200,7 +27200,7 @@
           "rank": 1233
         },
         {
-          "ticker": "",
+          "ticker": "HRL",
           "cusip": "440452100",
           "name": "HORMEL FOODS CORP",
           "value_usd_k": 9864973,
@@ -43292,7 +43292,7 @@
           "rank": 2127
         },
         {
-          "ticker": "FLG",
+          "ticker": "",
           "cusip": "649445400",
           "name": "FLAGSTAR BANK NATIONAL ASSOC",
           "value_usd_k": 1616611,
@@ -49934,7 +49934,7 @@
           "rank": 2496
         },
         {
-          "ticker": "",
+          "ticker": "TEVA",
           "cusip": "881624209",
           "name": "TEVA PHARMACEUTICAL INDS LTD",
           "value_usd_k": 2151500,
@@ -52850,7 +52850,7 @@
           "rank": 2658
         },
         {
-          "ticker": "",
+          "ticker": "ASX",
           "cusip": "00215W100",
           "name": "ASE TECHNOLOGY HLDG CO LTD",
           "value_usd_k": 552262,
@@ -64064,7 +64064,7 @@
           "rank": 3281
         },
         {
-          "ticker": "CASH",
+          "ticker": "",
           "cusip": "59100U108",
           "name": "PATHWARD FINANCIAL INC",
           "value_usd_k": 528173,
@@ -65504,7 +65504,7 @@
           "rank": 3361
         },
         {
-          "ticker": "SCHC",
+          "ticker": "",
           "cusip": "808524888",
           "name": "SCHWAB STRATEGIC TR",
           "value_usd_k": 234298,
@@ -66476,7 +66476,7 @@
           "rank": 3415
         },
         {
-          "ticker": "SRI",
+          "ticker": "",
           "cusip": "86183P102",
           "name": "STONERIDGE INC",
           "value_usd_k": 149052,
@@ -68240,7 +68240,7 @@
           "rank": 3513
         },
         {
-          "ticker": "",
+          "ticker": "VAW",
           "cusip": "92204A801",
           "name": "VANGUARD WORLD FD",
           "value_usd_k": 370477,
