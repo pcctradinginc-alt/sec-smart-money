@@ -1,0 +1,93 @@
+name: SEC 13F Quarterly Analysis
+
+on:
+  schedule:
+    # Run daily at 14:00 UTC (= 15:00 CET / 16:00 CEST)
+    # The Python script itself decides if today is the right date
+    - cron: '0 14 14-20 2,5,8,11 *'
+  workflow_dispatch:
+    inputs:
+      force_run:
+        description: 'Force run regardless of date'
+        required: false
+        default: 'false'
+      target_date:
+        description: 'Override target date (YYYY-MM-DD)'
+        required: false
+        default: ''
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check if today is a run date
+        id: date_check
+        env:
+          FORCE_RUN: ${{ github.event.inputs.force_run }}
+          TARGET_DATE: ${{ github.event.inputs.target_date }}
+          TZ: Europe/Berlin
+        run: |
+          python src/date_check.py
+        continue-on-error: false
+
+      - name: Fetch SEC 13F Filings
+        if: steps.date_check.outputs.should_run == 'true'
+        env:
+          TZ: Europe/Berlin
+        run: python src/fetch_filings.py
+
+      - name: Parse Holdings & Calculate Deltas
+        if: steps.date_check.outputs.should_run == 'true'
+        run: python src/parse_13f.py
+
+      - name: Calculate Conviction Scores
+        if: steps.date_check.outputs.should_run == 'true'
+        run: python src/scoring.py
+
+      - name: Claude Analysis Round 1 - Identify Top 5
+        if: steps.date_check.outputs.should_run == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python src/analyze_claude_round1.py
+
+      - name: Fetch Options Data via Tradier
+        if: steps.date_check.outputs.should_run == 'true'
+        env:
+          TRADIER_API_KEY: ${{ secrets.TRADIER_API_KEY }}
+        run: python src/options_lookup.py
+
+      - name: Claude Analysis Round 2 - Select Best Options
+        if: steps.date_check.outputs.should_run == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python src/analyze_claude_round2.py
+
+      - name: Generate & Send Report via Gmail
+        if: steps.date_check.outputs.should_run == 'true'
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python src/send_report.py
+
+      - name: Commit updated holdings data
+        if: steps.date_check.outputs.should_run == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/holdings/ reports/
+          git diff --staged --quiet || git commit -m "📊 Quarterly 13F analysis $(date +%Y-%m-%d)"
+          git push
