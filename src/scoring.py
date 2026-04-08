@@ -132,23 +132,32 @@ def build_scored_universe(parsed: dict) -> list[dict]:
 
 def detect_clusters(scored: list[dict]) -> dict[str, list[str]]:
     """
-    R-10/R-11 Fix: Clusters on ticker (not CUSIP) to handle ADR mismatches.
-    Returns {ticker: [list of filer names that are buying]}.
-    Only includes tickers bought by CLUSTER_MIN_FUNDS or more filers.
+    Clusters on ticker first, then CUSIP, then normalized company name as fallback.
+    This ensures clustering works even when OpenFIGI mapping fails.
     """
-    ticker_filers: dict[str, list[str]] = defaultdict(list)
+    key_filers: dict[str, list[str]] = defaultdict(list)
 
     for entry in scored:
-        ticker = entry["ticker"]
-        if not ticker:
+        if entry["delta_type"] not in ("NEW", "ADDED"):
             continue
-        # Only count actual buys for clustering
-        if entry["delta_type"] in ("NEW", "ADDED"):
-            ticker_filers[ticker].append(entry["filer"])
+
+        # Priority: ticker > cusip > normalized company name
+        ticker = entry.get("ticker", "").strip()
+        cusip  = entry.get("cusip", "").strip()
+        name   = entry.get("name", "").strip().upper()
+
+        # Normalize company name: remove common suffixes for better matching
+        import re
+        name_norm = re.sub(r"\b(INC|CORP|LTD|LLC|LP|PLC|CO|THE|DEL|COM)\b", "", name)
+        name_norm = re.sub(r"\s+", " ", name_norm).strip()
+
+        key = ticker or cusip or name_norm
+        if key:
+            key_filers[key].append(entry["filer"])
 
     return {
-        ticker: filers
-        for ticker, filers in ticker_filers.items()
+        key: filers
+        for key, filers in key_filers.items()
         if len(filers) >= CLUSTER_MIN_FUNDS
     }
 
