@@ -95,9 +95,10 @@ def download_infotable(filing_meta: dict) -> str | None:
     acc_dashes = accession.replace("-", "")
 
     # Fetch the index to find the infotable filename
+    # SEC correct format: /Archives/edgar/data/{cik}/{accession_nodashes}/index.json
     index_url = (
         f"https://www.sec.gov/Archives/edgar/data/{cik_int}/"
-        f"{acc_dashes}/{accession}-index.json"
+        f"{acc_dashes}/index.json"
     )
     try:
         index_data = edgar_get(index_url).json()
@@ -105,23 +106,39 @@ def download_infotable(filing_meta: dict) -> str | None:
         print(f"    ⚠️  Index fetch failed for {accession}: {e}")
         return None
 
-    # Find the infotable file
+    # Find the infotable file - SEC stores it in "directory" → "item" list
     infotable_filename = None
-    for doc in index_data.get("documents", []):
-        name = doc.get("name", "").lower()
+
+    # Format 1: index.json with "directory" key (most common)
+    items = index_data.get("directory", {}).get("item", [])
+    if isinstance(items, dict):
+        items = [items]
+    for item in items:
+        name = item.get("name", "").lower()
         if "informationtable" in name and name.endswith(".xml"):
-            infotable_filename = doc["name"]
+            infotable_filename = item["name"]
             break
 
+    # Format 2: flat "documents" list (older filings)
     if not infotable_filename:
-        # Fallback: try the primary document name with 'informationtable'
         for doc in index_data.get("documents", []):
-            if doc.get("type", "").lower() in ("13f information table", "information table"):
+            name = doc.get("name", "").lower()
+            if "informationtable" in name and name.endswith(".xml"):
                 infotable_filename = doc["name"]
                 break
 
+    # Format 3: search by type
+    if not infotable_filename:
+        for item in items:
+            t = item.get("type", "").lower()
+            if "information table" in t or "13f" in t:
+                if item.get("name", "").endswith(".xml"):
+                    infotable_filename = item["name"]
+                    break
+
     if not infotable_filename:
         print(f"    ⚠️  No infotable XML found in index for {accession}")
+        print(f"    Index keys: {list(index_data.keys())}")
         return None
 
     xml_url = EDGAR_ARCHIVES_URL.format(
