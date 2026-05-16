@@ -31,6 +31,25 @@ def get_headers() -> dict:
     }
 
 
+def get_stock_quotes(tickers: list[str], headers: dict) -> dict[str, dict]:
+    """
+    Fetches real-time quotes for a list of tickers via Tradier.
+    Returns {ticker: {last, change_percentage, bid, ask, ...}}.
+    """
+    url = f"{TRADIER_BASE_URL}/markets/quotes"
+    params = {"symbols": ",".join(tickers), "greeks": "false"}
+    try:
+        resp = requests.get(url, params=params, headers=headers, timeout=15)
+        resp.raise_for_status()
+        quotes = resp.json().get("quotes", {}).get("quote", [])
+        if isinstance(quotes, dict):
+            quotes = [quotes]
+        return {q["symbol"]: q for q in quotes if "symbol" in q}
+    except Exception as e:
+        print(f"  ⚠️  Stock quote fetch failed: {e}")
+        return {}
+
+
 def normalize_ticker_for_tradier(ticker: str) -> str:
     """
     R-12 Fix: Tradier uses BRK/B format (slash), not BRK.B (dot).
@@ -129,6 +148,13 @@ def filter_options(chain: list[dict], direction: str = "BULLISH") -> list[dict]:
         if volume < OPTION_MIN_VOLUME and oi < 500:
             continue
 
+        # Bid-ask spread filter: skip options where spread > 15% of mid-price
+        bid = opt.get("bid") or 0
+        ask = opt.get("ask") or 0
+        mid = (bid + ask) / 2
+        if mid > 0 and (ask - bid) / mid > 0.15:
+            continue
+
         # Try to use greeks for delta filter
         greeks = opt.get("greeks") or {}
         delta  = greeks.get("delta")
@@ -138,17 +164,20 @@ def filter_options(chain: list[dict], direction: str = "BULLISH") -> list[dict]:
             if not (OPTION_DELTA_MIN <= abs(float(delta)) <= OPTION_DELTA_MAX):
                 continue
 
+        spread_pct = round((ask - bid) / mid * 100, 1) if mid > 0 else None
         candidates.append({
             "symbol":         opt.get("symbol"),
             "option_type":    opt.get("option_type"),
             "strike":         opt.get("strike"),
             "expiration_date":opt.get("expiration_date"),
-            "bid":            opt.get("bid"),
-            "ask":            opt.get("ask"),
+            "bid":            bid,
+            "ask":            ask,
+            "mid":            round(mid, 2) if mid > 0 else None,
+            "spread_pct":     spread_pct,
             "last":           opt.get("last"),
             "volume":         volume,
             "open_interest":  oi,
-            "implied_volatility": greeks.get("smv_vol") or opt.get("greeks", {}).get("mid_iv"),
+            "implied_volatility": greeks.get("smv_vol") or greeks.get("mid_iv"),
             "delta":          delta,
             "gamma":          greeks.get("gamma"),
             "theta":          greeks.get("theta"),
@@ -163,22 +192,28 @@ def filter_options(chain: list[dict], direction: str = "BULLISH") -> list[dict]:
     return candidates[:5]
 
 
-def fetch_options_for_ticker(ticker: str, direction: str, headers: dict) -> dict:
+def fetch_options_for_ticker(ticker: str, direction: str, headers: dict,
+                             stock_quote: dict | None = None) -> dict:
     """
     Full options lookup for one ticker across all valid expiry dates.
     R-14 Fix: Returns empty structure with explanation if no options found.
+    Includes current stock price context from Tradier quotes.
     """
     tradier_ticker = normalize_ticker_for_tradier(ticker)
-    print(f"  📈 {ticker} ({tradier_ticker}) – direction: {direction}")
+    current_price  = stock_quote.get("last") if stock_quote else None
+    change_pct     = stock_quote.get("change_percentage") if stock_quote else None
+    print(f"  📈 {ticker} ({tradier_ticker}) – ${current_price} ({change_pct}%) – direction: {direction}")
 
     expiries = get_expiration_dates(tradier_ticker, headers)
     if not expiries:
         print(f"    ⚠️  No valid expiry dates found for {ticker}")
         return {
-            "ticker":    ticker,
-            "direction": direction,
-            "error":     "no_valid_expiries",
-            "options":   [],
+            "ticker":         ticker,
+            "current_price":  current_price,
+            "change_pct":     change_pct,
+            "direction":      direction,
+            "error":          "no_valid_expiries",
+            "options":        [],
         }
 
     print(f"    Valid expiries ({OPTION_MIN_DAYS}-{OPTION_MAX_DAYS} days): {expiries}")
@@ -219,10 +254,12 @@ def fetch_options_for_ticker(ticker: str, direction: str, headers: dict) -> dict
     all_options.sort(key=lambda x: x.get("volume") or 0, reverse=True)
 
     return {
-        "ticker":    ticker,
-        "direction": direction,
+        "ticker":          ticker,
+        "current_price":   current_price,
+        "change_pct":      change_pct,
+        "direction":       direction,
         "expiries_checked": expiries,
-        "options":   all_options[:10],  # top 10 across all expiries for Claude
+        "options":         all_options[:10],  # top 10 across all expiries for Claude
     }
 
 
@@ -247,11 +284,17 @@ def run():
     if not top5:
         raise ValueError("Claude Round 1 returned no top5 picks")
 
+    # Fetch real-time quotes for all top5 tickers in one API call
+    tickers      = [s["ticker"] for s in top5]
+    stock_quotes = get_stock_quotes(tickers, headers)
+    print(f"📊 Live quotes fetched: {list(stock_quotes.keys())}")
+
     results = {}
     for stock in top5:
         ticker    = stock["ticker"]
         direction = stock.get("direction", "BULLISH")
-        result    = fetch_options_for_ticker(ticker, direction, headers)
+        quote     = stock_quotes.get(ticker)
+        result    = fetch_options_for_ticker(ticker, direction, headers, stock_quote=quote)
         results[ticker] = result
 
     output = {
