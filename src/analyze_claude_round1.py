@@ -49,7 +49,8 @@ def build_prompt(scores: dict) -> str:
     positions_text = []
     for i, agg in enumerate(top20, 1):
         filer_summary = "; ".join(
-            f"{f['filer']} ({f['delta_type']}, Δ{f['delta_pct']}%, "
+            f"{f['filer']} ({f['delta_type']}, "
+            f"Δ{f['delta_pct'] if f['delta_pct'] is not None else 'N/A'}%, "
             f"port_wt={f['port_weight_pct']}%)"
             for f in agg["filers"]
         )
