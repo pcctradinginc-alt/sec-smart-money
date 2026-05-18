@@ -2,25 +2,29 @@
 scoring.py
 Conviction Score calculation engine.
 
-Fixes from architecture audit:
-  R-04  New position delta_pct = None → handled with separate NEW logic
-  R-09  Score normalization → min-max scaled to [0, 100]
-  R-10  Cluster detection uses ticker as primary key (not CUSIP)
-        to handle ADR vs. ordinary share (R-11)
-  R-01  Split-adjusted shares already in parsed data
+Improvements:
+  - Multi-quarter position building bonus (multi_quarter.py)
+  - Filer quality tier multiplier (FILER_QUALITY in config)
+  - Price-action staleness check via yfinance:
+      +15% since filing → WARNING flag
+      +25% since filing → score halved + STALE flag
+  - Score normalization min-max [0, 100]
+  - Cluster detection on ticker > CUSIP > normalized name
 """
 
 import json
 import re
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 
 from config import (
     CLUSTER_BONUS_MULTIPLIER, CLUSTER_MIN_FUNDS,
-    DATA_DIR, DOUBLE_DOWN_MIN_DELTA, HIGH_CONVICTION_MIN_PCT,
-    HIGH_CONVICTION_TOP_N, MIN_PORTFOLIO_WEIGHT_PCT,
-    WEIGHT_DELTA_PCT, WEIGHT_PORTFOLIO_PCT,
+    DATA_DIR, DOUBLE_DOWN_MIN_DELTA, FILER_QUALITY,
+    HIGH_CONVICTION_MIN_PCT, HIGH_CONVICTION_TOP_N,
+    MIN_PORTFOLIO_WEIGHT_PCT, PRICE_ACTION_DOWNGRADE_PCT,
+    PRICE_ACTION_WARN_PCT, WEIGHT_DELTA_PCT, WEIGHT_PORTFOLIO_PCT,
 )
+import multi_quarter
 
 
 def load_parsed(today_str: str) -> dict:
@@ -31,50 +35,120 @@ def load_parsed(today_str: str) -> dict:
         return json.load(f)
 
 
-def compute_raw_score(pos: dict) -> float:
+# ── Price-action staleness ────────────────────────────────────────────────────
+
+def fetch_price_changes(tickers: list[str], filing_dates: dict[str, str]) -> dict[str, float | None]:
     """
-    Core scoring formula (weighted combination):
+    For each ticker, compares the price at its filing date to today's price.
+    Returns {ticker: pct_change_since_filing} or {ticker: None} on failure.
 
+    Uses a single yfinance batch download where possible.
+    """
+    try:
+        import yfinance as yf
+    except ImportError:
+        return {}
+
+    if not tickers:
+        return {}
+
+    # Find the oldest filing date to set download start
+    dates = [d for d in filing_dates.values() if d]
+    if not dates:
+        return {}
+
+    oldest = min(dates)
+    today_str = date.today().isoformat()
+
+    try:
+        hist = yf.download(
+            tickers,
+            start=oldest,
+            end=today_str,
+            auto_adjust=True,
+            progress=False,
+        )
+    except Exception as e:
+        print(f"  ⚠️  yfinance batch download failed: {e}")
+        return {}
+
+    close = hist.get("Close", hist) if hasattr(hist, "get") else hist
+
+    result: dict[str, float | None] = {}
+
+    for ticker in tickers:
+        filing_date_str = filing_dates.get(ticker)
+        if not filing_date_str:
+            result[ticker] = None
+            continue
+
+        try:
+            if len(tickers) == 1:
+                series = close
+            else:
+                series = close[ticker] if ticker in close.columns else None
+
+            if series is None or series.empty:
+                result[ticker] = None
+                continue
+
+            filing_date = date.fromisoformat(filing_date_str)
+            series_after_filing = series[series.index.date >= filing_date]
+
+            if series_after_filing.empty:
+                result[ticker] = None
+                continue
+
+            price_at_filing = float(series_after_filing.iloc[0])
+            price_now       = float(series_after_filing.iloc[-1])
+
+            if price_at_filing <= 0:
+                result[ticker] = None
+            else:
+                result[ticker] = ((price_now - price_at_filing) / price_at_filing) * 100.0
+
+        except Exception:
+            result[ticker] = None
+
+    return result
+
+
+# ── Core scoring ──────────────────────────────────────────────────────────────
+
+def compute_raw_score(pos: dict, filer_name: str) -> float:
+    """
     Score = (weight_port × portfolio_pct) + (weight_delta × normalized_delta)
+    × filer_quality_multiplier
 
-    For NEW positions: delta component uses a proxy of 100%
-    (entering the position at all is the signal; size determines magnitude).
-
-    R-04 Fix: delta_pct == None → treated as 100 (new position proxy).
-    R-09 Fix: Raw score is computed here; normalization happens after
-              all scores are collected.
+    NEW positions: delta component uses 100 as proxy.
+    REDUCED / SOLD / UNCHANGED: score = 0.
     """
     port_pct   = pos["port_weight_pct"]
     delta_info = pos["delta"]
     delta_pct  = delta_info.get("delta_pct")
     tx_type    = delta_info.get("type", "UNCHANGED")
 
-    # Ignore micro positions
     if port_pct < MIN_PORTFOLIO_WEIGHT_PCT:
         return 0.0
 
-    # Only score buys (NEW, ADDED) – not REDUCED/SOLD/UNCHANGED
     if tx_type in ("REDUCED", "SOLD", "UNCHANGED"):
         return 0.0
 
-    # Delta component
-    if delta_pct is None:
-        # New position: use portfolio weight alone scaled up
-        delta_component = 100.0
-    else:
-        delta_component = abs(delta_pct)  # can be >100% for aggressive adds
+    delta_component = 100.0 if delta_pct is None else abs(delta_pct)
 
     raw = (WEIGHT_PORTFOLIO_PCT * port_pct) + (WEIGHT_DELTA_PCT * delta_component)
+
+    # Filer quality multiplier
+    quality = FILER_QUALITY.get(filer_name, 1.0)
+    raw *= quality
+
     return round(raw, 4)
 
 
-def apply_flags(pos: dict, rank: int, total_positions: int) -> list[str]:
-    """
-    Assigns qualitative flags to a position.
-    """
-    flags = []
-    tx_type   = pos["delta"].get("type")
-    port_pct  = pos["port_weight_pct"]
+def apply_flags(pos: dict, rank: int) -> list[str]:
+    flags    = []
+    tx_type  = pos["delta"].get("type")
+    port_pct = pos["port_weight_pct"]
     delta_pct = pos["delta"].get("delta_pct")
 
     if tx_type == "NEW":
@@ -85,17 +159,16 @@ def apply_flags(pos: dict, rank: int, total_positions: int) -> list[str]:
             flags.append("TOP10_ENTRY")
 
     if tx_type == "ADDED" and delta_pct is not None and delta_pct >= DOUBLE_DOWN_MIN_DELTA:
-        # For double-down we'd ideally check if price fell –
-        # that check happens in scoring.py after yfinance lookup.
         flags.append("AGGRESSIVE_ADD")
 
     return flags
 
 
-def build_scored_universe(parsed: dict) -> list[dict]:
+def build_scored_universe(parsed: dict, mq_signals: dict[str, dict]) -> list[dict]:
     """
-    Iterates all filers and all positions, computing a score for each.
-    Returns a flat list of scored positions across all filers.
+    Iterates all filers and positions, computing a score for each.
+    Applies filer quality and multi-quarter multipliers.
+    Returns flat list of scored buy-only positions.
     """
     scored = []
 
@@ -104,50 +177,105 @@ def build_scored_universe(parsed: dict) -> list[dict]:
             continue
 
         positions = filer_data["positions"]
-        total     = len(positions)
+        filing_date = filer_data.get("filing_date", "")
 
         for pos in positions:
-            raw_score = compute_raw_score(pos)
+            raw_score = compute_raw_score(pos, filer_name)
             if raw_score <= 0:
                 continue
 
-            flags = apply_flags(pos, pos.get("rank", 999), total)
+            flags  = apply_flags(pos, pos.get("rank", 999))
+            ticker = pos.get("ticker", "") or pos.get("cusip", "")
+
+            # Multi-quarter bonus
+            mq_mult = multi_quarter.get_multiplier(ticker, mq_signals)
+            raw_score *= mq_mult
+            if mq_mult > 1.0:
+                mq_sig = mq_signals.get(ticker, {})
+                flags.extend([f for f in mq_sig.get("flags", []) if f not in flags])
 
             scored.append({
-                "filer":          filer_name,
-                "ticker":         pos["ticker"],
-                "cusip":          pos["cusip"],
-                "name":           pos["name"],
-                "port_weight_pct":pos["port_weight_pct"],
-                "delta_pct":      pos["delta"].get("delta_pct"),
-                "delta_type":     pos["delta"]["type"],
-                "delta_shares":   pos["delta"]["delta_shares"],
-                "value_usd_k":    pos["value_usd_k"],
-                "rank_in_port":   pos.get("rank"),
-                "raw_score":      raw_score,
-                "flags":          flags,
+                "filer":           filer_name,
+                "ticker":          ticker,
+                "cusip":           pos.get("cusip", ""),
+                "name":            pos.get("name", ""),
+                "port_weight_pct": pos["port_weight_pct"],
+                "delta_pct":       pos["delta"].get("delta_pct"),
+                "delta_type":      pos["delta"]["type"],
+                "delta_shares":    pos["delta"]["delta_shares"],
+                "value_usd_k":     pos["value_usd_k"],
+                "rank_in_port":    pos.get("rank"),
+                "filing_date":     filing_date,
+                "raw_score":       round(raw_score, 4),
+                "mq_multiplier":   round(mq_mult, 2),
+                "flags":           flags,
             })
 
     return scored
 
 
+# ── Price-action staleness enrichment ─────────────────────────────────────────
+
+def enrich_with_price_action(scored: list[dict]) -> list[dict]:
+    """
+    Checks current price vs price at filing date for each ticker.
+    If the stock has already run >25% since the 13F filing, the
+    thesis may have played out – score is halved and STALE flag added.
+    """
+    # Collect unique ticker → filing_date mapping (use earliest filing date per ticker)
+    filing_dates: dict[str, str] = {}
+    for entry in scored:
+        t = entry["ticker"]
+        if t and t not in filing_dates:
+            filing_dates[t] = entry.get("filing_date", "")
+
+    tickers = [t for t in filing_dates if t]
+    if not tickers:
+        return scored
+
+    print(f"  📈 Checking price action for {len(tickers)} tickers since filing date...")
+    changes = fetch_price_changes(tickers, filing_dates)
+
+    warned = staled = 0
+    for entry in scored:
+        t      = entry["ticker"]
+        change = changes.get(t)
+        entry["price_change_since_filing_pct"] = (
+            round(change, 1) if change is not None else None
+        )
+
+        if change is None:
+            continue
+
+        if change >= PRICE_ACTION_DOWNGRADE_PCT:
+            entry["raw_score"] *= 0.5
+            if "PRICE_ACTION_STALE" not in entry["flags"]:
+                entry["flags"].append("PRICE_ACTION_STALE")
+            staled += 1
+        elif change >= PRICE_ACTION_WARN_PCT:
+            if "PRICE_ACTION_WARNING" not in entry["flags"]:
+                entry["flags"].append("PRICE_ACTION_WARNING")
+            warned += 1
+
+    if staled or warned:
+        print(f"  ⚠️  Price action: {staled} positions stale (>{PRICE_ACTION_DOWNGRADE_PCT}%), "
+              f"{warned} warnings (>{PRICE_ACTION_WARN_PCT}%)")
+    return scored
+
+
+# ── Cluster detection ─────────────────────────────────────────────────────────
+
 def detect_clusters(scored: list[dict]) -> dict[str, list[str]]:
-    """
-    Clusters on ticker first, then CUSIP, then normalized company name as fallback.
-    This ensures clustering works even when OpenFIGI mapping fails.
-    """
+    """Clusters on ticker > CUSIP > normalized company name."""
     key_filers: dict[str, list[str]] = defaultdict(list)
 
     for entry in scored:
         if entry["delta_type"] not in ("NEW", "ADDED"):
             continue
 
-        # Priority: ticker > cusip > normalized company name
-        ticker = entry.get("ticker", "").strip()
-        cusip  = entry.get("cusip", "").strip()
-        name   = entry.get("name", "").strip().upper()
-
-        # Normalize company name: remove common suffixes for better matching
+        ticker    = entry.get("ticker", "").strip()
+        cusip     = entry.get("cusip", "").strip()
+        name      = entry.get("name", "").strip().upper()
         name_norm = re.sub(r"\b(INC|CORP|LTD|LLC|LP|PLC|CO|THE|DEL|COM)\b", "", name)
         name_norm = re.sub(r"\s+", " ", name_norm).strip()
 
@@ -163,9 +291,6 @@ def detect_clusters(scored: list[dict]) -> dict[str, list[str]]:
 
 
 def apply_cluster_bonus(scored: list[dict], clusters: dict[str, list[str]]) -> list[dict]:
-    """Multiplies raw_score by CLUSTER_BONUS_MULTIPLIER for clustered tickers.
-    Checks ticker first, then CUSIP as fallback (mirrors detect_clusters key logic).
-    """
     for entry in scored:
         cluster_key = entry["ticker"] or entry.get("cusip", "")
         if cluster_key in clusters:
@@ -177,15 +302,11 @@ def apply_cluster_bonus(scored: list[dict], clusters: dict[str, list[str]]) -> l
         else:
             entry["cluster_funds"] = []
             entry["cluster_count"] = 0
-
     return scored
 
 
 def normalize_scores(scored: list[dict]) -> list[dict]:
-    """
-    R-09 Fix: Min-max normalize raw_score to [0, 100].
-    This ensures Claude receives comparable numbers, not arbitrary magnitudes.
-    """
+    """Min-max normalize raw_score to [0, 100]."""
     if not scored:
         return scored
 
@@ -205,34 +326,33 @@ def normalize_scores(scored: list[dict]) -> list[dict]:
 
 
 def aggregate_by_ticker(scored: list[dict]) -> list[dict]:
-    """
-    Merges per-filer entries into per-ticker aggregates.
-    Returns a list sorted by aggregate conviction score descending.
-    """
+    """Merges per-filer entries into per-ticker aggregates."""
     by_ticker: dict[str, dict] = {}
 
     for entry in scored:
         ticker = entry["ticker"] or entry["cusip"] or entry["name"]
         if ticker not in by_ticker:
             by_ticker[ticker] = {
-                "ticker":           ticker,
-                "name":             entry["name"],
-                "filers":           [],
-                "conviction_score": 0.0,
-                "total_value_usd_k":0,
-                "flags":            set(),
-                "cluster_count":    entry["cluster_count"],
-                "cluster_funds":    entry["cluster_funds"],
-                "delta_types":      [],
+                "ticker":            ticker,
+                "name":              entry["name"],
+                "filers":            [],
+                "conviction_score":  0.0,
+                "total_value_usd_k": 0,
+                "flags":             set(),
+                "cluster_count":     entry["cluster_count"],
+                "cluster_funds":     entry["cluster_funds"],
+                "delta_types":       [],
+                "price_change_since_filing_pct": entry.get("price_change_since_filing_pct"),
             }
 
         agg = by_ticker[ticker]
         agg["filers"].append({
-            "filer":          entry["filer"],
-            "port_weight_pct":entry["port_weight_pct"],
-            "delta_pct":      entry["delta_pct"],
-            "delta_type":     entry["delta_type"],
+            "filer":           entry["filer"],
+            "port_weight_pct": entry["port_weight_pct"],
+            "delta_pct":       entry["delta_pct"],
+            "delta_type":      entry["delta_type"],
             "conviction_score":entry["conviction_score"],
+            "mq_multiplier":   entry.get("mq_multiplier", 1.0),
         })
         agg["conviction_score"] = max(agg["conviction_score"], entry["conviction_score"])
         agg["total_value_usd_k"] += entry["value_usd_k"]
@@ -241,13 +361,15 @@ def aggregate_by_ticker(scored: list[dict]) -> list[dict]:
 
     result = []
     for ticker, agg in by_ticker.items():
-        agg["flags"] = sorted(agg["flags"])
+        agg["flags"]       = sorted(agg["flags"])
         agg["filer_count"] = len(agg["filers"])
         result.append(agg)
 
     result.sort(key=lambda x: x["conviction_score"], reverse=True)
     return result
 
+
+# ── Main ──────────────────────────────────────────────────────────────────────
 
 def run():
     today_str = date.today().isoformat()
@@ -258,26 +380,35 @@ def run():
 
     parsed = load_parsed(today_str)
 
-    # 1. Raw scores per filer/position
-    scored = build_scored_universe(parsed)
-    print(f"📊 Scored positions (buys only, ≥{MIN_PORTFOLIO_WEIGHT_PCT}% port weight): {len(scored)}")
+    # 1. Multi-quarter signals from historical data
+    print("\n🔍 Analyzing multi-quarter position building...")
+    mq_signals = multi_quarter.build_multi_quarter_signals(today_str)
+    print(f"   {len(mq_signals)} tickers with 2+ build quarters")
+    for t, s in list(mq_signals.items())[:5]:
+        print(f"   {t}: {s['build_quarters']}Q build, flags={s['flags']}")
 
-    # 2. Cluster detection
+    # 2. Raw scores per filer/position (includes filer quality + MQ multiplier)
+    scored = build_scored_universe(parsed, mq_signals)
+    print(f"\n📊 Scored positions (buys only, ≥{MIN_PORTFOLIO_WEIGHT_PCT}% port weight): {len(scored)}")
+
+    # 3. Price-action staleness check
+    scored = enrich_with_price_action(scored)
+
+    # 4. Cluster detection
     clusters = detect_clusters(scored)
     print(f"🔗 Cluster signals (≥{CLUSTER_MIN_FUNDS} funds): {len(clusters)} tickers")
     for t, f in clusters.items():
         print(f"   {t}: {f}")
 
-    # 3. Apply cluster bonus
+    # 5. Apply cluster bonus
     scored = apply_cluster_bonus(scored, clusters)
 
-    # 4. Normalize to [0, 100]
+    # 6. Normalize to [0, 100]
     scored = normalize_scores(scored)
 
-    # 5. Aggregate by ticker
+    # 7. Aggregate by ticker
     aggregated = aggregate_by_ticker(scored)
 
-    # Print top 20
     print(f"\n{'─'*60}")
     print(f"{'Rank':<5}{'Ticker':<8}{'Score':<8}{'Filers':<8}{'Flags'}")
     print(f"{'─'*60}")
@@ -291,10 +422,11 @@ def run():
         "aggregated":  aggregated,
         "clusters":    clusters,
         "top20":       aggregated[:20],
+        "mq_signals":  mq_signals,
     }
 
     output_path = DATA_DIR / f"{today_str}_scores.json"
-    tmp_path = output_path.with_suffix(".tmp")
+    tmp_path    = output_path.with_suffix(".tmp")
     with open(tmp_path, "w") as f:
         json.dump(output, f, indent=2, default=str)
     tmp_path.replace(output_path)
