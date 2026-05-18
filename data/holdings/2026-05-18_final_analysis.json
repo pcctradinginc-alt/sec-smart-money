@@ -3,109 +3,92 @@
   "round1_top5": [
     {
       "rank": 1,
-      "ticker": "NVDA",
-      "company_name": "NVIDIA Corporation",
-      "conviction_score": 94.2,
-      "thesis": "Unprecedented 7-fund cluster conviction including elite endowments (Harvard, Brown, TCI) and specialized tech allocators (Situational Awareness, Tiger Global, D1), with 11.47% portfolio weight in Situational Awareness suggesting AI infrastructure is a core thesis. New positions across all major allocators indicate synchronized recognition of sustained AI/data center demand tailwinds beyond near-term consensus.",
+      "ticker": "BKNG",
+      "company_name": "Booking Holdings Inc",
+      "conviction_score": 95.4,
+      "thesis": "Harvard + AQR synchronized entry in world-class capital-efficient travel ecosystem. -8% drawdown since filing presents attractive re-entry point for institutional buyers. Strong secular travel tailwinds and AI-driven personalization thesis intact. Only 2-fund cluster but elite buyer concentration (Harvard's 8.1% weighting signals conviction).",
       "key_buyers": [
-        "Situational Awareness LP",
         "Harvard Management Co",
-        "Brown University",
-        "TCI Fund (Chris Hohn)",
-        "Tiger Global (Coleman)",
-        "D1 Capital (Sundheim)",
         "AQR Capital (Asness)"
       ],
-      "cluster_signal": true,
-      "multi_quarter_build": false,
-      "primary_flag": "CLUSTER",
-      "risk_factors": "Stock has already benefited significantly from AI narrative and may be priced for optimistic scenarios; 45-day lag means these positions were established in late April 2026 and could already reflect partial moves.",
+      "primary_flag": "HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
       "direction": "BULLISH",
+      "risk_factors": "Macro travel demand slowdown; potential margin compression from generative AI customer acquisition costs; competitive intensity from OTA consolidation.",
+      "cluster_signal": false,
+      "multi_quarter_build": false,
       "post_filing_perf": {
-        "pct_change": null,
-        "filing_close": null,
-        "current_price": null,
-        "days_since_filing": null
-      }
+        "pct_change": -8.5,
+        "filing_close": 168.41,
+        "current_price": 154.13,
+        "days_since_filing": 48
+      },
+      "filer_details": [
+        {
+          "filer": "Harvard Management Co",
+          "port_weight_pct": 8.099,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 95.4,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "AQR Capital (Asness)",
+          "port_weight_pct": 0.726,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 65.5,
+          "mq_multiplier": 1.0
+        }
+      ],
+      "mq_signal": {}
     },
     {
       "rank": 2,
-      "ticker": "TSM",
-      "company_name": "Taiwan Semiconductor Manufacturing Company",
-      "conviction_score": 100.0,
-      "thesis": "Perfect conviction score with 5-fund cluster of highest-quality allocators (Situational Awareness 6.56%, Harvard 12.78%, Tiger Global 8.23%) entering simultaneously across borders, indicating structural confidence in semiconductor supply chain leadership. TSM's role as critical infrastructure for AI/GPU manufacturing makes it a proxy play on sustained capex cycles with less crowding than direct chip designers.",
+      "ticker": "GLD",
+      "company_name": "SPDR Gold Trust",
+      "conviction_score": 98.3,
+      "thesis": "Dual institutional entry (Harvard 11.0%, Brown 16.7%) with minimal price action (-3%) suggests fresh macro conviction on geopolitical hedging + inflation optionality. Endowment-class buyers typically underweight commodities\u2014this synchronized reallocation is countercyclical signal. ETF vehicle provides liquidity. No run-up yet.",
       "key_buyers": [
-        "Situational Awareness LP",
         "Harvard Management Co",
-        "Tiger Global (Coleman)",
-        "D1 Capital (Sundheim)",
-        "Viking Global (Halvorsen)"
+        "Brown University"
       ],
-      "cluster_signal": true,
-      "multi_quarter_build": false,
-      "primary_flag": "HIGH_CONVICTION",
-      "risk_factors": "Geopolitical concentration risk (Taiwan) and US-China tensions could create volatility; new position status means conviction narrative may still be building and subject to reversal if foundational AI thesis weakens.",
+      "primary_flag": "HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
       "direction": "BULLISH",
+      "risk_factors": "Deflationary shock could trigger liquidation; USD strength headwind; ETF leverage works both ways; geopolitical de-escalation reduces hedge value.",
+      "cluster_signal": false,
+      "multi_quarter_build": false,
       "post_filing_perf": {
-        "pct_change": null,
-        "filing_close": null,
-        "current_price": null,
-        "days_since_filing": null
-      }
+        "pct_change": -3.0,
+        "filing_close": 430.29,
+        "current_price": 417.29,
+        "days_since_filing": 48
+      },
+      "filer_details": [
+        {
+          "filer": "Harvard Management Co",
+          "port_weight_pct": 11.007,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 98.3,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Brown University",
+          "port_weight_pct": 16.688,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 95.0,
+          "mq_multiplier": 1.0
+        }
+      ],
+      "mq_signal": {}
     },
     {
       "rank": 3,
-      "ticker": "AVGO",
-      "company_name": "Broadcom Inc",
-      "conviction_score": 95.2,
-      "thesis": "5-fund cluster including Harvard (8.08%), Situational Awareness (7.36%), and specialized tech allocators (Tiger Global, D1, AQR) capturing semiconductor supply chain exposure with lower visibility than NVDA. As critical infrastructure provider for networking/connectivity in data centers, AVGO represents a complementary bet to NVDA with less consensus coverage and fresher accumulation pattern.",
-      "key_buyers": [
-        "Situational Awareness LP",
-        "Harvard Management Co",
-        "Tiger Global (Coleman)",
-        "D1 Capital (Sundheim)",
-        "AQR Capital (Asness)"
-      ],
-      "cluster_signal": true,
-      "multi_quarter_build": false,
-      "primary_flag": "CLUSTER",
-      "risk_factors": "Cyclical exposure to capex spending means thesis is sensitive to data center investment slowdown; new position timing suggests this is momentum-driven rather than deep-value setup.",
-      "direction": "BULLISH",
-      "post_filing_perf": {
-        "pct_change": null,
-        "filing_close": null,
-        "current_price": null,
-        "days_since_filing": null
-      }
-    },
-    {
-      "rank": 4,
-      "ticker": "BKNG",
-      "company_name": "Booking Holdings Inc",
-      "conviction_score": 95.2,
-      "thesis": "Selective 2-fund entry by Harvard Management (8.10% weight) and AQR Capital representing rare consensus between endowment and quant allocators in travel/tourism recovery play. High portfolio concentration at Harvard suggests conviction in structural travel demand resilience post-cycle, with less crowding than mega-cap tech and better economic sensitivity profile for diversification.",
-      "key_buyers": [
-        "Harvard Management Co",
-        "AQR Capital (Asness)"
-      ],
-      "cluster_signal": false,
-      "multi_quarter_build": false,
-      "primary_flag": "HIGH_CONVICTION",
-      "risk_factors": "Macro sensitivity to consumer spending and recession risk; only 2-fund signal is weaker than mega-cap tech cluster and thesis may reflect cyclical recovery optimism rather than structural growth.",
-      "direction": "BULLISH",
-      "post_filing_perf": {
-        "pct_change": 0.0,
-        "filing_close": 154.13,
-        "current_price": 154.13,
-        "days_since_filing": 3
-      }
-    },
-    {
-      "rank": 5,
-      "ticker": "MSFT",
-      "company_name": "Microsoft Corporation",
-      "conviction_score": 97.6,
-      "thesis": "5-fund cluster across endowments (Harvard 10.46%), specialized allocators (Pershing Square 15.26%), and quant platforms (AQR, Viking Global) entering simultaneously indicates unified thesis on AI-as-platform-provider positioning. MSFT's Copilot/Azure integration and enterprise stickiness suggest lower risk profile than pure chip plays while maintaining upside to AI monetization cycles.",
+      "ticker": "META",
+      "company_name": "Meta Platforms Inc",
+      "conviction_score": 93.5,
+      "thesis": "Broadest mega-fund cluster (5 funds including Harvard, Ackman, Coleman, Halvorsen, AQR). Only +7% run since filing = fresh momentum window. AI/Llama thesis + Reality Labs repositioning driving conviction across diverse fund styles. Pershing Square weighting (11.1%) suggests deep fundamental work. Cluster thesis strongest in mega-cap tech.",
       "key_buyers": [
         "Harvard Management Co",
         "Pershing Square (Ackman)",
@@ -113,107 +96,269 @@
         "Viking Global (Halvorsen)",
         "AQR Capital (Asness)"
       ],
+      "primary_flag": "CLUSTER, HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
+      "direction": "BULLISH",
+      "risk_factors": "Regulatory uncertainty (antitrust, content liability); Reality Labs capex drain unproven; AI training margin compression; macro ad recession sensitivity; competition from TikTok.",
       "cluster_signal": true,
       "multi_quarter_build": false,
-      "primary_flag": "CLUSTER",
-      "risk_factors": "Mega-cap tech already extensively covered and these positions may be consensus; stock has likely already captured much of the AI narrative given ubiquitous institutional ownership.",
-      "direction": "BULLISH",
       "post_filing_perf": {
-        "pct_change": 0.0,
-        "filing_close": 421.92,
-        "current_price": 421.92,
-        "days_since_filing": 3
-      }
-    }
-  ],
-  "market_context": "Institutional investors are showing strong synchronized conviction in mega-cap tech (NVDA, MSFT, GOOGL, AMZN) and semiconductor supply chain (TSM, AVGO), suggesting a coordinated thesis around AI infrastructure and edge computing. Simultaneous entries by elite endowments (Harvard, Brown) and specialized hedge funds (D1, Tiger Global, Viking) into both traditional blue chips and emerging fintech/e-commerce names indicate portfolio repositioning toward structural growth themes with reduced economic sensitivity.",
-  "options_recs": [
-    {
-      "rank": 1,
-      "stock_ticker": "NVDA",
-      "company_name": "NVIDIA Corporation",
-      "option_symbol": "NVDA260918C00240000",
-      "option_type": "CALL",
-      "strike": 240.0,
-      "expiration": "2026-09-18",
-      "entry_price_mid": 16.15,
-      "max_risk_per_contract": 1615.0,
-      "investment_thesis_link": "7-fund cluster including Harvard, TCI, Tiger Global, and Situational Awareness (11.47% weight) signals unprecedented synchronized conviction in AI infrastructure demand; the September expiry gives 4+ months for the institutional thesis to materialize beyond the 45-day 13F lag.",
-      "option_rationale": "Strike at +9% OTM with Delta 0.45 sits in the sweet spot for leveraged bullish exposure without overpaying for proximity. September 18 expiry provides sufficient runway for AI capex cycle catalysts (earnings, data center announcements). IV at 44.8% is consistent with peer strikes, no premium anomaly. Volume 2547 and OI 32666 represent the highest liquidity in the NVDA chain, minimizing slippage. Spread% of 0.6% is exceptionally tight for a high-beta name.",
-      "profit_target": "+60-90% on option premium if NVDA moves to $255-265 (+16-20%) by August-September",
-      "stop_loss": "-50% on option premium (~$8.08 per contract)",
-      "key_risk": "NVDA has already priced in significant AI optimism and any guidance miss, export restriction escalation, or capex slowdown signal from hyperscalers could rapidly erode premium.",
-      "greeks_note": "Available"
-    },
-    {
-      "rank": 2,
-      "stock_ticker": "TSM",
-      "company_name": "Taiwan Semiconductor Manufacturing Company",
-      "option_symbol": "TSM260918C00390000",
-      "option_type": "CALL",
-      "strike": 390.0,
-      "expiration": "2026-09-18",
-      "entry_price_mid": 44.35,
-      "max_risk_per_contract": 4435.0,
-      "investment_thesis_link": "Perfect conviction score with 5 top-tier allocators (Situational Awareness 6.56%, Harvard 12.78%, Tiger Global 8.23%) entering simultaneously reflects structural confidence in TSM as irreplaceable AI/GPU manufacturing infrastructure; the near-ATM September strike positions for steady thesis appreciation as capex cycle visibility improves.",
-      "option_rationale": "Strike at -0.6% (essentially ATM) with Delta 0.59 reflects higher conviction warranted by the elite fund cluster quality and TSM's structural moat. September expiry aligns with Q2 earnings catalyst and potential positive AI demand commentary. IV at 45.6% is reasonable for a name with geopolitical risk premium. Volume 176 and OI 1206 are adequate though lower than NVDA; spread at 2.0% is acceptable. ATM positioning maximizes delta sensitivity to upside moves while providing intrinsic value buffer against time decay.",
-      "profit_target": "+40-65% on option premium if TSM moves to $430-450 (+10-15%) by September",
-      "stop_loss": "-45% on option premium (~$19.96 per contract)",
-      "key_risk": "Taiwan geopolitical tensions with China represent a binary tail risk that could gap the stock down sharply regardless of fundamental AI thesis strength, making position sizing critical.",
-      "greeks_note": "Available"
-    },
-    {
-      "rank": 3,
-      "stock_ticker": "MSFT",
-      "company_name": "Microsoft Corporation",
-      "option_symbol": "MSFT260918C00430000",
-      "option_type": "CALL",
-      "strike": 430.0,
-      "expiration": "2026-09-18",
-      "entry_price_mid": 30.05,
-      "max_risk_per_contract": 3005.0,
-      "investment_thesis_link": "5-fund cluster led by Pershing Square (15.26% weight) and Harvard (10.46%) converging on MSFT as the AI-as-platform play with enterprise stickiness provides a lower-risk AI monetization thesis; the near-ATM strike with low IV offers the most capital-efficient expression of a high-conviction, lower-volatility thesis.",
-      "option_rationale": "Strike at +1.5% OTM with Delta 0.53 is nearly ATM, appropriate for MSFT's lower beta and steadier AI monetization runway through Azure/Copilot. Critically, MSFT's IV at 31.6% is dramatically lower than semiconductor peers (NVDA 44.8%, AVGO 50%), making this the most attractively priced option on a premium-per-dollar-of-exposure basis. Volume 1292 and OI 5606 ensure good liquidity. Spread at 1.3% is among the tightest in the entire dataset. September expiry captures Q1 FY2027 earnings and multiple Azure growth data points.",
-      "profit_target": "+45-70% on option premium if MSFT moves to $465-480 (+10-13%) by September",
-      "stop_loss": "-50% on option premium (~$15.03 per contract)",
-      "key_risk": "As the most widely held mega-cap, MSFT options are sensitive to broad market de-rating risk, and the AI monetization timeline may already be fully discounted in the current price near all-time highs.",
-      "greeks_note": "Available"
+        "pct_change": 7.4,
+        "filing_close": 572.13,
+        "current_price": 614.23,
+        "days_since_filing": 48
+      },
+      "filer_details": [
+        {
+          "filer": "Harvard Management Co",
+          "port_weight_pct": 6.131,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 93.5,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Pershing Square (Ackman)",
+          "port_weight_pct": 11.101,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 73.3,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Tiger Global (Coleman)",
+          "port_weight_pct": 7.731,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 62.7,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Viking Global (Halvorsen)",
+          "port_weight_pct": 1.701,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 73.9,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "AQR Capital (Asness)",
+          "port_weight_pct": 0.549,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 65.4,
+          "mq_multiplier": 1.0
+        }
+      ],
+      "mq_signal": {}
     },
     {
       "rank": 4,
-      "stock_ticker": "AVGO",
-      "company_name": "Broadcom Inc",
-      "option_symbol": "AVGO261016C00430000",
-      "option_type": "CALL",
-      "strike": 430.0,
-      "expiration": "2026-10-16",
-      "entry_price_mid": 51.45,
-      "max_risk_per_contract": 5145.0,
-      "investment_thesis_link": "5-fund cluster including Harvard (8.08%) and Situational Awareness (7.36%) targeting AVGO as a less-crowded AI data center networking play; October expiry provides extra time for the 'complementary to NVDA' thesis to build as data center connectivity demand crystallizes in earnings reports.",
-      "option_rationale": "Strike at +2.8% OTM with Delta 0.55 and October 16 expiry provides the longest time horizon available for AVGO while maintaining near-ATM sensitivity. October expiry is preferred over August to avoid theta decay pressure during what may be a gradual institutional accumulation story. Volume 111 and OI 1410 are adequate; spread at 2.3% is acceptable. IV at 50.6% is the highest in this selection but reflects AVGO's genuine higher volatility profile versus MSFT; compared to AVGO's own chain, the October strike is not an outlier. The additional month over September peers justifies the small IV premium.",
-      "profit_target": "+50-75% on option premium if AVGO moves to $480-500 (+15-20%) by October",
-      "stop_loss": "-50% on option premium (~$25.73 per contract)",
-      "key_risk": "AVGO's thesis is momentum-driven per the analysis; any slowdown signal in hyperscaler networking capex or softness in VMware integration could reverse the accumulation pattern quickly given the elevated IV already embedded in premiums.",
-      "greeks_note": "Available"
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corp",
+      "conviction_score": 97.7,
+      "thesis": "5-fund mega-cluster (Harvard, Ackman, Coleman, Halvorsen, AQR) with +14% run partially justified by enterprise AI leadership + Azure upside. Ackman's meaningful 15.3% weighting + Harvard 10.5% signal portfolio-level conviction. Despite price action, continued institutional accumulation across hedge + endowment strategies suggests thesis expansion. OpenAI integration moat widening.",
+      "key_buyers": [
+        "Harvard Management Co",
+        "Pershing Square (Ackman)",
+        "Tiger Global (Coleman)",
+        "Viking Global (Halvorsen)",
+        "AQR Capital (Asness)"
+      ],
+      "primary_flag": "CLUSTER, HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
+      "direction": "BULLISH",
+      "risk_factors": "OpenAI competitive threat or partnership deterioration; enterprise AI deployment slower than expected; margin pressure from infrastructure capex; valuation already reflects AI premium.",
+      "cluster_signal": true,
+      "multi_quarter_build": false,
+      "post_filing_perf": {
+        "pct_change": 14.0,
+        "filing_close": 370.17,
+        "current_price": 421.92,
+        "days_since_filing": 48
+      },
+      "filer_details": [
+        {
+          "filer": "Harvard Management Co",
+          "port_weight_pct": 10.46,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 97.7,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Pershing Square (Ackman)",
+          "port_weight_pct": 15.261,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 76.5,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Tiger Global (Coleman)",
+          "port_weight_pct": 4.051,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 60.2,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Viking Global (Halvorsen)",
+          "port_weight_pct": 2.391,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 74.5,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "AQR Capital (Asness)",
+          "port_weight_pct": 2.046,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 66.5,
+          "mq_multiplier": 1.0
+        }
+      ],
+      "mq_signal": {}
     },
     {
       "rank": 5,
-      "stock_ticker": "BKNG",
-      "company_name": "Booking Holdings Inc",
-      "option_symbol": "BKNG260918C00180000",
-      "option_type": "CALL",
-      "strike": 180.0,
-      "expiration": "2026-09-18",
-      "entry_price_mid": 6.3,
-      "max_risk_per_contract": 630.0,
-      "investment_thesis_link": "Harvard Management's 8.10% portfolio concentration in BKNG signals high endowment-level conviction in structural travel demand resilience; the low-cost OTM September call provides asymmetric upside exposure to the thesis with minimal capital at risk given the weaker 2-fund signal relative to the semiconductor cluster plays.",
-      "option_rationale": "Strike at +16.9% OTM with Delta 0.31 reflects the appropriate risk-sizing for the weakest conviction signal in this portfolio (2-fund vs 5-7 fund clusters for others). The low premium of $6.30 limits absolute dollar risk while still providing meaningful leverage. IV at 41.0% is the lowest among all candidates and makes this the cheapest option on a volatility-adjusted basis. Volume is only 15 (lowest in dataset) and OI 636 is thin \u2014 this is the key liquidity risk. Spread at 3.2% is manageable. September expiry captures summer travel season peak data and back-to-school booking cycle, both natural catalysts for the thesis. Ranked 5th deliberately to reflect lower conviction and liquidity.",
-      "profit_target": "+80-120% on option premium if BKNG moves to $195-205 (+27-33%) driven by travel demand surprise",
-      "stop_loss": "-60% on option premium (~$3.78 per contract) given lower conviction",
-      "key_risk": "Extremely low volume (15 contracts) signals poor liquidity and potentially wide real-world execution spreads; macro recession fears or consumer spending weakness could rapidly undermine the travel recovery thesis that only 2 funds are expressing.",
-      "greeks_note": "Available"
+      "ticker": "SCHW",
+      "company_name": "Charles Schwab Corp",
+      "conviction_score": 75.7,
+      "thesis": "Dual D1 + Viking synchronized entry in secular retail wealth democratization play. Only -3% drawdown + high conviction flags (TOP10_ENTRY) suggest fresh alpha capture window. Wealth management consolidation thesis + discount brokerage moat intact. Lower conviction score offset by undiscovered positioning (not in Top 10 rankings = less crowded flow).",
+      "key_buyers": [
+        "D1 Capital (Sundheim)",
+        "Viking Global (Halvorsen)"
+      ],
+      "primary_flag": "HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
+      "direction": "BULLISH",
+      "risk_factors": "Interest rate sensitivity on net interest margin; intensifying competition from zero-fee brokers (Fidelity, E*TRADE); client acquisition cost inflation; regulatory crackdown on payment for order flow.",
+      "cluster_signal": false,
+      "multi_quarter_build": false,
+      "post_filing_perf": {
+        "pct_change": -2.9,
+        "filing_close": 93.64,
+        "current_price": 90.88,
+        "days_since_filing": 48
+      },
+      "filer_details": [
+        {
+          "filer": "D1 Capital (Sundheim)",
+          "port_weight_pct": 1.972,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 58.8,
+          "mq_multiplier": 1.0
+        },
+        {
+          "filer": "Viking Global (Halvorsen)",
+          "port_weight_pct": 3.855,
+          "delta_pct": null,
+          "delta_type": "NEW",
+          "conviction_score": 75.7,
+          "mq_multiplier": 1.0
+        }
+      ],
+      "mq_signal": {}
     }
   ],
-  "portfolio_note": "Suggested sizing reflects conviction tier weighting: NVDA and TSM at 30% of options budget each (7-fund and 5-fund elite clusters), MSFT and AVGO at 20% each (5-fund clusters with differentiated risk profiles), and BKNG at 10% (2-fund signal, liquidity concerns). Total options budget should represent no more than 3-5% of total portfolio value given the leveraged nature of these positions. The semiconductor cluster (NVDA+TSM+AVGO) represents correlated AI capex risk \u2014 consider reducing any single name if overall AI exposure exceeds comfort threshold. MSFT provides partial hedge as a lower-beta AI play. BKNG provides genuine sector diversification.",
-  "disclaimer": "Options involve significant risk including total loss of premium paid. This analysis is based on 13F filings with an approximately 45-day reporting lag and real-time option prices that may differ materially at execution. Institutional positions may have already been reduced or reversed. IV levels and spreads are point-in-time estimates. Geopolitical events, earnings surprises, or macro shifts can cause rapid adverse moves. This is not investment advice. Consult a licensed financial advisor before trading."
+  "market_context": "Institutional mega-funds and elite endowments showing synchronized positioning in mega-cap tech (MSFT, META, TSM) and secular growth names. Bitcoin/commodities (GLD, IBIT) receiving meaningful allocations from sophisticated investors, suggesting macro positioning. Notable valuations compression in high-conviction names not yet reflected in recent price action.",
+  "options_recs": [
+    {
+      "rank": 1,
+      "stock_ticker": "BKNG",
+      "company_name": "Booking Holdings Inc",
+      "strategy": "LONG_CALL",
+      "option_symbol": "BKNG260918C00168000",
+      "option_type": "Call",
+      "strike": 168.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 9.7,
+      "max_risk_per_contract": 970,
+      "investment_thesis_link": "https://sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=BKNG&type=13F",
+      "option_rationale": "Harvard Management Co and AQR Capital made a synchronized entry into BKNG, with Harvard allocating an outsized 8.1% portfolio weighting \u2014 a strong conviction signal. The stock has pulled back ~8% since the filing quarter-end, offering an attractive re-entry point that has not yet priced in the full thesis. The $168 strike sits +9.3% above spot, just at the upper boundary of the preferred OTM range, with a Delta of 0.42 \u2014 well within the 0.35\u20130.50 target zone for leveraged bullish exposure. The September 2026 expiry provides ~4 months for the secular travel demand tailwinds and AI-driven personalization thesis to play out, and straddles the summer travel earnings season \u2014 a natural fundamental catalyst. Spread% of 6.2% is comfortably below the 10% liquidity threshold, and OI of 621 confirms adequate open interest. Volume of 0 on the analysis date is a minor concern but OI depth supports tradeable liquidity.",
+      "iv_rank_note": "IV Rank is 63.2 \u2014 MODERATE band (40\u201369). A naked long call is acceptable per strategy rules. IV/HV ratio of 1.05 indicates implied volatility is only marginally above realized (HV30 = 39.8%), meaning option premium is not excessively rich. There is limited IV compression risk post-entry, and any vol expansion on a positive catalyst would add incremental profit on top of delta gains. A Bull Call Spread is NOT required here.",
+      "profit_target": "+50\u201375% on the option premium (~$14.55\u2013$16.98 per share, i.e. $1,455\u2013$1,698 per contract). This corresponds to BKNG trading toward ~$180\u2013$185, consistent with a recovery from the -8% drawdown and resumption of the institutional thesis. Consider scaling out 50% at +50% gain to lock in profits ahead of expiry.",
+      "stop_loss": "-40% on option premium (~$5.82 per share, i.e. $582 per contract). Exit if BKNG breaks decisively below key support or if the macro travel demand narrative deteriorates materially. Hard floor: do not allow a full premium wipeout.",
+      "key_risk": "1) MACRO: A travel demand slowdown (recession, consumer confidence collapse) is the primary thesis-killer \u2014 BKNG revenue is highly cyclical. 2) AI COST CREEP: Generative AI customer acquisition costs could compress margins faster than revenue growth, disappointing earnings. 3) OTA COMPETITION: Further consolidation among online travel agencies could erode BKNG's pricing power. 4) VOLUME: Zero volume on analysis date suggests limited same-day liquidity \u2014 use limit orders at or near the mid-price ($9.70) and be patient on fill. 5) IV RANK at 63.2 means premium is moderately elevated; a vol crush post-earnings could hurt the position even if the stock moves in the right direction.",
+      "greeks_note": "Delta 0.42 \u2014 slightly OTM, providing meaningful but leveraged directional exposure. IV of 41.9% on the contract is broadly consistent with the HV30 of 39.8%, confirming fair-value pricing. Theta decay will accelerate meaningfully inside 60 days \u2014 monitor closely after July 2026 and consider rolling or exiting if the thesis has not begun to play out by then."
+    },
+    {
+      "rank": 2,
+      "stock_ticker": "GLD",
+      "company_name": "SPDR Gold Trust",
+      "strategy": "LONG_CALL",
+      "option_symbol": "GLD260821C00440000",
+      "option_type": "CALL",
+      "strike": 440.0,
+      "expiration": "2026-08-21",
+      "entry_price_mid": 12.82,
+      "max_risk_per_contract": 1282,
+      "investment_thesis_link": "https://sec.gov/cgi-bin/browse-edgar?action=getcompany&type=13F",
+      "option_rationale": "GLD260821C00440000 is the standout choice across the entire chain. At +5.3% OTM, it sits squarely in the preferred Delta 0.35\u20130.50 window (\u03940.38), offering meaningful leveraged upside without excessive premium bleed. Crucially, it has BY FAR the best liquidity in the chain: Vol=434 (more than 4\u00d7 any other strike) and OI=2,119, with a tight Spread% of just 2.7%. The Aug-21 expiry provides ~3 months for the macro/geopolitical thesis to play out and straddles summer conference season. The $440 strike also aligns well with a clean breakeven of ~$452.82, consistent with the fresh accumulation narrative (only -3% price action since filing means the thesis is not yet priced in). The GLD260821C00430000 ATM-adjacent alternative at \u03940.45 is slightly more aggressive but suffers from very low volume (69) and modest OI (1,377), making it a liquidity penalty candidate. The Sep-18 $420 call (\u03940.54) offers higher delta but is nearly ATM, carries the highest premium ($24.60), and the very low volume (54) reduces confidence in clean execution.",
+      "iv_rank_note": "IV Rank is 29.4 \u2014 firmly in the CHEAP tier (< 40). With IV/HV ratio of only 1.04 and HV30 at 22.6%, options are essentially fairly valued relative to realised vol, with room for IV expansion on any geopolitical flare-up or inflation surprise \u2014 both core catalysts in this thesis. A naked long call is the preferred strategy: no need to cap upside via a spread when IV drag is minimal. Any macro risk-off event that drives gold buying will simultaneously expand implied volatility, providing a dual tailwind (directional delta gain + vega lift) to the long call position.",
+      "greeks_note": "Delta: 0.38 (leveraged OTM exposure, ~$1,588 notional delta per contract). IV: 23.4% \u2014 consistent across the chain, confirming no term structure or strike-specific anomalies. Theta decay at ~3 months to expiry is manageable. Vega is a net positive given low IV Rank \u2014 any geopolitical shock or inflation re-acceleration will expand IV and boost option value independent of spot move.",
+      "profit_target": "25\u201340% gain on the option premium (~$16.00\u2013$17.95 mid), targeting GLD spot in the $455\u2013$465 range. Consider scaling out 50% at +25% and letting the remainder run into any macro catalyst.",
+      "stop_loss": "Exit if option premium declines 40\u201350% from entry (mid \u2264 ~$6.40\u2013$7.70), or if GLD spot breaks below $405 on a closing basis, signalling thesis invalidation (USD strength / deflationary shock).",
+      "key_risk": "1) Deflationary shock or aggressive Fed hawkishness could strengthen USD and pressure gold materially. 2) Geopolitical de-escalation removes the hedge premium embedded in the thesis. 3) At IV Rank 29.4 the premium is relatively cheap, but a 3-month theta decay of ~$12.82 is still the maximum loss if GLD stays below $440 at expiry. 4) 13F data is ~45 days stale \u2014 Harvard and Brown positions may have been trimmed or exited since quarter-end filing."
+    },
+    {
+      "rank": 3,
+      "stock_ticker": "META",
+      "company_name": "Meta Platforms Inc",
+      "strategy": "LONG_CALL",
+      "option_symbol": "META260918C00620000",
+      "option_type": "Call",
+      "strike": 620.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 50.78,
+      "max_risk_per_contract": 5078.0,
+      "investment_thesis_link": "https://sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=META&type=13F",
+      "option_rationale": "META is the highest-conviction mega-fund cluster in our screen \u2014 5 elite funds (Harvard, Ackman/Pershing Square, Coleman/Tiger Global, Halvorsen/Viking Global, AQR) all entered simultaneously, with only a +7% run since the 13F filing quarter-end, leaving meaningful upside still on the table. The Sep-18 620 call is the optimal selection for the following reasons: (1) Strike at +1.3% OTM places Delta at 0.53 \u2014 essentially ATM, consistent with the high-conviction, 5-fund cluster warranting maximum delta exposure. (2) The Sep-18 expiry (~4 months out) provides ample time for the AI/Llama and Reality Labs repositioning thesis to mature, and importantly straddles META's Q2 2026 earnings (expected late July), a natural catalyst. (3) Excellent liquidity: Vol=260, OI=818, Spread%=1.7% \u2014 well within the <10% threshold. This is superior to the Aug-21 620 strike (shorter runway, pre-earnings expiry risk) and the Sep-18 700 strike (+14.4% OTM, Delta only 0.31 \u2014 too far OTM for a thesis with only +7% run-up to date).",
+      "iv_rank_note": "IV Rank = 54.8 (MODERATE range: 40\u201369). IV/HV ratio of 0.98 confirms options are fairly priced relative to realized volatility \u2014 not expensive. A naked long call is fully acceptable here; no need to sacrifice upside with a spread. There is a mild IV premium drag at this rank, but the 5-fund institutional conviction and catalyst-rich timeline (Q2 earnings) justify absorbing it. IV expansion on a bullish catalyst would add incremental P&L on top of delta gains.",
+      "profit_target": "+50\u201370% on the option premium (~$76\u2013$86 per contract mid), targeting META at $660\u2013$680 by expiry. First take-profit trigger: META breaks and holds above $640 with 6+ weeks remaining (roll or trim at that point).",
+      "stop_loss": "Close position at -40% of premium paid (~$30.47 mid) or if META breaks below $580 on a closing basis, signaling a structural breakdown of the institutional re-entry thesis.",
+      "key_risk": "1. Thesis partially priced in: +7% run since filing means some alpha has been captured; any disappointment in Q2 earnings (ad revenue miss, Reality Labs capex blowout) could erase gains quickly. 2. Regulatory overhang: antitrust/content liability rulings could trigger sharp drawdown. 3. Macro ad recession: META revenue is highly cyclical \u2014 a deteriorating macro environment compresses multiples fast. 4. IV Rank at 54.8 means premium is not cheap; a volatility crush post-earnings could hurt even if the stock moves modestly higher. 5. TikTok competitive pressure on Reels monetization.",
+      "greeks_note": "Delta: 0.53 (near-ATM, ~$1 move in option per $2 move in stock at initiation). Theta decay moderate at ~4 months to expiry \u2014 manageable. Vega positive; IV expansion on a catalyst adds incremental value."
+    },
+    {
+      "rank": 4,
+      "stock_ticker": "MSFT",
+      "company_name": "Microsoft Corp",
+      "strategy": "LONG_CALL",
+      "option_symbol": "MSFT260918C00450000",
+      "option_type": "Call",
+      "strike": 450.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 21.02,
+      "max_risk_per_contract": 2102.0,
+      "investment_thesis_link": "https://sec.gov/cgi-bin/browse-edgar?action=getcompany&type=13F&dateb=&owner=include&count=40",
+      "option_rationale": "MSFT is backed by the broadest mega-fund cluster in this screen (5 funds: Harvard, Ackman/Pershing Square, Coleman/Tiger Global, Halvorsen/Viking Global, AQR), with Ackman at 15.3% weighting and Harvard at 10.5% \u2014 both signalling deep, portfolio-level conviction. The stock is +14% since filing, which partially prices in the thesis but does not extinguish it; Azure/enterprise AI momentum and the OpenAI integration moat are structural, multi-quarter catalysts. The Sep-18 2026 expiry (4 months out) gives the thesis ample time to mature and straddles both summer earnings (late July) and early-fall conference season, providing multiple potential re-rating catalysts. The $450 strike at +6.6% above spot with Delta 0.41 offers leveraged upside without paying the full ATM premium, consistent with the slightly-OTM / Delta 0.35\u20130.50 preferred profile. Liquidity is excellent: Vol 2,097, OI 7,796, Spread% just 1.7% \u2014 the tightest spread in the entire chain and easily the most liquid contract available. This ensures clean entry and exit with minimal slippage.",
+      "iv_rank_note": "IV Rank = 56.0 \u2014 MODERATE band (40\u201369). A naked long call is acceptable per strategy rules; IV premium drag is present but not extreme. IV/HV ratio of 1.09 confirms only modest implied-vs-realised vol premium, so the extrinsic cost is reasonable. No spread structure is required. If IV were to mean-revert toward HV30 (29.1%), vega drag would be modest (~0.10 IV point differential). The 31.2% implied vol on the Sep-18 $450 strike is in line with the rest of the chain, offering no unusual richness at this specific strike.",
+      "greeks_note": "Delta 0.41 \u2014 slightly OTM, providing ~$0.41 of directional exposure per $1 move in MSFT. IV 31.2%, consistent with chain average. ~4-month expiry retains meaningful theta buffer; time decay accelerates meaningfully only inside the final 60 days.",
+      "profit_target": "35\u201350% gain on the option premium (~$29\u2013$31 mid), targeting MSFT in the $465\u2013$480 range. Consider trimming 50% at +35% and letting the remainder ride into earnings. Full exit at expiry if thesis has not materialised.",
+      "stop_loss": "Exit if option premium declines 40\u201350% from entry (~$10.50\u2013$12.60 mid), or if MSFT closes decisively below $405 (invalidating the bullish structure). Do not average down given the +14% pre-run context.",
+      "key_risk": "Stock has already appreciated +14% since 13F filing quarter-end, meaning a meaningful portion of institutional re-rating may already be priced in \u2014 upside from here requires fresh catalysts (earnings beat, Azure acceleration). Additional risks: OpenAI partnership deterioration or competitive disruption; enterprise AI deployment timelines slipping; infrastructure capex margin pressure; any macro-driven de-risking by the institutional cluster. IV Rank at 56 means premium is not cheap \u2014 a vol contraction post-earnings could create a vega headwind even if the stock moves in the right direction."
+    },
+    {
+      "rank": 5,
+      "stock_ticker": "SCHW",
+      "company_name": "Charles Schwab Corp",
+      "strategy": "LONG_CALL",
+      "option_symbol": "SCHW260918C00095000",
+      "option_type": "Call",
+      "strike": 95.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 5.2,
+      "max_risk_per_contract": 520,
+      "investment_thesis_link": "Thesis #5 \u2013 D1 Capital (Sundheim) + Viking Global (Halvorsen) synchronized entry in secular retail wealth democratization play. Fresh -3% drawdown from filing = attractive re-entry. Wealth management consolidation moat intact.",
+      "option_rationale": "SCHW260918C00095000 is the standout choice across the chain. At +3.1% OTM with a Delta of 0.48, it sits squarely in the ATM/near-ATM zone (0.45\u20130.55 target), appropriate for this higher-conviction synchronized institutional entry. The Sep-18 2026 expiry (~4 months out) comfortably satisfies the 3\u20136 month window and straddles Q2 earnings and the fall conference season, giving the thesis ample time to play out. Critically, it has the tightest bid-ask spread in the chain at just 3.8%, the highest open interest at 1,789 contracts, confirming strong liquidity. While volume (38) is modest, the deep OI provides confidence in execution quality. Compared to the Aug-21 100C, the Sep-18 95C offers a meaningfully higher delta (0.48 vs 0.33), more time premium, and a tighter spread \u2014 all superior attributes for a directional long call thesis.",
+      "iv_rank_note": "IV Rank is 59.3 \u2014 MODERATE range (40\u201369). A naked long call is acceptable per strategy rules; a Bull Call Spread is not required. IV/HV ratio of 1.19 signals modest premium inflation (IV 28.1% vs HV30 23.6%), so premium is slightly elevated but not punitive. The moderate IV environment means we are not overpaying excessively for optionality, and any mean-reversion in IV toward HV would be a minor headwind rather than a deal-breaker. No spread structure needed, and the naked call preserves full upside participation in the institutional re-rating thesis.",
+      "profit_target": "40\u201350% gain on the option premium (~$7.28\u2013$7.80 per contract value), consistent with SCHW reaching the $100\u2013$102 range. Given only a -3% stock drawdown since the 13F filing, the thesis is largely unpriced \u2014 full upside capture is realistic within the Sep expiry window.",
+      "stop_loss": "Exit if option loses 40\u201350% of premium paid (contract value falls to ~$2.60\u2013$3.12), or if SCHW breaks below $87 on a closing basis, invalidating the institutional re-entry thesis support level.",
+      "key_risk": "Interest rate sensitivity on net interest margin is the primary risk \u2014 any Fed pivot or rate cut cycle could compress Schwab's earnings power. Secondary risks include intensifying zero-fee competition (Fidelity, E*TRADE), regulatory action on payment for order flow, and client acquisition cost inflation. Moderate IV (59.3) means premium is slightly above historical vol, creating a modest headwind if the stock drifts sideways.",
+      "greeks_note": "Delta 0.48 \u2014 near-ATM, high sensitivity to directional move. IV 28.1% implies a ~\u00b1$3.85/week 1-sigma move. Theta decay is manageable at 4 months to expiry but will accelerate post-August; monitor and consider rolling if thesis not yet expressed by late August."
+    }
+  ],
+  "portfolio_note": "",
+  "disclaimer": "Options involve significant risk including total loss of premium. Based on delayed 13F data. Not investment advice."
 }

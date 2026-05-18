@@ -87,46 +87,46 @@
     },
     {
       "report_date": "2026-05-18",
-      "ticker": "NVDA",
-      "company": "NVIDIA Corporation",
-      "conviction_score": 94.2,
-      "primary_flag": "CLUSTER",
-      "status_d90": "pending",
-      "status_d180": "pending"
-    },
-    {
-      "report_date": "2026-05-18",
-      "ticker": "TSM",
-      "company": "Taiwan Semiconductor Manufacturing Company",
-      "conviction_score": 100.0,
-      "primary_flag": "HIGH_CONVICTION",
-      "status_d90": "pending",
-      "status_d180": "pending"
-    },
-    {
-      "report_date": "2026-05-18",
-      "ticker": "AVGO",
-      "company": "Broadcom Inc",
-      "conviction_score": 95.2,
-      "primary_flag": "CLUSTER",
-      "status_d90": "pending",
-      "status_d180": "pending"
-    },
-    {
-      "report_date": "2026-05-18",
       "ticker": "BKNG",
       "company": "Booking Holdings Inc",
-      "conviction_score": 95.2,
-      "primary_flag": "HIGH_CONVICTION",
+      "conviction_score": 95.4,
+      "primary_flag": "HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
+      "status_d90": "pending",
+      "status_d180": "pending"
+    },
+    {
+      "report_date": "2026-05-18",
+      "ticker": "GLD",
+      "company": "SPDR Gold Trust",
+      "conviction_score": 98.3,
+      "primary_flag": "HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
+      "status_d90": "pending",
+      "status_d180": "pending"
+    },
+    {
+      "report_date": "2026-05-18",
+      "ticker": "META",
+      "company": "Meta Platforms Inc",
+      "conviction_score": 93.5,
+      "primary_flag": "CLUSTER, HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
       "status_d90": "pending",
       "status_d180": "pending"
     },
     {
       "report_date": "2026-05-18",
       "ticker": "MSFT",
-      "company": "Microsoft Corporation",
-      "conviction_score": 97.6,
-      "primary_flag": "CLUSTER",
+      "company": "Microsoft Corp",
+      "conviction_score": 97.7,
+      "primary_flag": "CLUSTER, HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
+      "status_d90": "pending",
+      "status_d180": "pending"
+    },
+    {
+      "report_date": "2026-05-18",
+      "ticker": "SCHW",
+      "company": "Charles Schwab Corp",
+      "conviction_score": 75.7,
+      "primary_flag": "HIGH_CONVICTION, NEW_POSITION, TOP10_ENTRY",
       "status_d90": "pending",
       "status_d180": "pending"
     }
