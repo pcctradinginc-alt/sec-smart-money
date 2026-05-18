@@ -206,7 +206,9 @@ def build_scored_universe(parsed: dict, mq_signals: dict[str, dict]) -> list[dic
             continue
 
         positions = filer_data["positions"]
-        filing_date = filer_data.get("filing_date", "")
+        # Prefer report_date (quarter-end) over filing_date so price comparison
+        # measures from when the manager held the position, not when they disclosed it.
+        filing_date = filer_data.get("report_date") or filer_data.get("filing_date", "")
 
         for pos in positions:
             raw_score = compute_raw_score(pos, filer_name)
