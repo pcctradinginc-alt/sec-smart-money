@@ -61,8 +61,9 @@ SEC_HEADERS = {
 SEC_RATE_LIMIT_SLEEP = 0.15   # seconds between requests (max 10/s allowed)
 
 # ── OpenFIGI (CUSIP → Ticker mapping) ────────────────────────────────────────
-OPENFIGI_URL   = "https://api.openfigi.com/v3/mapping"
-OPENFIGI_BATCH = 100   # max items per request
+OPENFIGI_URL     = "https://api.openfigi.com/v3/mapping"
+OPENFIGI_BATCH   = 10    # 10 without API key, up to 100 with free key from openfigi.com
+OPENFIGI_API_KEY = ""    # optional – set as GitHub Secret OPENFIGI_API_KEY for higher limits
 
 # ── Scoring weights ───────────────────────────────────────────────────────────
 WEIGHT_PORTFOLIO_PCT = 0.20   # how large the position is in the portfolio
