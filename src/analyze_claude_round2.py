@@ -248,10 +248,26 @@ def run():
         print(f"   #{rec['rank']} {rec['stock_ticker']} → {rec['option_symbol']} "
               f"@ ${mid} | {rec.get('profit_target', '')}")
 
+    # Enrich round1_top5 with post-filing price performance from scores.json
+    # so the report can show "already +X% since filing" without a separate API call.
+    top5 = r1.get("top5", [])
+    try:
+        scores_path = DATA_DIR / f"{today_str}_scores.json"
+        with open(scores_path) as sf:
+            scores = json.load(sf)
+        perf_by_ticker = {
+            agg["ticker"]: agg.get("post_filing_perf", {})
+            for agg in scores.get("aggregated", [])
+        }
+        for stock in top5:
+            stock["post_filing_perf"] = perf_by_ticker.get(stock.get("ticker", ""), {})
+    except Exception as e:
+        print(f"  ⚠️  Could not enrich with post-filing perf: {e}")
+
     # Merge Round 1 and Round 2 into final analysis file
     final = {
         "date":              today_str,
-        "round1_top5":       r1.get("top5", []),
+        "round1_top5":       top5,
         "market_context":    r1.get("market_context", ""),
         "options_recs":      result.get("options_recommendations", []),
         "portfolio_note":    result.get("portfolio_note", ""),
