@@ -48,6 +48,7 @@ jobs:
         if: steps.date_check.outputs.should_run == 'true'
         env:
           TZ: Europe/Berlin
+          OPENFIGI_API_KEY: ${{ secrets.OPENFIGI_API_KEY }}
         run: python src/fetch_filings.py
 
       - name: Parse Holdings & Calculate Deltas
