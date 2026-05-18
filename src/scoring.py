@@ -37,27 +37,32 @@ def load_parsed(today_str: str) -> dict:
 
 # ── Price-action staleness ────────────────────────────────────────────────────
 
-def fetch_price_changes(tickers: list[str], filing_dates: dict[str, str]) -> dict[str, float | None]:
+def fetch_price_changes(tickers: list[str], filing_dates: dict[str, str]) -> dict[str, dict]:
     """
     For each ticker, compares the price at its filing date to today's price.
-    Returns {ticker: pct_change_since_filing} or {ticker: None} on failure.
 
-    Uses a single yfinance batch download where possible.
+    Returns {ticker: {pct_change, filing_close, current_price, days_since_filing}}
+    or {ticker: {"pct_change": None, ...}} on failure.
+
+    Uses a single yfinance batch download for efficiency.
     """
+    empty: dict = {"pct_change": None, "filing_close": None,
+                   "current_price": None, "days_since_filing": None}
+
     try:
         import yfinance as yf
     except ImportError:
-        return {}
+        return {t: empty.copy() for t in tickers}
 
     if not tickers:
         return {}
 
-    # Find the oldest filing date to set download start
     dates = [d for d in filing_dates.values() if d]
     if not dates:
-        return {}
+        return {t: empty.copy() for t in tickers}
 
-    oldest = min(dates)
+    # Download from the oldest filing date so every ticker has data from its filing onward
+    oldest    = min(dates)
     today_str = date.today().isoformat()
 
     try:
@@ -70,45 +75,51 @@ def fetch_price_changes(tickers: list[str], filing_dates: dict[str, str]) -> dic
         )
     except Exception as e:
         print(f"  ⚠️  yfinance batch download failed: {e}")
-        return {}
+        return {t: empty.copy() for t in tickers}
 
     close = hist.get("Close", hist) if hasattr(hist, "get") else hist
 
-    result: dict[str, float | None] = {}
+    result: dict[str, dict] = {}
 
     for ticker in tickers:
         filing_date_str = filing_dates.get(ticker)
         if not filing_date_str:
-            result[ticker] = None
+            result[ticker] = empty.copy()
             continue
 
         try:
-            if len(tickers) == 1:
-                series = close
-            else:
-                series = close[ticker] if ticker in close.columns else None
+            series = close if len(tickers) == 1 else (
+                close[ticker] if ticker in close.columns else None
+            )
 
             if series is None or series.empty:
-                result[ticker] = None
+                result[ticker] = empty.copy()
                 continue
 
-            filing_date = date.fromisoformat(filing_date_str)
+            filing_date         = date.fromisoformat(filing_date_str)
             series_after_filing = series[series.index.date >= filing_date]
 
             if series_after_filing.empty:
-                result[ticker] = None
+                result[ticker] = empty.copy()
                 continue
 
-            price_at_filing = float(series_after_filing.iloc[0])
-            price_now       = float(series_after_filing.iloc[-1])
+            filing_close  = round(float(series_after_filing.iloc[0]), 2)
+            current_price = round(float(series_after_filing.iloc[-1]), 2)
+            days_since    = (date.today() - filing_date).days
 
-            if price_at_filing <= 0:
-                result[ticker] = None
+            if filing_close <= 0:
+                result[ticker] = empty.copy()
             else:
-                result[ticker] = ((price_now - price_at_filing) / price_at_filing) * 100.0
+                pct = ((current_price - filing_close) / filing_close) * 100.0
+                result[ticker] = {
+                    "pct_change":         round(pct, 1),
+                    "filing_close":       filing_close,
+                    "current_price":      current_price,
+                    "days_since_filing":  days_since,
+                }
 
         except Exception:
-            result[ticker] = None
+            result[ticker] = empty.copy()
 
     return result
 
@@ -238,21 +249,22 @@ def enrich_with_price_action(scored: list[dict]) -> list[dict]:
 
     warned = staled = 0
     for entry in scored:
-        t      = entry["ticker"]
-        change = changes.get(t)
-        entry["price_change_since_filing_pct"] = (
-            round(change, 1) if change is not None else None
-        )
+        t    = entry["ticker"]
+        perf = changes.get(t, {})
+        pct  = perf.get("pct_change")
 
-        if change is None:
+        # Store full performance snapshot on each scored entry
+        entry["post_filing_perf"] = perf
+
+        if pct is None:
             continue
 
-        if change >= PRICE_ACTION_DOWNGRADE_PCT:
+        if pct >= PRICE_ACTION_DOWNGRADE_PCT:
             entry["raw_score"] *= 0.5
             if "PRICE_ACTION_STALE" not in entry["flags"]:
                 entry["flags"].append("PRICE_ACTION_STALE")
             staled += 1
-        elif change >= PRICE_ACTION_WARN_PCT:
+        elif pct >= PRICE_ACTION_WARN_PCT:
             if "PRICE_ACTION_WARNING" not in entry["flags"]:
                 entry["flags"].append("PRICE_ACTION_WARNING")
             warned += 1
@@ -342,7 +354,9 @@ def aggregate_by_ticker(scored: list[dict]) -> list[dict]:
                 "cluster_count":     entry["cluster_count"],
                 "cluster_funds":     entry["cluster_funds"],
                 "delta_types":       [],
-                "price_change_since_filing_pct": entry.get("price_change_since_filing_pct"),
+                # Full post-filing performance dict (pct_change, filing_close,
+                # current_price, days_since_filing) – used in report and Claude prompt
+                "post_filing_perf":  entry.get("post_filing_perf", {}),
             }
 
         agg = by_ticker[ticker]
