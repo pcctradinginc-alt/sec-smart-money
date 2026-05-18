@@ -210,6 +210,80 @@ def generate_backtest_html(backtest: dict) -> str:
     </div>"""
 
 
+def _option_trade_block(opt: dict) -> str:
+    """Renders the recommended option trade card, including spread legs when applicable."""
+    strategy    = opt.get("strategy", "LONG_CALL")
+    is_spread   = strategy == "BULL_CALL_SPREAD" or opt.get("short_leg_symbol")
+    iv_note     = opt.get("iv_rank_note", "")
+
+    symbol_label = "BUY LEG" if is_spread else "SYMBOL"
+    symbol_val   = opt.get("option_symbol", "")
+    extra_row    = ""
+    if is_spread and opt.get("short_leg_symbol"):
+        extra_row = f"""
+              <div style="grid-column:1/-1;background:#fef2f2;border-radius:6px;padding:8px 10px;
+                          font-size:12px;color:#991b1b;">
+                <strong>SELL LEG:</strong>
+                <span style="font-family:monospace">{opt.get("short_leg_symbol","")}</span>
+                &nbsp; strike ${opt.get("short_strike","?")}
+                &nbsp;·&nbsp; Bull Call Spread reduces net premium paid
+              </div>"""
+
+    strategy_badge = ""
+    if is_spread:
+        strategy_badge = (
+            '<span style="background:#7c3aed;color:white;padding:2px 8px;border-radius:10px;'
+            'font-size:10px;font-weight:700;margin-left:8px">BULL CALL SPREAD</span>'
+        )
+
+    iv_note_html = (
+        f'<div style="font-size:12px;color:#6b7280;margin-top:6px">'
+        f'<strong>IV Note:</strong> {iv_note}</div>'
+    ) if iv_note else ""
+
+    return f'''
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;">
+            <div style="font-size:12px;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:10px">
+              📈 RECOMMENDED OPTION TRADE{strategy_badge}
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;">
+              <div>
+                <div style="font-size:10px;color:#6b7280">{symbol_label}</div>
+                <div style="font-weight:700;color:#111827;font-family:monospace">{symbol_val}</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#6b7280">TYPE / STRIKE</div>
+                <div style="font-weight:600;color:#111827">{opt.get("option_type","")} @ ${opt.get("strike","")}</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#6b7280">EXPIRY</div>
+                <div style="font-weight:600;color:#111827">{opt.get("expiration","")}</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#6b7280">NET PREMIUM / CONTRACT</div>
+                <div style="font-weight:700;color:#059669">${opt.get("entry_price_mid","?")}</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#6b7280">MAX RISK / CONTRACT</div>
+                <div style="font-weight:600;color:#dc2626">${opt.get("max_risk_per_contract","?")}</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#6b7280">PROFIT TARGET</div>
+                <div style="font-weight:600;color:#059669">{opt.get("profit_target","")}</div>
+              </div>
+              {extra_row}
+            </div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px">
+              <strong>Rationale:</strong> {opt.get("option_rationale","")}
+            </div>
+            {iv_note_html}
+            <div style="font-size:12px;color:#6b7280;margin-top:6px">
+              Stop Loss: {opt.get("stop_loss","")} &nbsp;|&nbsp;
+              Greeks: {opt.get("greeks_note","Unknown")}
+            </div>
+          </div>'''
+
+
 def generate_html_report(analysis: dict, backtest: dict | None = None) -> str:
     today_str      = analysis["date"]
     top5           = analysis.get("round1_top5", [])
@@ -288,45 +362,7 @@ def generate_html_report(analysis: dict, backtest: dict | None = None) -> str:
             </div>
           </div>
 
-          {"" if not opt else f'''
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;">
-            <div style="font-size:12px;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:10px">
-              📈 RECOMMENDED OPTION TRADE
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;">
-              <div>
-                <div style="font-size:10px;color:#6b7280">SYMBOL</div>
-                <div style="font-weight:700;color:#111827;font-family:monospace">{opt.get("option_symbol","")}</div>
-              </div>
-              <div>
-                <div style="font-size:10px;color:#6b7280">TYPE / STRIKE</div>
-                <div style="font-weight:600;color:#111827">{opt.get("option_type","")} @ ${opt.get("strike","")}</div>
-              </div>
-              <div>
-                <div style="font-size:10px;color:#6b7280">EXPIRY</div>
-                <div style="font-weight:600;color:#111827">{opt.get("expiration","")}</div>
-              </div>
-              <div>
-                <div style="font-size:10px;color:#6b7280">MID PRICE</div>
-                <div style="font-weight:700;color:#059669">${opt.get("entry_price_mid","?")}</div>
-              </div>
-              <div>
-                <div style="font-size:10px;color:#6b7280">MAX RISK / CONTRACT</div>
-                <div style="font-weight:600;color:#dc2626">${opt.get("max_risk_per_contract","?")}</div>
-              </div>
-              <div>
-                <div style="font-size:10px;color:#6b7280">PROFIT TARGET</div>
-                <div style="font-weight:600;color:#059669">{opt.get("profit_target","")}</div>
-              </div>
-            </div>
-            <div style="font-size:13px;color:#374151;margin-bottom:8px">
-              <strong>Rationale:</strong> {opt.get("option_rationale","")}
-            </div>
-            <div style="font-size:12px;color:#6b7280">
-              Stop Loss: {opt.get("stop_loss","")} &nbsp;|&nbsp;
-              Greeks: {opt.get("greeks_note","Unknown")}
-            </div>
-          </div>'''}
+          {"" if not opt else _option_trade_block(opt)}
         </div>
         """
 
