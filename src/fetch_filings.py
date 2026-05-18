@@ -49,12 +49,19 @@ def get_latest_13f_filing(cik: str) -> dict | None:
     dates        = filings.get("filingDate", [])
     primary_docs = filings.get("primaryDocument", [])
 
+    report_dates = filings.get("reportDate", [])
+
     for i, form in enumerate(forms):
         if form in ("13F-HR", "13F-HR/A"):
             return {
                 "cik":             cik,
                 "accessionNumber": accessions[i],
                 "filingDate":      dates[i],
+                # reportDate = quarter-end (period of report), e.g. 2024-12-31.
+                # Always earlier than filingDate (which can be up to 45 days later).
+                # Use this as the price-comparison anchor so we measure from
+                # when the manager actually held the position, not when they disclosed it.
+                "reportDate":      report_dates[i] if i < len(report_dates) else dates[i],
                 "form":            form,
                 "isAmendment":     form == "13F-HR/A",
                 "primaryDocument": primary_docs[i] if i < len(primary_docs) else "",
@@ -279,7 +286,9 @@ def _is_valid_equity_ticker(ticker: str) -> bool:
         return False
     if len(ticker) > 6:
         return False
-    # Must be alphanumeric plus . / -
+    # Must start with a letter (real equity tickers never start with a digit)
+    if not ticker[0].isalpha():
+        return False
     import re
     return bool(re.match(r'^[A-Z0-9./\-]+$', ticker.upper()))
 
