@@ -239,6 +239,7 @@ def build_scored_universe(parsed: dict, mq_signals: dict[str, dict]) -> list[dic
                 "filing_date":     filing_date,
                 "raw_score":       round(raw_score, 4),
                 "mq_multiplier":   round(mq_mult, 2),
+                "mq_signal":       mq_signals.get(ticker, {}),
                 "flags":           flags,
             })
 
@@ -377,6 +378,8 @@ def aggregate_by_ticker(scored: list[dict]) -> list[dict]:
                 # Full post-filing performance dict (pct_change, filing_close,
                 # current_price, days_since_filing) – used in report and Claude prompt
                 "post_filing_perf":  entry.get("post_filing_perf", {}),
+                # Multi-quarter conviction signal (build_quarters, avg_delta_pct, flags)
+                "mq_signal":         entry.get("mq_signal", {}),
             }
 
         agg = by_ticker[ticker]
