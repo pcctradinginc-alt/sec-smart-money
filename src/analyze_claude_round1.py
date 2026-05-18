@@ -54,16 +54,20 @@ def build_prompt(scores: dict) -> str:
             for f in agg["filers"]
         )
 
-        # Price-action context
-        price_chg = agg.get("price_change_since_filing_pct")
+        # Price-action context (stored as post_filing_perf dict by scoring.py)
+        perf      = agg.get("post_filing_perf") or {}
+        price_chg = perf.get("pct_change")
+        days_since = perf.get("days_since_filing")
         price_note = ""
         if price_chg is not None:
+            days_str = f" ({days_since}d)" if days_since else ""
             if "PRICE_ACTION_STALE" in agg.get("flags", []):
-                price_note = f" ⚠️ ALREADY +{price_chg:.0f}% SINCE FILING – thesis may be priced in"
+                price_note = f" ⚠️ ALREADY +{price_chg:.0f}% SINCE FILING{days_str} – thesis may be priced in"
             elif "PRICE_ACTION_WARNING" in agg.get("flags", []):
-                price_note = f" ⚡ +{price_chg:.0f}% since filing"
+                price_note = f" ⚡ +{price_chg:.0f}% since filing{days_str}"
             else:
-                price_note = f" (+{price_chg:.0f}% since filing)" if price_chg > 0 else f" ({price_chg:.0f}% since filing)"
+                sign = "+" if price_chg >= 0 else ""
+                price_note = f" ({sign}{price_chg:.0f}% since filing{days_str})"
 
         # Multi-quarter context
         mq_note = ""
