@@ -62,7 +62,7 @@ SEC_RATE_LIMIT_SLEEP = 0.15   # seconds between requests (max 10/s allowed)
 
 # ── OpenFIGI (CUSIP → Ticker mapping) ────────────────────────────────────────
 OPENFIGI_URL     = "https://api.openfigi.com/v3/mapping"
-OPENFIGI_BATCH   = 10    # 10 without API key, up to 100 with free key from openfigi.com
+OPENFIGI_BATCH   = 100   # up to 100 with API key (openfigi.com), 10 without
 OPENFIGI_API_KEY = ""    # optional – set as GitHub Secret OPENFIGI_API_KEY for higher limits
 
 # ── Scoring weights ───────────────────────────────────────────────────────────
