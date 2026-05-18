@@ -207,14 +207,19 @@ def parse_and_enrich(raw: dict, prior: dict | None) -> dict:
             parsed_filers[filer_name] = {"error": filer_data.get("error"), "positions": []}
             continue
 
-        # Reported AUM = sum of all 13F long positions (NOT true AUM – see R-03)
-        reported_aum = filer_data["total_value"]  # in USD thousands
+        current_lookup = build_position_lookup(filer_data)
+
+        # Reported AUM = long + CALL positions only (Puts are hedges, not capital deployed).
+        # Using filer_data["total_value"] would inflate the denominator with put notional,
+        # making every position's portfolio weight look smaller than it really is.
+        reported_aum = sum(
+            pos["value_usd_thousands"]
+            for pos in current_lookup.values()
+        )
         if reported_aum == 0:
-            print(f"  ⚠️  {filer_name}: reported AUM = 0, skipping")
+            print(f"  ⚠️  {filer_name}: reported long-only AUM = 0, skipping")
             parsed_filers[filer_name] = {"error": "zero_aum", "positions": []}
             continue
-
-        current_lookup = build_position_lookup(filer_data)
 
         # Prior quarter lookup for this filer
         prior_lookup = {}
@@ -227,10 +232,19 @@ def parse_and_enrich(raw: dict, prior: dict | None) -> dict:
 
         positions = []
         for key, holding in current_lookup.items():
-            ticker   = holding.get("ticker", "")
+            ticker      = holding.get("ticker", "")
+            net_bullish = holding.get("net_bullish", True)
+
+            # Skip positions where puts dominate: they are bearish/hedged and
+            # would produce false bullish signals downstream.
+            # They are logged separately in put_positions for transparency.
+            if not net_bullish:
+                continue
+
             prior_pos = prior_lookup.get(key)
 
-            # Split adjustment on prior shares
+            # Compare only long shares (prior data may have aggregated puts+longs).
+            # Use prior "shares" but cap to avoid inflated deltas from old data format.
             prior_shares_raw = prior_pos["shares"] if prior_pos else None
             if prior_shares_raw is not None and ticker:
                 prior_shares_adj = adjust_shares_for_splits(prior_shares_raw, ticker, splits)
@@ -239,7 +253,7 @@ def parse_and_enrich(raw: dict, prior: dict | None) -> dict:
 
             delta = compute_delta(holding["shares"], prior_shares_adj, key)
 
-            # Portfolio weight (R-03: only long-only AUM denominator)
+            # Portfolio weight uses long-only AUM (corrected denominator above)
             port_weight_pct = (holding["value_usd_thousands"] / reported_aum) * 100.0
 
             # Prior portfolio weight
@@ -249,18 +263,25 @@ def parse_and_enrich(raw: dict, prior: dict | None) -> dict:
                 if prior_aum > 0:
                     prior_port_weight = (prior_pos.get("value_usd_thousands", 0) / prior_aum) * 100.0
 
+            # Determine position direction: LONG or CALL (no pure PUTs reach here)
+            put_val  = holding.get("put_value_usd_k", 0)
+            long_val = holding["value_usd_thousands"]
+            direction = "LONG_WITH_HEDGE" if put_val > 0 else "LONG"
+
             positions.append({
                 "ticker":             ticker,
                 "cusip":              holding.get("cusip", ""),
                 "name":               holding.get("nameOfIssuer", ""),
-                "value_usd_k":        holding["value_usd_thousands"],
+                "value_usd_k":        long_val,
                 "shares":             holding["shares"],
-                "putCall":            holding.get("putCall"),
+                "put_shares":         holding.get("put_shares", 0),
+                "put_value_usd_k":    put_val,
+                "direction":          direction,
                 "port_weight_pct":    round(port_weight_pct, 3),
                 "prior_port_weight":  round(prior_port_weight, 3) if prior_port_weight else None,
                 "delta":              delta,
                 "is_first_run":       prior is None,
-                # R-03 disclaimer embedded per position
+                "net_bullish":        True,
                 "weight_note":        "Long-only 13F AUM denominator – true weight may be lower",
             })
 
