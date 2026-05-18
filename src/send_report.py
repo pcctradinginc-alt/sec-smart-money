@@ -49,6 +49,55 @@ def flag_badge(flag: str) -> str:
     return f'<span style="background:{color};color:white;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;margin-right:4px">{flag}</span>'
 
 
+def _post_filing_block(perf: dict) -> str:
+    """
+    Renders a compact coloured bar showing price movement since the 13F filing date.
+    Three zones:
+      green  : ≤ +15%  → fresh signal, thesis not yet priced in
+      amber  : +15–25% → already running, watch closely
+      red    : > +25%  → likely priced in / FOMO territory
+    """
+    pct   = perf.get("pct_change")
+    days  = perf.get("days_since_filing")
+    fc    = perf.get("filing_close")
+    cp    = perf.get("current_price")
+
+    if pct is None:
+        return ""
+
+    if pct > 25:
+        bg, border, text_color = "#fef2f2", "#fca5a5", "#991b1b"
+        label  = f"⚠️ +{pct:.1f}% seit Filing – FOMO-Risiko, Thesis möglicherweise eingepreist"
+        icon   = "🔴"
+    elif pct > 15:
+        bg, border, text_color = "#fffbeb", "#fcd34d", "#92400e"
+        label  = f"⚡ +{pct:.1f}% seit Filing – bereits gelaufen, erhöhtes Einstiegsrisiko"
+        icon   = "🟡"
+    elif pct >= 0:
+        bg, border, text_color = "#f0fdf4", "#bbf7d0", "#166534"
+        label  = f"✅ +{pct:.1f}% seit Filing – Signal noch frisch"
+        icon   = "🟢"
+    else:
+        bg, border, text_color = "#f0fdf4", "#bbf7d0", "#166534"
+        label  = f"↘ {pct:.1f}% seit Filing – günstiger als zum Signal-Zeitpunkt"
+        icon   = "🟢"
+
+    days_str  = f"{days}d" if days is not None else "?d"
+    price_str = (
+        f"${fc} → ${cp}" if fc is not None and cp is not None else ""
+    )
+
+    return (
+        f'<div style="background:{bg};border:1px solid {border};border-radius:8px;'
+        f'padding:10px 14px;margin-bottom:12px;display:flex;'
+        f'align-items:center;justify-content:space-between;">'
+        f'<span style="color:{text_color};font-size:13px;font-weight:600">{label}</span>'
+        f'<span style="color:{text_color};font-size:12px;white-space:nowrap;margin-left:12px">'
+        f'{price_str} &nbsp;·&nbsp; {days_str} ago</span>'
+        f'</div>'
+    )
+
+
 def generate_backtest_html(backtest: dict) -> str:
     """Renders a compact performance summary block for the report."""
     s = backtest.get("summary", {})
@@ -154,6 +203,8 @@ def generate_html_report(analysis: dict, backtest: dict | None = None) -> str:
           </div>
 
           <div style="margin-bottom:12px">{flags_html}</div>
+
+          {_post_filing_block(stock.get("post_filing_perf", {}))}
 
           <div style="background:#f9fafb;border-radius:8px;padding:16px;margin-bottom:16px;">
             <div style="font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;margin-bottom:6px">Investment Thesis</div>
