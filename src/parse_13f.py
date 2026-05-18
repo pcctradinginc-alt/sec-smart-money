@@ -67,18 +67,65 @@ def load_prior_quarter(today_str: str) -> dict | None:
 def build_position_lookup(filer_data: dict) -> dict:
     """
     Build a dict: {ticker_or_cusip → holding_dict} for one filer.
-    Ticker is preferred; CUSIP fallback for unmapped positions.
-    This resolves R-11 (ADR vs. ordinary share CUSIP mismatch).
+
+    PUT and CALL/long positions are tracked separately so the net
+    direction is visible downstream. Aggregating them would inflate
+    bullish signals: a fund with 100 long shares + 10,000 put shares
+    must NOT be scored as a 10,100-share long conviction buy.
+
+    Structure per key:
+      shares / value_usd_thousands  → long + CALL shares (bullish)
+      put_shares / put_value_usd_k  → PUT shares (bearish / hedge)
+      net_bullish                   → True if long_value > put_value
     """
-    lookup = {}
+    long_lookup: dict = {}
+    put_lookup:  dict = {}
+
     for h in filer_data.get("holdings", []):
-        key = h.get("ticker") or h.get("cusip") or h.get("nameOfIssuer", "UNKNOWN")
-        # Aggregate if the same ticker appears twice (e.g., put and call entries)
-        if key in lookup:
-            lookup[key]["shares"]              += h["shares"]
-            lookup[key]["value_usd_thousands"] += h["value_usd_thousands"]
+        put_call = (h.get("putCall") or "").strip().upper()
+        key      = h.get("ticker") or h.get("cusip") or h.get("nameOfIssuer", "UNKNOWN")
+
+        if put_call == "PUT":
+            if key in put_lookup:
+                put_lookup[key]["shares"]              += h["shares"]
+                put_lookup[key]["value_usd_thousands"] += h["value_usd_thousands"]
+            else:
+                put_lookup[key] = {**h}
         else:
-            lookup[key] = {**h}
+            # Long or CALL – counts as bullish exposure
+            if key in long_lookup:
+                long_lookup[key]["shares"]              += h["shares"]
+                long_lookup[key]["value_usd_thousands"] += h["value_usd_thousands"]
+            else:
+                long_lookup[key] = {**h}
+
+    # Merge: annotate every long position with its paired PUT size
+    all_keys = set(long_lookup) | set(put_lookup)
+    lookup   = {}
+
+    for key in all_keys:
+        if key in long_lookup:
+            entry = {**long_lookup[key]}
+        else:
+            # Pure-put position: create a placeholder with zero long exposure
+            entry = {**put_lookup[key], "shares": 0, "value_usd_thousands": 0}
+
+        put_entry = put_lookup.get(key, {})
+        entry["put_shares"]       = put_entry.get("shares", 0)
+        entry["put_value_usd_k"]  = put_entry.get("value_usd_thousands", 0)
+
+        long_val = entry["value_usd_thousands"]
+        put_val  = entry["put_value_usd_k"]
+        entry["net_bullish"] = long_val >= put_val   # False → fund is net short/hedged
+
+        if not entry["net_bullish"]:
+            # Surface this so scoring can skip or flag it
+            entry["direction_note"] = (
+                f"NET SHORT/HEDGED: long ${long_val:,}k vs put ${put_val:,}k"
+            )
+
+        lookup[key] = entry
+
     return lookup
 
 
