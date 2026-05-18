@@ -29,6 +29,14 @@ def load_final_analysis(today_str: str) -> dict:
         return json.load(f)
 
 
+def load_backtest(today_str: str) -> dict | None:
+    path = DATA_DIR / f"{today_str}_backtest.json"
+    if not path.exists():
+        return None
+    with open(path) as f:
+        return json.load(f)
+
+
 def flag_badge(flag: str) -> str:
     colors = {
         "HIGH_CONVICTION": "#dc2626",
@@ -41,13 +49,83 @@ def flag_badge(flag: str) -> str:
     return f'<span style="background:{color};color:white;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;margin-right:4px">{flag}</span>'
 
 
-def generate_html_report(analysis: dict) -> str:
+def generate_backtest_html(backtest: dict) -> str:
+    """Renders a compact performance summary block for the report."""
+    s = backtest.get("summary", {})
+    rows = backtest.get("results", [])
+
+    if not s.get("completed_90d"):
+        return ""
+
+    wr90  = s.get("win_rate_90d_pct")
+    wr180 = s.get("win_rate_180d_pct")
+    ar90  = s.get("avg_return_90d_pct")
+    ar180 = s.get("avg_return_180d_pct")
+
+    def _color(val):
+        if val is None:
+            return "#6b7280"
+        return "#059669" if val > 0 else "#dc2626"
+
+    def _fmt(val):
+        if val is None:
+            return "pending"
+        return f"+{val:.1f}%" if val > 0 else f"{val:.1f}%"
+
+    # Recent signals table (last 10 completed)
+    completed = [r for r in rows if r.get("status_d90") in ("win", "loss")][-10:]
+    rows_html = ""
+    for r in reversed(completed):
+        ret   = r.get("return_d90_pct")
+        color = _color(ret)
+        rows_html += (
+            f"<tr>"
+            f"<td style='padding:4px 8px;color:#374151'>{r['report_date']}</td>"
+            f"<td style='padding:4px 8px;font-weight:600;color:#111827'>{r['ticker']}</td>"
+            f"<td style='padding:4px 8px;color:#6b7280;font-size:12px'>{r.get('primary_flag','')}</td>"
+            f"<td style='padding:4px 8px;font-weight:700;color:{color}'>{_fmt(ret)}</td>"
+            f"</tr>"
+        )
+
+    return f"""
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <div style="font-size:14px;font-weight:700;color:#1e293b;margin-bottom:14px">
+        📈 Historical Performance (90-day stock returns)
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;">
+        <div style="text-align:center">
+          <div style="font-size:22px;font-weight:800;color:{_color(ar90)}">{_fmt(ar90)}</div>
+          <div style="font-size:11px;color:#64748b">Avg 90d Return</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:22px;font-weight:800;color:#1e293b">{wr90 if wr90 is not None else '—'}{'%' if wr90 else ''}</div>
+          <div style="font-size:11px;color:#64748b">90d Win Rate</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:22px;font-weight:800;color:{_color(ar180)}">{_fmt(ar180)}</div>
+          <div style="font-size:11px;color:#64748b">Avg 180d Return</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:22px;font-weight:800;color:#1e293b">{s.get('total_signals','—')}</div>
+          <div style="font-size:11px;color:#64748b">Total Signals</div>
+        </div>
+      </div>
+      {'<table style="width:100%;border-collapse:collapse;font-size:13px">' + rows_html + '</table>' if rows_html else ''}
+      <div style="font-size:11px;color:#94a3b8;margin-top:10px">
+        ⚠️ Past stock returns do not predict option profits. Options can expire worthless even when the stock moves in the right direction.
+      </div>
+    </div>"""
+
+
+def generate_html_report(analysis: dict, backtest: dict | None = None) -> str:
     today_str      = analysis["date"]
     top5           = analysis.get("round1_top5", [])
     options_recs   = analysis.get("options_recs", [])
     market_context = analysis.get("market_context", "")
     portfolio_note = analysis.get("portfolio_note", "")
     disclaimer     = analysis.get("disclaimer", "")
+
+    backtest_html = generate_backtest_html(backtest) if backtest else ""
 
     # Build options recommendations section
     options_html = ""
@@ -161,6 +239,8 @@ def generate_html_report(analysis: dict) -> str:
       <div style="color:#78350f;font-size:14px;line-height:1.6">{market_context}</div>
     </div>
 
+    {backtest_html}
+
     <!-- Top 5 Picks -->
     <div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:16px">
       🎯 Top 5 Conviction Picks + Option Trades
@@ -246,7 +326,10 @@ def run():
     print(f"✅ Validation passed: {len(top5)} stocks, {len(recs)} option recommendations")
 
     # Generate HTML
-    html = generate_html_report(analysis)
+    backtest = load_backtest(today_str)
+    if backtest:
+        print(f"📊 Backtest data loaded ({backtest['summary'].get('total_signals',0)} signals tracked)")
+    html = generate_html_report(analysis, backtest)
 
     # Save report to /reports/
     report_path = REPORTS_DIR / f"{today_str}_report.html"
