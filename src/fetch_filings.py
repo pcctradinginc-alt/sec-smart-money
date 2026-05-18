@@ -268,6 +268,22 @@ def map_cusips_to_tickers(cusips: list[str]) -> dict[str, str]:
 
 # ── Step 5: Split check ───────────────────────────────────────────────────────
 
+def _is_valid_equity_ticker(ticker: str) -> bool:
+    """
+    Rejects non-equity strings that OpenFIGI sometimes returns:
+      - Bond descriptions like 'BRKR 6.375 09/01/28'
+      - Multi-word strings
+      - Tickers longer than 6 chars (options, bonds)
+    """
+    if not ticker or " " in ticker:
+        return False
+    if len(ticker) > 6:
+        return False
+    # Must be alphanumeric plus . / -
+    import re
+    return bool(re.match(r'^[A-Z0-9./\-]+$', ticker.upper()))
+
+
 def check_recent_splits(tickers: list[str]) -> dict[str, float]:
     try:
         import yfinance as yf
@@ -275,19 +291,21 @@ def check_recent_splits(tickers: list[str]) -> dict[str, float]:
     except ImportError:
         return {}
 
-    splits  = {}
-    cutoff  = date.today() - timedelta(days=120)
+    splits = {}
+    cutoff = date.today() - timedelta(days=120)
+
     for ticker in tickers:
-        if not ticker:
+        if not _is_valid_equity_ticker(ticker):
             continue
+        yf_ticker = ticker.replace("/", "-")   # BRK/B → BRK-B for yfinance
         try:
-            hist   = yf.Ticker(ticker).splits
+            hist   = yf.Ticker(yf_ticker).splits
             if hist.empty:
                 continue
             recent = hist[hist.index.date >= cutoff]
             if not recent.empty:
                 ratio = float(recent.iloc[-1])
-                splits[ticker] = ratio
+                splits[ticker] = ratio   # store under original ticker key
                 print(f"  ⚠️  Split: {ticker} ratio {ratio}")
         except Exception:
             pass
