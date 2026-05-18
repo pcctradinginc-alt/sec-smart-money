@@ -249,8 +249,28 @@ def map_cusips_to_tickers(cusips: list[str]) -> dict[str, str]:
                 time.sleep(60)
                 resp = requests.post(OPENFIGI_URL, json=payload, headers=headers, timeout=20)
             if resp.status_code == 413:
-                print(f"  ⚠️  OpenFIGI 413 – batch too large ({len(batch)} items). "
-                      f"Set OPENFIGI_API_KEY secret or reduce OPENFIGI_BATCH below 10.")
+                # Batch too large for unauthenticated limit (10 items max).
+                # Retry the same batch in chunks of 10 automatically.
+                print(f"  ⚠️  OpenFIGI 413 – batch {len(batch)} too large, retrying in chunks of 10…")
+                for j in range(0, len(batch), 10):
+                    chunk   = batch[j:j + 10]
+                    c_payload = [{"idType": "ID_CUSIP", "idValue": c} for c in chunk]
+                    try:
+                        r2 = requests.post(OPENFIGI_URL, json=c_payload, headers=headers, timeout=20)
+                        if r2.status_code == 200:
+                            for cusip, result in zip(chunk, r2.json()):
+                                if "data" in result and result["data"]:
+                                    for figi_item in result["data"]:
+                                        ticker = figi_item.get("ticker", "")
+                                        exch   = figi_item.get("exchCode", "")
+                                        if exch in ("US", "UN", "UW", "UA"):
+                                            mapping[cusip] = ticker
+                                            break
+                                    else:
+                                        mapping[cusip] = result["data"][0].get("ticker", "")
+                    except Exception as e2:
+                        print(f"  ⚠️  OpenFIGI chunk failed: {e2}")
+                    time.sleep(0.5)
                 continue
             if resp.status_code != 200:
                 print(f"  ⚠️  OpenFIGI returned HTTP {resp.status_code}, skipping batch")
