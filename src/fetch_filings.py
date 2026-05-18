@@ -14,8 +14,10 @@ from pathlib import Path
 
 import requests
 
+import os
+
 from config import (
-    DATA_DIR, FILERS, OPENFIGI_BATCH, OPENFIGI_URL,
+    DATA_DIR, FILERS, OPENFIGI_API_KEY, OPENFIGI_BATCH, OPENFIGI_URL,
     SEC_HEADERS, SEC_RATE_LIMIT_SLEEP,
 )
 
@@ -213,26 +215,36 @@ def parse_infotable(xml_text: str) -> list[dict]:
 
 # ── Step 4: CUSIP → Ticker via OpenFIGI ──────────────────────────────────────
 
+def _openfigi_headers() -> dict:
+    """Returns headers for OpenFIGI. Uses API key from env if available."""
+    api_key = os.environ.get("OPENFIGI_API_KEY", OPENFIGI_API_KEY).strip()
+    h = {"Content-Type": "application/json"}
+    if api_key:
+        h["X-OPENFIGI-APIKEY"] = api_key
+    return h
+
+
 def map_cusips_to_tickers(cusips: list[str]) -> dict[str, str]:
     mapping = {}
     if not cusips:
         return mapping
 
+    headers       = _openfigi_headers()
     unique_cusips = list(set(cusips))
-    for i in range(0, len(unique_cusips), OPENFIGI_BATCH):
+    total         = len(unique_cusips)
+
+    for i in range(0, total, OPENFIGI_BATCH):
         batch   = unique_cusips[i:i + OPENFIGI_BATCH]
         payload = [{"idType": "ID_CUSIP", "idValue": c} for c in batch]
         try:
-            resp = requests.post(
-                OPENFIGI_URL,
-                json=payload,
-                headers={"Content-Type": "application/json"},
-                timeout=20,
-            )
+            resp = requests.post(OPENFIGI_URL, json=payload, headers=headers, timeout=20)
             if resp.status_code == 429:
                 time.sleep(60)
-                resp = requests.post(OPENFIGI_URL, json=payload,
-                                     headers={"Content-Type": "application/json"}, timeout=20)
+                resp = requests.post(OPENFIGI_URL, json=payload, headers=headers, timeout=20)
+            if resp.status_code == 413:
+                print(f"  ⚠️  OpenFIGI 413 – batch too large ({len(batch)} items). "
+                      f"Set OPENFIGI_API_KEY secret or reduce OPENFIGI_BATCH below 10.")
+                continue
             if resp.status_code != 200:
                 print(f"  ⚠️  OpenFIGI returned HTTP {resp.status_code}, skipping batch")
                 continue
@@ -317,6 +329,18 @@ def run():
             continue
 
         print(f"  ✅ {len(holdings)} positions parsed")
+
+        # AQR and similar quant funds file 10k+ positions (index replication).
+        # Cluster signal from a quant fund holding 20k stocks is meaningless.
+        # Cap at top 500 by value so they don't flood the CUSIP pool.
+        MAX_POSITIONS_PER_FILER = 500
+        original_count = len(holdings)
+        if original_count > MAX_POSITIONS_PER_FILER:
+            holdings = sorted(holdings, key=lambda h: h["value_usd_thousands"], reverse=True)
+            holdings = holdings[:MAX_POSITIONS_PER_FILER]
+            print(f"  ✂️  Capped to top {MAX_POSITIONS_PER_FILER} positions by value "
+                  f"(was {original_count} total)")
+
         for h in holdings:
             if h["cusip"]:
                 all_cusips.add(h["cusip"])
