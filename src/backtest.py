@@ -34,6 +34,11 @@ def load_all_analyses() -> list[dict]:
     return results
 
 
+def _yf_ticker(ticker: str) -> str:
+    """Convert Tradier-style tickers to yfinance format. BRK/B → BRK-B."""
+    return ticker.replace("/", "-")
+
+
 def check_stock_performance(ticker: str, signal_date_str: str) -> dict:
     """
     Downloads price history for ticker starting from signal_date.
@@ -50,7 +55,7 @@ def check_stock_performance(ticker: str, signal_date_str: str) -> dict:
         if end_date <= signal_date:
             return {"status_d90": "pending", "status_d180": "pending"}
 
-        hist = yf.Ticker(ticker).history(
+        hist = yf.Ticker(_yf_ticker(ticker)).history(
             start=signal_date.isoformat(),
             end=end_date.isoformat(),
         )
