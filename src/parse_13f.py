@@ -30,6 +30,15 @@ def load_prior_quarter(today_str: str) -> dict | None:
     """
     Finds the most recent previously saved *_holdings_parsed.json
     that is NOT today. Returns None if this is the first run.
+
+    Amendment note: 13F-HR/A filings amend a prior quarter's data.
+    Because fetch_filings.py always retrieves the LATEST filing per filer
+    (which is the amendment if one exists), the data saved today is always
+    the most up-to-date. The delta comparison against the *previous* parsed
+    file is therefore always amendment-aware as long as each run overwrites
+    stale data from the same quarter. If two runs occur within the same
+    quarter (e.g., base + amendment), only the most recent parsed file
+    survives and prior-quarter comparison remains valid.
     """
     today = date.fromisoformat(today_str)
     candidates = sorted(DATA_DIR.glob("*_holdings_parsed.json"), reverse=True)
@@ -38,8 +47,17 @@ def load_prior_quarter(today_str: str) -> dict | None:
         try:
             d = date.fromisoformat(c.name[:10])
             if d < today:
-                with open(c) as f:
-                    return json.load(f)
+                data = json.load(open(c))
+                # Warn if the prior data itself contains amendments, so the
+                # user knows the baseline may have been restated.
+                amendment_filers = [
+                    name for name, fd in data.get("filers", {}).items()
+                    if fd.get("is_amendment")
+                ]
+                if amendment_filers:
+                    print(f"  ℹ️  Prior quarter ({data['date']}) contains amendments "
+                          f"for: {', '.join(amendment_filers)} – baseline has been restated.")
+                return data
         except (ValueError, json.JSONDecodeError):
             continue
 
