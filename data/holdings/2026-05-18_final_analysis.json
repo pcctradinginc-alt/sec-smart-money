@@ -1,0 +1,188 @@
+{
+  "date": "2026-05-18",
+  "round1_top5": [
+    {
+      "rank": 1,
+      "ticker": "AMZN",
+      "company_name": "Amazon.com Inc",
+      "conviction_score": 100.0,
+      "thesis": "Amazon earns the top conviction signal with 6 simultaneous new position initiations from a diverse, high-quality cohort spanning endowments (Harvard), activist hedge funds (Pershing Square at 17.4% of portfolio), and quantitative managers (AQR). The breadth of buyer types \u2014 not just concentrated among similar-style funds \u2014 dramatically strengthens the signal, suggesting multiple independent analytical frameworks converging on the same bullish conclusion. AWS re-acceleration, advertising growth, and AI infrastructure buildout provide a coherent fundamental thesis supporting this institutional consensus.",
+      "key_buyers": [
+        "Pershing Square (Ackman)",
+        "Harvard Management Co",
+        "Tiger Global (Coleman)",
+        "D1 Capital (Sundheim)",
+        "Viking Global (Halvorsen)",
+        "AQR Capital (Asness)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "The 45-day reporting lag means these positions were established weeks ago and market conditions may have shifted materially; Pershing Square's 17.4% weight creates concentration risk and could signal an activist angle that may not materialize. Antitrust and regulatory overhang remains a persistent headwind.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 2,
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "conviction_score": 95.4,
+      "thesis": "NVIDIA commands the largest filer count (7 funds) in the entire dataset, with high-conviction allocations from TCI Fund (Chris Hohn) at 13.5% of portfolio and Situational Awareness LP at 11.5%, alongside Harvard and Brown endowments adding institutional credibility. The combination of hedge funds with deep fundamental AI infrastructure theses and university endowments \u2014 which typically have long holding horizons \u2014 creates an unusually durable signal. Continued hyperscaler GPU demand, CUDA moat, and sovereign AI spending programs underpin the thesis.",
+      "key_buyers": [
+        "TCI Fund (Chris Hohn)",
+        "Situational Awareness LP",
+        "Tiger Global (Coleman)",
+        "Harvard Management Co",
+        "Brown University",
+        "D1 Capital (Sundheim)",
+        "AQR Capital (Asness)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "NVIDIA trades at a significant premium to historical multiples and is highly sensitive to any deceleration in hyperscaler capital expenditure guidance; export control restrictions on H20 and future chip generations to China remain a material earnings risk that could have evolved since the 13F filing date.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 3,
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "conviction_score": 97.5,
+      "thesis": "Microsoft draws 5 new simultaneous initiations with notably large position weights from Pershing Square (15.3%) and Harvard Management (10.5%), suggesting extremely high conviction rather than passive index-matching. The fund quality is exceptional \u2014 Ackman's concentrated activist-style approach combined with Tiger Global's growth framework and Viking's long/short process all arriving at the same new entry implies a shared view on Azure AI monetization and Copilot integration driving a new earnings growth cycle. Microsoft's defensive cash flows also make it attractive as a quality growth name.",
+      "key_buyers": [
+        "Pershing Square (Ackman)",
+        "Harvard Management Co",
+        "Tiger Global (Coleman)",
+        "Viking Global (Halvorsen)",
+        "AQR Capital (Asness)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "Microsoft's elevated valuation leaves limited margin of safety if Azure growth disappoints or AI capital expenditure returns on investment take longer than expected to materialize; the 45-day lag means Pershing's 15%+ position could have been partially trimmed if macro conditions deteriorated post-filing.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 4,
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc",
+      "conviction_score": 95.2,
+      "thesis": "Alphabet sees 5 new positions with Tiger Global allocating 13.4% of its reported long portfolio, reflecting very high conviction in Google's ability to defend and monetize its search dominance through AI Overviews while growing Cloud at an accelerating pace. The simultaneous entry of Harvard endowment, Viking, D1, and AQR alongside Tiger Global suggests convergence across both growth-oriented and quantitative frameworks. Alphabet's relative valuation discount to megacap peers and strong free cash flow generation add to the fundamental appeal.",
+      "key_buyers": [
+        "Tiger Global (Coleman)",
+        "Harvard Management Co",
+        "D1 Capital (Sundheim)",
+        "Viking Global (Halvorsen)",
+        "AQR Capital (Asness)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "Ongoing DOJ antitrust proceedings targeting Google's search monopoly and potential remedies including forced divestiture of Chrome or Android represent a binary regulatory risk; AI-driven search disruption from OpenAI and Perplexity could erode core search economics faster than Google Cloud revenues offset the decline.",
+      "direction": "BULLISH"
+    },
+    {
+      "rank": 5,
+      "ticker": "TSM",
+      "company_name": "Taiwan Semiconductor Manufacturing Co",
+      "conviction_score": 94.5,
+      "thesis": "TSMC attracts 5 new positions with Harvard allocating 12.8% and Viking 4.2%, reflecting conviction that TSMC's foundry monopoly on leading-edge 3nm and 2nm processes makes it the critical bottleneck beneficiary of the global AI infrastructure buildout regardless of which AI model or chip company wins. Situational Awareness LP's focused technology mandate at 6.6% weight adds specialist validation. TSMC provides leveraged exposure to both NVIDIA and Apple demand while trading at a discount to fabless peers.",
+      "key_buyers": [
+        "Harvard Management Co",
+        "Tiger Global (Coleman)",
+        "Viking Global (Halvorsen)",
+        "Situational Awareness LP",
+        "D1 Capital (Sundheim)"
+      ],
+      "cluster_signal": true,
+      "primary_flag": "CLUSTER",
+      "risk_factors": "Taiwan geopolitical risk \u2014 particularly cross-strait tensions \u2014 represents a tail risk that is difficult to hedge and could cause rapid multiple compression regardless of fundamentals; any slowdown in AI chip orders from hyperscalers or Apple's iPhone demand weakness would disproportionately impact near-term revenues given TSMC's customer concentration.",
+      "direction": "BULLISH"
+    }
+  ],
+  "market_context": "Institutional investors are rotating heavily into mega-cap technology and AI infrastructure names, with notable simultaneous new position initiations across multiple top-tier hedge funds and endowments. Gold ETF allocations by major endowments suggest defensive hedging alongside growth bets, while emerging market fintech positions indicate selective risk appetite. The breadth of coordinated new entries across funds like Tiger Global, Pershing Square, Viking Global, and Harvard Management signals a broad re-risking event following earlier market volatility.",
+  "options_recs": [
+    {
+      "rank": 1,
+      "stock_ticker": "AMZN",
+      "company_name": "Amazon.com Inc",
+      "option_symbol": "AMZN260821C00280000",
+      "option_type": "CALL",
+      "strike": 280.0,
+      "expiration": "2026-08-21",
+      "entry_price_mid": 12.8,
+      "max_risk_per_contract": 1280.0,
+      "investment_thesis_link": "Six simultaneous high-quality initiations spanning endowments, activist funds, and quant managers \u2014 including Pershing Square at 17.4% \u2014 represents the broadest institutional consensus in the dataset, signaling AWS re-acceleration and advertising growth are not yet fully priced at $264. The +5.8% OTM strike provides meaningful leverage if the thesis plays out over the next 90 days.",
+      "option_rationale": "Strike at $280 is +5.8% OTM with a delta of 0.44, sitting squarely in the preferred 0.35-0.50 range for a levered bullish play. The August 21 expiry gives approximately 95 days \u2014 sufficient for the 13F thesis (already ~45 days seasoned) to manifest in earnings or guidance. IV at 33.2% is the lowest among available AMZN strikes, minimizing premium paid. OI of 14,190 is the highest in the AMZN chain, confirming deep institutional liquidity, and the 1.6% spread is tight. This strike balances probability of profit with upside leverage better than the ATM 265 or the distant 300.",
+      "profit_target": "+60-80% on option premium if AMZN reaches $295-305 (+11-15% from spot) by expiry",
+      "stop_loss": "-50% on option premium (~$6.40 debit loss per contract)",
+      "key_risk": "Antitrust regulatory action or a macro deterioration causing risk-off selling in large-cap tech could compress the stock before the option expiry, resulting in full premium loss.",
+      "greeks_note": "Available"
+    },
+    {
+      "rank": 2,
+      "stock_ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "option_symbol": "NVDA260918C00250000",
+      "option_type": "CALL",
+      "strike": 250.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 13.75,
+      "max_risk_per_contract": 1375.0,
+      "investment_thesis_link": "NVDA commands the highest filer count (7 funds) in the entire dataset with TCI at 13.5% and Situational Awareness at 11.5% \u2014 both specialist technology funds with deep AI infrastructure conviction. The September expiry aligns with anticipated hyperscaler capex commentary from Q2 earnings cycles that could catalyze a move through $250.",
+      "option_rationale": "The $250 September strike is +13% OTM with a delta of 0.40 \u2014 intentionally more aggressive given NVDA's elevated IV (45.5%) across all strikes, which makes ATM options expensive in premium terms. The September expiry (123 days) is preferred over August for NVDA because it captures a full additional earnings cycle and gives the institutional thesis more runway. Despite the higher OTM positioning, the tight 1.5% spread and massive OI of 23,857 ensure excellent liquidity. Paying a lower absolute premium ($13.75 vs $22.90 for the 225 strike) reduces dollar risk while maintaining meaningful delta exposure on a name with demonstrated ability to make large directional moves.",
+      "profit_target": "+70-100% on option premium if NVDA reaches $270-285 (+22-29% from spot) by September expiry",
+      "stop_loss": "-50% on option premium (~$6.88 debit loss per contract)",
+      "key_risk": "Export control escalation on H20 chips or a hyperscaler capex guidance cut could cause a sharp de-rating in NVDA's elevated multiple, making the +13% OTM target unreachable within the timeframe.",
+      "greeks_note": "Available"
+    },
+    {
+      "rank": 3,
+      "stock_ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "option_symbol": "MSFT260918C00430000",
+      "option_type": "CALL",
+      "strike": 430.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 27.7,
+      "max_risk_per_contract": 2770.0,
+      "investment_thesis_link": "Pershing Square's 15.3% weight and Harvard's 10.5% position signal unusually high conviction that Azure AI monetization and Copilot adoption are entering an inflection; the September expiry spans the Q1 FY2027 earnings release where these dynamics are most likely to surface in reported numbers.",
+      "option_rationale": "The $430 September strike is +2.6% OTM with a delta of 0.49 \u2014 essentially near-ATM, reflecting the higher conviction designation warranted by the quality of buyers. The September 18 expiry (123 days) is chosen over August to capture a full earnings cycle. IV at 31.7% is among the lowest in the MSFT chain and reasonable for a large-cap quality name. Volume of 1,214 and OI of 5,606 confirm adequate liquidity. The 2.2% spread is manageable. Choosing this over the 450 strike deliberately keeps delta above 0.45 given MSFT's historically lower beta, where the ATM approach is needed to generate meaningful option P&L on moderate stock moves.",
+      "profit_target": "+40-60% on option premium if MSFT reaches $455-470 (+8-12% from spot) by expiry",
+      "stop_loss": "-50% on option premium (~$13.85 debit loss per contract)",
+      "key_risk": "If Azure growth decelerates in the next earnings print or AI capex return-on-investment concerns drive multiple compression, the near-ATM strike offers limited intrinsic value cushion against time decay.",
+      "greeks_note": "Available"
+    },
+    {
+      "rank": 4,
+      "stock_ticker": "GOOGL",
+      "company_name": "Alphabet Inc",
+      "option_symbol": "GOOGL260918C00430000",
+      "option_type": "CALL",
+      "strike": 430.0,
+      "expiration": "2026-09-18",
+      "entry_price_mid": 23.93,
+      "max_risk_per_contract": 2393.0,
+      "investment_thesis_link": "Tiger Global's 13.4% allocation alongside Harvard, Viking, D1, and AQR converging on GOOGL reflects conviction that search AI integration and Cloud acceleration will close the valuation discount to megacap peers; the +7.2% OTM September strike provides leveraged exposure to this re-rating thesis without requiring near-term perfection.",
+      "option_rationale": "The $430 September strike is +7.2% OTM with a delta of 0.44, fitting cleanly in the preferred 0.35-0.50 range for a levered bullish play. The September expiry (123 days) captures Q2 2026 earnings where Cloud growth trajectory and AI Overview monetization data will be disclosed. IV at 36.1% is the lowest available in the GOOGL chain and notably lower than the August expiry equivalents, making this the most efficient IV entry point. Volume of 230 is lower than ideal but OI of 1,026 is adequate, and the 1.5% spread is the tightest in the GOOGL table \u2014 critical for cost-efficient execution. GOOGL's relative valuation discount to peers provides a margin of safety not present in NVDA or MSFT.",
+      "profit_target": "+60-80% on option premium if GOOGL reaches $455-470 (+13-17% from spot) by September expiry",
+      "stop_loss": "-50% on option premium (~$11.97 debit loss per contract)",
+      "key_risk": "DOJ antitrust proceedings targeting Google Search represent a binary regulatory event that could cause rapid multiple compression irrespective of operating fundamentals, and the 13F lag means institutional buyers entered before the current state of proceedings.",
+      "greeks_note": "Available"
+    },
+    {
+      "rank": 5,
+      "stock_ticker": "TSM",
+      "company_name": "Taiwan Semiconductor Manufacturing Co",
+      "option_symbol": "TSM260821C00410000",
+      "option_type": "CALL",
+      "strike": 410.0,
+      "expiration": "2026-08-21",
+      "entry_price_mid": 31.42,
+      "max_risk_per_contract": 3142.0,
+      "investment_thesis_link": "Harvard's 12.8% and Viking's 4.2% allocations in TSMC reflect conviction in its foundry monopoly on 3nm/2nm as the critical AI infrastructure bottleneck; however, TSM's -2.56% decline today and persistent geopolitical overhang justify a slightly shorter August expiry to limit theta exposure while still allowing time for the thesis to develop.",
+      "option_rationale": "The $410 August strike is +4.1% OTM with a delta of 0.50 \u2014 sitting at the ATM boundary, which is appropriate for TSM given its higher IV environment (45.7%) makes OTM positions expensive and harder to recover. The August expiry (95 days) is preferred over September/October here because TSMC's IV is already elevated across all strikes (45-47%), and paying for additional time in a high-IV name erodes edge. Volume of 97 is below the 200 threshold, which is a liquidity flag \u2014 mitigated by the reasonable OI of 1,024 and tight 3.0% spread. The tight spread relative to other TSM strikes (many at 4-6%) makes this the most executable option in the chain. TSM's discount to fabless peers is the key valuation support.",
+      "profit_target": "+50-70% on option premium if TSM reaches $440-455 (+11-15% from spot) by August expiry",
+      "stop_loss": "-50% on option premium (~$15.71 debit loss per contract)",
+      "key_risk": "Cross-strait geopolitical escalation represents a tail risk that is structurally unhedgeable and could cause rapid multiple compression regardless of TSMC's underlying earnings power, making this the highest-risk position in the portfolio.",
+      "greeks_note": "Available"
+    }
+  ],
+  "portfolio_note": "Recommended sizing: AMZN and NVDA at 25% of total options allocation each (highest conviction by breadth and filer quality), MSFT and GOOGL at 20% each, TSM at 10% given elevated geopolitical tail risk and below-threshold volume on the selected strike. Total position sizing should reflect that all five are long premium (debit) trades where maximum loss is the premium paid \u2014 allocate no more than 2-3% of total portfolio per name. Consider legging into NVDA and TSM given their elevated IV environments, potentially scaling in over 1-2 weeks to average entry costs.",
+  "disclaimer": "Options involve significant risk of loss up to 100% of premium paid. This analysis is based on delayed 13F filings (approximately 45-day lag) and live option prices that may have changed since data capture. Past institutional positioning does not guarantee future returns. All options are American-style equity calls subject to early exercise, dividend risk, and gap risk. This is not investment advice. Consult a licensed financial advisor before trading."
+}
