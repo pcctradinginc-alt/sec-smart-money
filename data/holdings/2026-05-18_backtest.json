@@ -61,7 +61,14 @@
       "company": "BERKSHIRE HATHAWAY INC DEL",
       "conviction_score": 41.3,
       "primary_flag": "HIGH_CONVICTION",
-      "error": "Failed to parse json response from Yahoo Finance: {'code': 'Not Found', 'description': 'HTTP 404 Not Found'}"
+      "signal_date": "2026-04-08",
+      "price_at_signal": 720512.0,
+      "price_d90": null,
+      "return_d90_pct": null,
+      "status_d90": "pending",
+      "price_d180": null,
+      "return_d180_pct": null,
+      "status_d180": "pending"
     },
     {
       "report_date": "2026-04-08",
@@ -82,7 +89,7 @@
       "report_date": "2026-05-18",
       "ticker": "NVDA",
       "company": "NVIDIA Corporation",
-      "conviction_score": 93.9,
+      "conviction_score": 94.2,
       "primary_flag": "CLUSTER",
       "status_d90": "pending",
       "status_d180": "pending"
@@ -90,7 +97,7 @@
     {
       "report_date": "2026-05-18",
       "ticker": "TSM",
-      "company": "Taiwan Semiconductor Manufacturing Co.",
+      "company": "Taiwan Semiconductor Manufacturing Company",
       "conviction_score": 100.0,
       "primary_flag": "HIGH_CONVICTION",
       "status_d90": "pending",
@@ -99,27 +106,27 @@
     {
       "report_date": "2026-05-18",
       "ticker": "AVGO",
-      "company": "Broadcom Inc.",
-      "conviction_score": 94.9,
+      "company": "Broadcom Inc",
+      "conviction_score": 95.2,
       "primary_flag": "CLUSTER",
       "status_d90": "pending",
       "status_d180": "pending"
     },
     {
       "report_date": "2026-05-18",
-      "ticker": "GOOGL",
-      "company": "Alphabet Inc.",
-      "conviction_score": 96.7,
+      "ticker": "BKNG",
+      "company": "Booking Holdings Inc",
+      "conviction_score": 95.2,
       "primary_flag": "HIGH_CONVICTION",
       "status_d90": "pending",
       "status_d180": "pending"
     },
     {
       "report_date": "2026-05-18",
-      "ticker": "AMZN",
-      "company": "Amazon.com Inc.",
-      "conviction_score": 95.1,
-      "primary_flag": "HIGH_CONVICTION",
+      "ticker": "MSFT",
+      "company": "Microsoft Corporation",
+      "conviction_score": 97.6,
+      "primary_flag": "CLUSTER",
       "status_d90": "pending",
       "status_d180": "pending"
     }
