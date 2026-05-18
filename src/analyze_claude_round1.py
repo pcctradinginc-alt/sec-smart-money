@@ -16,7 +16,6 @@ Improvements:
 
 import json
 import os
-import re
 import time
 from datetime import date
 
@@ -120,30 +119,49 @@ Consider in priority order:
 
 Explicitly DOWNWEIGHT stocks with PRICE_ACTION_STALE flag – the thesis is likely priced in.
 
-OUTPUT FORMAT (respond ONLY with valid JSON, no markdown, no explanation):
-{{
-  "analysis_date": "{today_str}",
-  "market_context": "2-3 sentence summary of current market environment relevant to these picks",
-  "top5": [
-    {{
-      "rank": 1,
-      "ticker": "NORMALIZED_TICKER",
-      "company_name": "Full Company Name",
-      "conviction_score": 87.5,
-      "thesis": "2-3 sentence investment thesis explaining WHY this is a strong signal",
-      "key_buyers": ["Fund Name 1", "Fund Name 2"],
-      "cluster_signal": true,
-      "multi_quarter_build": false,
-      "primary_flag": "HIGH_CONVICTION|NEW_POSITION|AGGRESSIVE_ADD|CLUSTER|MULTI_QUARTER_BUILD",
-      "risk_factors": "1-2 sentence note on key risks or the 45-day data lag impact",
-      "direction": "BULLISH"
-    }}
-  ],
-  "disclaimer": "This analysis is based on delayed 13F data and is for informational purposes only, not investment advice."
-}}"""
+Use the submit_top5_analysis tool to return your selections."""
 
 
-def call_claude_with_retry(prompt: str) -> str:
+_ROUND1_TOOL = {
+    "name": "submit_top5_analysis",
+    "description": "Submit the top-5 conviction picks from the 13F analysis.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "analysis_date":  {"type": "string"},
+            "market_context": {"type": "string", "description": "2-3 sentence market summary"},
+            "top5": {
+                "type": "array",
+                "minItems": 5,
+                "maxItems": 5,
+                "items": {
+                    "type": "object",
+                    "required": ["rank","ticker","company_name","conviction_score",
+                                 "thesis","key_buyers","primary_flag","risk_factors","direction"],
+                    "properties": {
+                        "rank":               {"type": "integer"},
+                        "ticker":             {"type": "string"},
+                        "company_name":       {"type": "string"},
+                        "conviction_score":   {"type": "number"},
+                        "thesis":             {"type": "string"},
+                        "key_buyers":         {"type": "array", "items": {"type": "string"}},
+                        "cluster_signal":     {"type": "boolean"},
+                        "multi_quarter_build":{"type": "boolean"},
+                        "primary_flag":       {"type": "string"},
+                        "risk_factors":       {"type": "string"},
+                        "direction":          {"type": "string", "enum": ["BULLISH", "BEARISH"]},
+                    },
+                },
+            },
+            "disclaimer": {"type": "string"},
+        },
+        "required": ["analysis_date", "market_context", "top5"],
+    },
+}
+
+
+def call_claude_with_retry(prompt: str) -> dict:
+    """Calls Claude with tool_use forced – returns the structured dict directly."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     for attempt in range(1, CLAUDE_RETRY_COUNT + 1):
@@ -151,18 +169,19 @@ def call_claude_with_retry(prompt: str) -> str:
             response = client.messages.create(
                 model=CLAUDE_MODEL_R1,
                 max_tokens=CLAUDE_MAX_TOKENS,
-                system=(
-                    "You are a quantitative analyst. You respond ONLY with valid JSON. "
-                    "Never include markdown code fences, preamble, or explanation. "
-                    "Your entire response must be parseable by json.loads()."
-                ),
+                system="You are a quantitative analyst specialising in 13F filing analysis.",
+                tools=[_ROUND1_TOOL],
+                tool_choice={"type": "tool", "name": "submit_top5_analysis"},
                 messages=[{"role": "user", "content": prompt}],
             )
-            return response.content[0].text
+            for block in response.content:
+                if block.type == "tool_use" and block.name == "submit_top5_analysis":
+                    return block.input
+            raise ValueError("Claude returned no tool_use block")
 
         except anthropic.RateLimitError:
             wait = CLAUDE_RETRY_DELAY * (2 ** (attempt - 1))
-            print(f"  ⏳ Rate limit hit. Waiting {wait}s (attempt {attempt}/{CLAUDE_RETRY_COUNT})")
+            print(f"  ⏳ Rate limit. Waiting {wait}s (attempt {attempt}/{CLAUDE_RETRY_COUNT})")
             time.sleep(wait)
 
         except anthropic.APIError as e:
@@ -171,17 +190,6 @@ def call_claude_with_retry(prompt: str) -> str:
             time.sleep(wait)
 
     raise RuntimeError(f"Claude API failed after {CLAUDE_RETRY_COUNT} attempts")
-
-
-def parse_claude_response(raw: str) -> dict:
-    cleaned = re.sub(r"```(?:json)?", "", raw).strip()
-    try:
-        return json.loads(cleaned)
-    except json.JSONDecodeError as e:
-        match = re.search(r"\{.*\}", cleaned, re.DOTALL)
-        if match:
-            return json.loads(match.group())
-        raise ValueError(f"Could not parse Claude response as JSON: {e}\n\nRaw: {raw[:500]}")
 
 
 def run():
@@ -197,8 +205,7 @@ def run():
 
     print(f"📤 Sending top {len(scores['top20'])} scored positions to Claude Haiku...")
 
-    raw_response = call_claude_with_retry(prompt)
-    result       = parse_claude_response(raw_response)
+    result = call_claude_with_retry(prompt)
 
     for stock in result.get("top5", []):
         stock["ticker"] = normalize_ticker(stock.get("ticker", ""))
